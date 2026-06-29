@@ -150,6 +150,5 @@ the same conventions:
 - `LICENSE` — the root **Apache-2.0** license (F-006).
 - `society_mgmt_300k/LICENSE/LICENSE.txt:L1` — the inner **MIT** license
   that conflicts with the root Apache-2.0 license (F-006).
-- `README.md` — the repository's root readme (a placeholder at this
-  checkpoint), to be updated at the final checkpoint to link into this
-  documentation hub as its entry point.
+- `README.md` — the repository's updated root readme and entry point,
+  which links into this documentation hub.
