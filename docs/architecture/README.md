@@ -15,7 +15,9 @@ nothing but single-argument arithmetic stubs. The layers are therefore
 appears solely as the repository name and a per-file header comment
 such as `// mod_0 - society module`, never as implemented domain
 functionality.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1
+Source: docs/architecture/layered-scaffold.md (the 11-layer nominal
+scaffold); society_mgmt_300k/src/controllers/file_0.js:L1 (the
+`// mod_0 - society module` header label)
 
 The scaffold has **no inter-layer edges and no module system**: a
 whole-tree sweep finds zero `require`, `import`, `export`, and
@@ -26,7 +28,10 @@ replicated across all layers. This area is intentionally faithful: it
 describes the structure exactly as it exists and does **not** infer or
 fabricate relationships, pipelines, services, or service levels that
 the code does not contain.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: docs/security/README.md#verified-absences-keyword-sweep (zero
+`require`/`import`/`export`/`module.exports`, and no request pipeline,
+routing, or persistence); docs/architecture/layered-scaffold.md#no-inter-layer-edges
+(the absence of inter-layer edges)
 
 ## Scaffold at a glance
 
@@ -34,17 +39,18 @@ Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
   models, controllers, routes, domain, services, repositories, utils)
   and two under `tests/` (unit, integration), each named like an
   application tier but containing only arithmetic stubs.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1
+  Source: docs/architecture/layered-scaffold.md#the-11-nominal-layers
 - **29 `.js` files / 33,105 `mod_<fileId>_<k>` functions / exactly
   300,000 lines** across the whole corpus. See
   [Corpus composition](../functionality/corpus-composition.md) for the
   authoritative per-layer file/function/line table.
-  Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
-  full-corpus scan of all 29 `.js` files.
+  Source: docs/reference/file-inventory.md#verification
 - **No inter-layer dependencies** — with no module system anywhere in
   the corpus, no file imports or references another, so the layer map
   renders as isolated nodes with no connecting edges.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+  Source: docs/architecture/layered-scaffold.md#no-inter-layer-edges;
+  docs/security/README.md#verified-absences-keyword-sweep (no module
+  system anywhere in the corpus)
 - **Every function returns `6x + 10`** — each `mod_<id>_<k>(x)`
   accumulates `x*1 + x*2 + x*3` (= `6x`) and then adds `10` on an
   always-true parity test, so for example `mod_0_0(4) === 34`.
@@ -76,16 +82,21 @@ Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
 ## Source Citations
 
 - `society_mgmt_300k/src/controllers/file_0.js:L1` — the per-file
-  header comment (the nominal "society module" label) that establishes
-  the layered scaffold's naming.
+  header comment (the nominal "society module" label) on a
+  representative file.
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the canonical
   module motif (header comment, inert `store`, and a `mod_*` function)
-  reproduced uniformly across every layer; the counts archetype and the
-  evidence that no module system is present.
+  reproduced uniformly across every layer; the representative archetype
+  only.
 - `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the function
   body that yields the `6x + 10` behavior shared by all 33,105
   functions.
-- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
-  full-corpus scan establishing the 29-file / 33,105-function /
-  300,000-line totals; the authoritative per-layer breakdown lives in
+- `docs/architecture/layered-scaffold.md` — the authoritative source for
+  the 11 nominal layers and the absence of inter-layer edges (F-003).
+- `docs/security/README.md#verified-absences-keyword-sweep` — the
+  authoritative keyword-sweep evidence that no module system, request
+  pipeline, routing, or persistence is present anywhere in the corpus.
+- `docs/reference/file-inventory.md#verification` — the authoritative,
+  reproducible scan establishing the 29-file / 33,105-function /
+  300,000-line totals; the per-layer breakdown lives in
   [Corpus composition](../functionality/corpus-composition.md).

@@ -13,7 +13,10 @@ stub** built from the same arithmetic archetype, not implemented domain
 logic. "Society management" is therefore a **nominal label** only: it
 appears as the repository name and in a per-file header comment such as
 `// mod_0 - society module`, never as real functionality.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: docs/reference/file-inventory.md#verification (the 29 `.js`
+files / 33,105 functions); docs/architecture/layered-scaffold.md (the
+11-layer stub scaffold); society_mgmt_300k/src/controllers/file_0.js:L1
+(the `// mod_0 - society module` header label)
 
 Because all 33,105 functions across the corpus's **29** `.js` files are
 structurally identical, this catalog **generalizes a single archetype**
@@ -24,7 +27,9 @@ its inert `store` placeholder, its deterministic 300,000-line sizing,
 and its licensing artifacts. Each is reported faithfully: where a real
 performance or security surface is absent, that absence is stated
 rather than invented.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: docs/reference/file-inventory.md#verification (the 29 files and
+33,105 structurally identical functions); the six features are detailed
+in the pages linked under In this area below.
 
 ## Feature summary
 
@@ -35,12 +40,12 @@ features. Each feature is expanded in the detail pages listed under
 
 | Feature | Name | Description | Primary source |
 | --- | --- | --- | --- |
-| F-001 | Arithmetic Helper Corpus | 33,105 pure functions computing `6x + 10` (dead always-true parity branch) | `society_mgmt_300k/src/controllers/file_0.js:L3-L10` |
-| F-002 | Unique Symbol Namespace | `mod_<fileId>_<k>` naming — collision-free, file-local, not importable | `society_mgmt_300k/src/controllers/file_0.js:L3` |
-| F-003 | Layered Scaffold | 11 nominal layers with no inter-layer edges (see [Architecture](../architecture/README.md)) | `society_mgmt_300k/src/controllers/file_0.js:L1` |
-| F-004 | `store` Placeholder | inert `const store = [];` in 28 files, never read/written | `society_mgmt_300k/src/controllers/file_0.js:L2` |
-| F-005 | 300,000-Line Sizing | deterministic line target met exactly | `society_mgmt_300k/src/utils/filler.js:L1-L3` |
-| F-006 | Licensing Artifacts | Apache-2.0 (root) vs MIT (inner) conflict — governance (see [Security](../security/README.md)) | `LICENSE`; `society_mgmt_300k/LICENSE/LICENSE.txt:L1` |
+| F-001 | Arithmetic Helper Corpus | 33,105 pure functions computing `6x + 10` (dead always-true parity branch) | Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 |
+| F-002 | Unique Symbol Namespace | `mod_<fileId>_<k>` naming — collision-free, file-local, not importable | Source: society_mgmt_300k/src/controllers/file_0.js:L3 |
+| F-003 | Layered Scaffold | 11 nominal layers with no inter-layer edges (see [Architecture](../architecture/README.md)) | Source: docs/architecture/layered-scaffold.md |
+| F-004 | `store` Placeholder | inert `const store = [];` in 28 files, never read/written | Source: society_mgmt_300k/src/controllers/file_0.js:L2; docs/functionality/module-anatomy.md |
+| F-005 | 300,000-Line Sizing | deterministic line target met exactly | Source: docs/functionality/corpus-composition.md |
+| F-006 | Licensing Artifacts | Apache-2.0 (root) vs MIT (inner) conflict — governance (see [Security](../security/README.md)) | Source: LICENSE; society_mgmt_300k/LICENSE/LICENSE.txt:L1 |
 
 ## Feature relationships
 
@@ -66,7 +71,11 @@ across the **F-003** layers; **F-001** plus the comment-only
 `filler.js` contribute the lines that meet the **F-005** 300,000-line
 target; and **F-006** is a standalone licensing/governance artifact
 with no behavioral relationship to the others.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: docs/functionality/module-anatomy.md (the inert `store` in 28 of
+the 29 files); docs/architecture/layered-scaffold.md (replication across
+the 11 layers); docs/functionality/corpus-composition.md (`filler.js`
+and the 300,000-line target); LICENSE;
+society_mgmt_300k/LICENSE/LICENSE.txt:L1 (the F-006 dual-license artifact)
 
 ## In this area
 
@@ -99,8 +108,20 @@ Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
 
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the canonical
   module motif (header comment, inert `store`, and a `mod_*` function);
-  the archetype and evidence basis for features F-001 through F-004 and
-  for the 33,105-function / 300,000-line counts cited corpus-wide.
+  the representative archetype for the per-feature examples shown above.
+- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the function
+  body that yields the `6x + 10` behavior (F-001) and the `mod_0_0`
+  name visible on its declaration (F-002).
+- `docs/reference/file-inventory.md#verification` — the authoritative,
+  reproducible scan establishing the 29-file / 33,105-function /
+  300,000-line counts cited corpus-wide.
+- `docs/architecture/layered-scaffold.md` — the authoritative source for
+  the 11 nominal layers and the absence of inter-layer edges (F-003).
+- `docs/functionality/module-anatomy.md` — the authoritative source for
+  the inert `store` placeholder (F-004), present in 28 of the 29 files.
+- `docs/functionality/corpus-composition.md` — the authoritative source
+  for the deterministic 300,000-line sizing (F-005) and the per-layer
+  composition.
 - `society_mgmt_300k/src/utils/filler.js:L1-L3` — the comment-only
   `filler.js` (1,999 lines, 0 functions) that pads the corpus to its
   exact 300,000-line target (F-005).
