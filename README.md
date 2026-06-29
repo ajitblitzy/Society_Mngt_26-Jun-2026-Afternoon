@@ -5,7 +5,7 @@ deliberately sized to exactly **300,000 lines** across **29 `.js` files** and
 **33,105 functions**, organized into a nominal layered scaffold. It exists for
 static analysis and code traversal rather than execution — there is no runnable
 application.
-(Source: `society_mgmt_300k/**/*.js`; AAP §0.3.1, §1.2)
+(Source: `society_mgmt_300k/**/*.js`; AAP §0.3.1; Tech Spec §1.2)
 
 ## What This Is / What This Is Not
 
@@ -30,13 +30,13 @@ The single representative function — identical across all 33,105 occurrences �
 is:
 
 ```javascript
-function mod_0_0(x) {
-  let r = 0;
-  r += x * 1;
-  r += x * 2;
-  r += x * 3;
-  if (r % 2 === 0) { r += 10; }
-  return r;
+function mod_0_0(x){
+ let r=0;
+ r+=x*1;
+ r+=x*2;
+ r+=x*3;
+ if(r%2===0){r+=10}
+ return r;
 }
 ```
 
@@ -46,12 +46,12 @@ function mod_0_0(x) {
 
 - **Not a runnable application** — there is no entry point, framework, server,
   or inter-module wiring.
-  (Source: `society_mgmt_300k/**/*.js`; AAP §0.2.2, §1.2)
+  (Source: `society_mgmt_300k/**/*.js`; AAP §0.2.2; Tech Spec §1.2)
 - **No exported or importable API** — there are zero `module.exports` and zero
   `require(...)` occurrences across the corpus; every symbol is module-local.
   (Source: `society_mgmt_300k/**/*.js`; AAP §0.2.2)
 - **No framework, server, database, network, or external input** beyond the
-  single numeric argument `x`. (Source: `society_mgmt_300k/**/*.js`; AAP §1.2)
+  single numeric argument `x`. (Source: `society_mgmt_300k/**/*.js`; Tech Spec §1.2)
 - **No configuration values** — the `config/` layer holds arithmetic
   functions, not configuration.
   (Source: `society_mgmt_300k/src/config/file_6.js:L1-L11`; AAP §0.2.2)

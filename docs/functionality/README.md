@@ -12,15 +12,17 @@ This page is the **functionality index** for the synthetic [`society_mgmt_300k`]
 
 ## Documentation Map
 
-Because every function is byte-identical, these documents use a **representative-pattern** approach: one canonical function and per-layer rollups stand in for all 33,105 functions — they are never enumerated individually (Source: repository scan; Tech Spec §0.7.1).
+Because every function is byte-identical, these documents use a **representative-pattern** approach: one canonical function and per-layer rollups stand in for all 33,105 functions — they are never enumerated individually (Source: repository scan; Tech Spec §0.7.1). The map below indexes all six catalogued functionalities (**F-001** through **F-006**); two of them — **F-003** (the layered scaffold) and **F-006** (the licensing artifacts) — are documented in dedicated files elsewhere in the `docs/` tree and are linked here with `../` paths.
 
 | Document | Topic | What it covers |
 | --- | --- | --- |
 | [`arithmetic-helpers.md`](./arithmetic-helpers.md) | **F-001** | The representative `mod_<fileId>_<k>(x) → 6x + 10` contract, its behavior, the dead (always-true) parity branch, a worked example, and the computation flowchart. |
 | [`symbol-namespace.md`](./symbol-namespace.md) | **F-002** | The `mod_<fileId>_<k>` symbol naming scheme, the per-file index ranges, and global uniqueness. |
+| [`../architecture.md`](../architecture.md) | **F-003** | The nominal layered scaffold — nine `src` layers and two `tests` layers — and the verified absence of inter-layer wiring (0 imports/exports/calls), with the edge-less containment diagram. |
 | [`module-reference.md`](./module-reference.md) | Inventory | The per-layer module inventory of all 29 files (files, function counts, and module symbols). |
 | [`store-placeholder.md`](./store-placeholder.md) | **F-004** | The unused module-scoped `const store = []` placeholder present in every numbered file. |
 | [`corpus-sizing.md`](./corpus-sizing.md) | **F-005** | The deterministic 300,000-line composition arithmetic. |
+| [`../governance/licensing.md`](../governance/licensing.md) | **F-006** | The repository licensing artifacts and the Apache-vs-MIT license inconsistency between the root `LICENSE` (Apache-2.0) and the nested `society_mgmt_300k/LICENSE/LICENSE.txt` (MIT). |
 
 ## Documentation Conventions
 
@@ -38,6 +40,7 @@ All functionality documents follow the same conventions:
 - Tech Spec §0.2.2 — no exported/public interface; the corpus is not a runnable application.
 - Tech Spec §0.7.1 — representative-pattern documentation approach.
 - Sibling topic documents — [`arithmetic-helpers.md`](./arithmetic-helpers.md), [`symbol-namespace.md`](./symbol-namespace.md), [`module-reference.md`](./module-reference.md), [`store-placeholder.md`](./store-placeholder.md), [`corpus-sizing.md`](./corpus-sizing.md).
+- Related functionality documents (elsewhere in the `docs/` tree) — [`../architecture.md`](../architecture.md) (**F-003**, the layered scaffold), [`../governance/licensing.md`](../governance/licensing.md) (**F-006**, the licensing artifacts).
 
 ---
 
