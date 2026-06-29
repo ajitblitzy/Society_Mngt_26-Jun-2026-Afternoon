@@ -110,17 +110,17 @@ scan of the source branch. Run the following from the repository root
 (the expected output is shown in each command's comment):
 
 ```bash
-# .js file count -> 29
+#: .js file count -> 29
 find society_mgmt_300k -name '*.js' | wc -l
 
-# total lines across all .js files -> 300000
+#: total lines across all .js files -> 300000
 find society_mgmt_300k -name '*.js' -print0 | xargs -0 cat | wc -l
 
-# total mod_<id>_<k> function declarations -> 33105
+#: total mod_<id>_<k> function declarations -> 33105
 grep -rhoE 'function mod_[0-9]+_[0-9]+' \
   society_mgmt_300k --include='*.js' | wc -l
 
-# files declaring const store = [] -> 28 (all but filler.js)
+#: files declaring const store = [] -> 28 (all but filler.js)
 grep -rlE 'const store = \[\]' \
   society_mgmt_300k --include='*.js' | wc -l
 ```
