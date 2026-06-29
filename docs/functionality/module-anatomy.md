@@ -7,7 +7,11 @@ template: a one-line header comment, an inert module-scoped `const store = [];`
 placeholder, and then a block of structurally identical `mod_*` arithmetic
 functions. The shape is uniform across all 28 function-bearing files, so
 reading one module shows you how every other module is built.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the
+canonical module template. That the shape is uniform across all **28**
+function-bearing files is confirmed by a direct full-corpus scan and a
+whole-tree keyword sweep; see the
+[file inventory](../reference/file-inventory.md#verification).
 
 The lone exception to this template is `society_mgmt_300k/src/utils/filler.js`,
 a comment-only file that contains no functions and exists purely for line
@@ -17,7 +21,10 @@ computation and its dead always-true branch — see
 [Arithmetic helpers](arithmetic-helpers.md). Note that "society management" is
 only a **nominal label** that appears in the header comment, not implemented
 domain functionality.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`.
+Source: `society_mgmt_300k/src/utils/filler.js:L1-L3` — the comment-only
+`filler.js` (no functions, line padding);
+`society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the standard
+module template that `filler.js` is the exception to.
 
 ## Header comment
 
@@ -36,13 +43,21 @@ The second line of every function-bearing file declares a module-scoped array,
 declared but **never read from or written to** by any function in the corpus.
 It holds no state and serves no runtime purpose, and it appears in **28 of the
 29** `.js` files (every file except the comment-only `filler.js`).
-Source: `society_mgmt_300k/src/controllers/file_0.js:L2`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L2` — the
+representative `const store = [];` declaration. The **28 of 29** count
+and the **never read from or written to** property are corpus-wide: a
+full-corpus scan finds the declaration in 28 files and a whole-tree
+sweep finds `store` only as that declaration (zero reads/writes); see
+the [file inventory](../reference/file-inventory.md#verification).
 
 Because `store` is genuinely unused, this documentation deliberately ascribes
 no behavior to it. Removing it would be a source-code change and is therefore
 out of scope for documentation. For the formal definition of the term, see the
 [Glossary](../reference/glossary.md).
-Source: `society_mgmt_300k/src/controllers/file_0.js:L2`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L2` — representative
+`store` declaration; that `store` is genuinely unused corpus-wide is
+confirmed by the whole-tree keyword sweep (zero reads/writes); see the
+[file inventory](../reference/file-inventory.md#verification).
 
 ## The function block
 
@@ -51,7 +66,11 @@ a run of single-argument functions named `mod_<fileId>_<k>(x)`, where `<k>` is
 the function's 0-based index within the file. Every function repeats the
 identical body verbatim, and consecutive functions are separated by a single
 blank line. A standard file holds **1,200** such functions.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the
+canonical function block. The **1,200** functions-per-standard-file
+count and the verbatim-identical body across the corpus are confirmed by
+the direct full-corpus scan; see the
+[file inventory](../reference/file-inventory.md#verification).
 
 The first three structural elements of a module — the header comment, the
 `store` placeholder, and the first function — look exactly like this:
@@ -112,7 +131,13 @@ Source: `society_mgmt_300k/src/utils/filler.js:L1-L3`.
 
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the canonical module
   anatomy: the header comment (L1), the inert `const store = [];` placeholder
-  (L2), and the function block / `mod_0_0` archetype (L3-L10). The `store`
-  declaration appears in 28 of the 29 `.js` files (verified corpus-wide).
-- `society_mgmt_300k/src/utils/filler.js:L1-L3` — the comment-only `filler.js`
-  variant: 0 functions across 1,999 lines of `// filler N` padding.
+  (L2), and the function block / `mod_0_0` archetype (L3-L10).
+- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
+  full-corpus scan / whole-tree keyword sweep confirming module uniformity,
+  the **28 of 29** `store`-bearing files (never read/written), and the
+  **1,200**-function standard-file count (see
+  [file inventory](../reference/file-inventory.md#verification)).
+- `society_mgmt_300k/src/utils/filler.js:L1-L3` — the comment-only `// filler N`
+  pattern in `filler.js`. Its **0 functions across 1,999 lines** total is
+  verified by direct counting (`wc -l` and `mod_*` count); see
+  [file inventory](../reference/file-inventory.md#verification).

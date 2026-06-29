@@ -8,7 +8,11 @@ The `society_mgmt_300k` codebase is a **synthetic corpus** sized to an
 arranged in **11 nominal layers**. Hitting the line count precisely is
 documented feature **F-005**: the corpus is generated so that its total
 lands on 300,000 lines with no slack.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus scan of all 29 `.js` files establishing the 29-file,
+33,105-function, 300,000-line, 11-layer totals
+([file inventory](../reference/file-inventory.md#verification)); canonical
+module example: society_mgmt_300k/src/controllers/file_0.js:L1-L10.
 
 Two files are deliberate structural exceptions that make the exact
 target reachable: the [short variant](../reference/glossary.md)
@@ -16,7 +20,12 @@ target reachable: the [short variant](../reference/glossary.md)
 [filler](../reference/glossary.md) `filler.js` (0 functions /
 1,999 lines). Every other file is a "standard" module of 1,200
 functions / 10,802 lines.
-Source: society_mgmt_300k/src/utils/filler.js:L1-L3
+Source: society_mgmt_300k/src/middleware/file_27.js:L1-L10 (short
+variant, 705 functions / 6,347 lines),
+society_mgmt_300k/src/utils/filler.js:L1-L3 (filler, 0 functions /
+1,999 lines); the 27 standard 1,200-function / 10,802-line files are
+confirmed by the direct full-corpus scan
+([file inventory](../reference/file-inventory.md#verification)).
 
 These are **generation-time scale facts** — they describe the size and
 shape of the artifact, not runtime behavior, throughput, or any
@@ -30,7 +39,9 @@ The table below rolls the 29 files up by nominal layer, giving the file,
 function, and line counts for each. All numbers were verified by a
 direct full-corpus scan (line counting and `mod_*` function counting) of
 the source branch.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus scan producing the per-layer file/function/line counts
+([file inventory](../reference/file-inventory.md#verification)).
 
 | Layer | Files | Functions | Lines |
 | --- | ---: | ---: | ---: |
@@ -63,7 +74,10 @@ comment-only filler:
 
 - A **standard file** holds 1,200 functions across **10,802** lines, and
   there are **27** such files.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 — the
+  canonical 1,200-function / 10,802-line standard file; the **27**-file
+  count is from the direct full-corpus scan
+  ([file inventory](../reference/file-inventory.md#verification)).
 - 27 standard files × 10,802 lines = **291,654** lines.
 - Add the short variant `file_27.js` (6,347 lines):
   291,654 + 6,347 = **298,001** lines.
@@ -122,6 +136,11 @@ Source: society_mgmt_300k/src/utils/filler.js:L1-L3
 The counts on this page were verified by direct line and function
 counting of the source branch. The primary sources are:
 
+- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
+  full-corpus scan establishing the 29-file, 33,105-function,
+  300,000-line totals, the per-layer composition, and the 27-standard /
+  1-short / 1-filler split (see
+  [file inventory](../reference/file-inventory.md#verification)).
 - `society_mgmt_300k/src/middleware/file_27.js:L1-L10` — the short
   variant (705 functions / 6,347 lines).
 - `society_mgmt_300k/src/utils/filler.js:L1-L3` — the comment-only

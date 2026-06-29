@@ -7,6 +7,9 @@ synthetic corpus, mapping each file to its nominal layer, its function
 count, and its line count. Across the whole corpus the totals are
 **29 files**, **33,105 functions**, and **300,000 lines**, verified by
 direct line and function counting of the source branch.
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus scan of all 29 `.js` files (reproducible commands in the
+[Verification](#verification) section below).
 
 Two files are structural exceptions to the standard module shape: the
 short variant `file_27.js` (705 functions / 6,347 lines) and the
@@ -59,7 +62,9 @@ files are marked with an em dash.
 
 Standard files share one 1,200-function module archetype; only the two
 rows flagged in the Notes column deviate from it.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 — the
+canonical 1,200-function archetype. That 27 standard files each match it
+is verified by the direct full-corpus scan ([Verification](#verification)).
 
 ## Structural exceptions
 
@@ -91,15 +96,53 @@ file size, the short variant, and the filler padding.
   `mod_*` functions (27 standard + `file_27.js`) and 1 (`filler.js`)
   contains none.
 
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10,
-society_mgmt_300k/src/middleware/file_27.js:L1-L10,
-society_mgmt_300k/src/utils/filler.js:L1-L3
+Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (standard
+archetype), society_mgmt_300k/src/middleware/file_27.js:L1-L10 (short
+variant), society_mgmt_300k/src/utils/filler.js:L1-L3 (filler) — the
+three module shapes. The 27 / 1 / 1 file split and the 29-file,
+33,105-function, and 300,000-line totals come from the direct
+full-corpus scan ([Verification](#verification)).
+
+## Verification
+
+The corpus-wide totals on this page are re-verifiable by a direct static
+scan of the source branch. Run the following from the repository root
+(the expected output is shown in each command's comment):
+
+```bash
+# .js file count -> 29
+find society_mgmt_300k -name '*.js' | wc -l
+
+# total lines across all .js files -> 300000
+find society_mgmt_300k -name '*.js' -print0 | xargs -0 cat | wc -l
+
+# total mod_<id>_<k> function declarations -> 33105
+grep -rhoE 'function mod_[0-9]+_[0-9]+' \
+  society_mgmt_300k --include='*.js' | wc -l
+
+# files declaring const store = [] -> 28 (all but filler.js)
+grep -rlE 'const store = \[\]' \
+  society_mgmt_300k --include='*.js' | wc -l
+```
+
+These counts confirm the **29 files / 33,105 functions / 300,000 lines**
+totals, the **27 standard** files (1,200 functions / 10,802 lines each),
+the **short variant** `file_27.js` (705 / 6,347), and the comment-only
+`filler.js` (0 / 1,999). Re-run after any corpus change to refresh the
+inventory.
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus static scan of all 29 `.js` files.
 
 ## Source Citations
 
-The inventory counts are corpus-wide and were verified by direct line
-and function counting of the source branch. Primary sources:
+The inventory counts are corpus-wide and were verified by the direct
+full-corpus scan documented in the [Verification](#verification) section
+(re-runnable counting commands). Primary sources:
 
+- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
+  full-corpus scan of all 29 `.js` files that establishes the 29-file,
+  33,105-function, and 300,000-line totals and the 27-standard-file
+  count (see [Verification](#verification)).
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — standard module
   archetype (the 1,200-function motif shared by 27 files).
 - `society_mgmt_300k/src/middleware/file_27.js:L1-L10` — the short

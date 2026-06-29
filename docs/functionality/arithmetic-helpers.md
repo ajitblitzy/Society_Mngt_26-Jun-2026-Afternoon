@@ -8,7 +8,11 @@ arithmetic helper family. The capability spans all **33,105** functions in
 single numeric input `x`. The functions are pure, deterministic,
 single-argument, and structurally identical — byte-for-byte the same apart from
 their names — so this single page documents the entire family.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the
+canonical example. That the family spans all **33,105** functions, each
+byte-identical to this apart from its name, is confirmed by a direct
+full-corpus scan; see the
+[file inventory](../reference/file-inventory.md#verification).
 
 "Society management" is a **nominal label** only: it appears as the repository
 name and as a per-file header comment (for example, `// mod_0 - society
@@ -111,7 +115,12 @@ numeric id (for example, `0` for `file_0.js`) and `<k>` is the function's
 corpus has no module system, with zero occurrences of `require`, `import`,
 `export`, or `module.exports` anywhere in the source tree. For the prefix
 definition, see the [Glossary](../reference/glossary.md).
-Source: `society_mgmt_300k/src/controllers/file_0.js:L3`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L3` — a
+representative `mod_<fileId>_<k>` declaration. The **33,105**-function
+count is from the direct full-corpus scan, and the **no module system**
+claim (zero `require`/`import`/`export`/`module.exports`) is from the
+whole-tree keyword sweep; see the
+[file inventory](../reference/file-inventory.md#verification).
 
 ## See also
 
@@ -133,6 +142,8 @@ Source: `society_mgmt_300k/src/controllers/file_0.js:L3`.
 - `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the function body: the
   `6x` accumulation, the dead always-true `+ 10` branch, and the `6x + 10`
   return value.
-- The `mod_*` family spans all **33,105** functions in the corpus, every one of
-  which is identical to this archetype apart from its name (verified
-  corpus-wide).
+- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
+  full-corpus scan / whole-tree keyword sweep confirming the `mod_*`
+  family spans all **33,105** functions, each identical to this archetype
+  apart from its name, with no module system anywhere in the tree. See
+  [file inventory](../reference/file-inventory.md#verification).

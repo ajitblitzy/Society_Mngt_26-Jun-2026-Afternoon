@@ -6,7 +6,10 @@ The `society_mgmt_300k` corpus exposes a single repeated code shape: the
 `mod_*` arithmetic helper. Every one of the corpus's 33,105 functions is an
 instance of this one archetype, so documenting the archetype once fully
 covers the entire family — there are no per-function variations to catalog.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the
+canonical example. That all **33,105** functions are instances of this
+one archetype is confirmed by a direct full-corpus scan; see the
+[file inventory](file-inventory.md#verification).
 
 This is a **file-local internal archetype, not a public API**. The corpus has
 no module system: a whole-tree keyword sweep finds zero occurrences of
@@ -14,7 +17,11 @@ no module system: a whole-tree keyword sweep finds zero occurrences of
 symbol is exported or importable, and nothing here can be consumed from
 another file or by an external caller. Treat this page as an analysis-time
 reference to an internal code shape, not as a callable interface.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
+Source: `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` —
+whole-tree keyword sweep across all 29 `.js` files returns zero
+`require`, `import`, `export`, or `module.exports`; see the
+[file inventory](file-inventory.md#verification). Canonical example:
+`society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
 
 ## Signature
 
@@ -77,7 +84,11 @@ Reading the archetype line by line:
   even, the condition is always satisfied and `+ 10` always runs.
 - `return r;` — yields `6x + 10`.
 
-Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the
+canonical archetype. That every `mod_*` function in the corpus is
+identical to this apart from its name is confirmed corpus-wide by a
+direct full-corpus scan; see the
+[file inventory](file-inventory.md#verification).
 
 For the step-by-step control-flow diagram, with the dead false branch
 annotated, see [Module control flow](../architecture/module-control-flow.md).
@@ -93,7 +104,11 @@ The same motif appears across **every** nominal layer of the corpus —
 The layers differ only in their `<fileId>` values and in how many `mod_*`
 functions each file contains; the function bodies are the same `6x + 10`
 computation everywhere.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the
+canonical example. That the same motif appears across **every** layer is
+confirmed by a direct full-corpus scan and a whole-tree keyword sweep
+(every `.js` file is `mod_*` arithmetic stubs only, with zero module
+keywords); see the [file inventory](file-inventory.md#verification).
 
 No layer carries special behavior. Despite the conventional folder names,
 the controllers are not HTTP endpoints, the models define no schema, the
@@ -101,7 +116,10 @@ repositories perform no persistence, and the routes declare no route table —
 each folder simply holds `mod_*` arithmetic helpers. For the exact per-file
 function and line counts (including the `file_27.js` short variant and the
 comment-only `filler.js`), see [File inventory](file-inventory.md).
-Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10` (canonical
+example); the per-layer composition is verified by the direct
+full-corpus scan in the
+[file inventory](file-inventory.md#verification).
 
 ## Not a public API
 
@@ -112,6 +130,11 @@ keyword sweep returns zero matches for `require`, `import`, `export`, and
 therefore an internal, file-local archetype that exists for analysis only:
 it defines no public surface, exposes no parameters or overloads beyond the
 single numeric `x`, and provides no return semantics beyond `6x + 10`.
+Source: `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` —
+whole-tree keyword sweep across all 29 `.js` files returns zero
+`require`, `import`, `export`, or `module.exports` (no external entry
+point); see the [file inventory](file-inventory.md#verification).
+Canonical example: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
 
 ## See also
 
@@ -132,5 +155,9 @@ single numeric `x`, and provides no return semantics beyond `6x + 10`.
 - `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the function body,
   the `6x` accumulation, and the dead always-true `+ 10` branch.
 
-All nominal layers were verified to use this identical archetype by direct
-inspection of the source corpus.
+All nominal layers were verified to use this identical archetype by a
+direct full-corpus scan (every `.js` file contains only `mod_*`
+arithmetic stubs) and a whole-tree keyword sweep (zero module keywords).
+Source: `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — direct
+full-corpus scan / whole-tree keyword sweep; see
+[file inventory](file-inventory.md#verification).

@@ -8,7 +8,11 @@ middleware, models, controllers, routes, domain, services,
 repositories, utils) and two under `tests/` (unit, integration).
 Across the whole corpus these layers hold **29** `.js` files,
 **33,105** `mod_*` functions, and exactly **300,000** lines.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus scan of all 29 `.js` files establishing the 29-file,
+33,105-function, 300,000-line, 11-layer totals
+([file inventory](../reference/file-inventory.md#verification)); canonical
+module example: society_mgmt_300k/src/controllers/file_0.js:L1-L10.
 
 The layers are **nominal only**: each folder is named after a
 conventional web-application tier, but every one contains nothing but
@@ -28,7 +32,11 @@ Each layer's folder name suggests a role from conventional application
 architecture, but the **actual content** of every layer is identical:
 nothing but `mod_<id>_<k>(x)` arithmetic stubs (the `6x + 10` helpers).
 No layer implements the behavior its name implies.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus scan / whole-tree keyword sweep confirming every layer holds
+only `mod_*` arithmetic stubs (canonical example:
+society_mgmt_300k/src/controllers/file_0.js:L1-L10);
+[file inventory](../reference/file-inventory.md#verification).
 
 | Layer | Nominal role (what the name suggests) | Actual content |
 | --- | --- | --- |
@@ -53,7 +61,9 @@ counting). For the authoritative sizing narrative see
 [Corpus composition](../functionality/corpus-composition.md); for the
 full per-file breakdown see
 [File inventory](../reference/file-inventory.md).
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus scan producing the per-layer file/function/line counts
+([file inventory](../reference/file-inventory.md#verification)).
 
 | Layer | Files | Functions | Lines |
 | --- | ---: | ---: | ---: |
@@ -76,7 +86,11 @@ no functions), and `src/middleware` reports **3,105** rather than 3,600
 functions because its third file, `file_27.js`, is a short variant
 (1,200 + 1,200 + 705). Representative files: `src/config/file_6.js` for
 a standard module and `src/middleware/file_27.js` for the short variant.
-Source: society_mgmt_300k/src/middleware/file_27.js:L1-L10
+Source: society_mgmt_300k/src/middleware/file_27.js:L1-L10 (short
+variant, 705 functions), society_mgmt_300k/src/utils/filler.js:L1-L3
+(comment-only filler, adds lines but no functions); per-layer counts from
+the direct full-corpus scan
+([file inventory](../reference/file-inventory.md#verification)).
 
 ## No inter-layer edges
 
@@ -88,13 +102,20 @@ deliberate. A whole-tree keyword sweep across every `.js` file returns
 no module system, no file imports or references another, and no layer
 depends on any other layer. Every symbol is **file-local and not
 externally importable**.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — whole-tree
+keyword sweep across all 29 `.js` files returns zero `require`, `import`,
+`export`, `module.exports`, `eval`, `fetch`, `Promise`, `async`,
+`await`, `console`, and `use strict`
+([file inventory](../reference/file-inventory.md#verification)).
 
 The layer map below therefore renders each layer as an **isolated node
 with no connecting edges** — a faithful visual of F-003's complete lack
 of inter-layer dependencies. There is no request pipeline, dependency
 injection, or service-to-repository call to draw.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — the
+whole-tree keyword sweep (zero module keywords) that makes the layer map
+edge-free ([file inventory](../reference/file-inventory.md#verification));
+canonical example: society_mgmt_300k/src/controllers/file_0.js:L1-L10.
 
 ## Naming convention
 
@@ -162,9 +183,13 @@ graph TB
   comment (the nominal "society module" label) and the `file_<n>.js` /
   `mod_<fileId>_<k>` naming convention.
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the canonical
-  module motif shared by every layer (header comment, inert `store`, and
-  the arithmetic `mod_*` function), plus the corpus-wide absence of
-  module keywords.
+  module motif (header comment, inert `store`, and the arithmetic `mod_*`
+  function) that every layer reproduces.
+- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
+  full-corpus scan / whole-tree keyword sweep establishing the 29-file,
+  33,105-function, 300,000-line totals, the per-layer composition, and
+  the corpus-wide absence of module keywords (no inter-layer edges). See
+  [file inventory](../reference/file-inventory.md#verification).
 - `society_mgmt_300k/src/middleware/file_27.js:L1-L10` — the short
   variant (705 functions / 6,347 lines) that gives `src/middleware` its
   3,105-function total.

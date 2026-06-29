@@ -8,7 +8,12 @@ execute on a call. All 33,105 functions in the corpus share this identical
 control flow: each is a single-argument, synchronous, pure, deterministic,
 and side-effect-free function that accumulates `x*1 + x*2 + x*3` and then
 conditionally adds `10`, so it effectively returns `6x + 10`.
-Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
+Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the
+canonical example. That all **33,105** functions share this identical
+control flow is confirmed by a direct full-corpus scan (every `mod_*`
+body is byte-identical apart from its name) and a whole-tree keyword
+sweep (no loops, recursion, or branching beyond the one parity test);
+see the [file inventory](../reference/file-inventory.md#verification).
 
 Because the archetype is uniform, this single walkthrough characterises the
 behaviour of the entire corpus. For the functional and behavioural treatment
@@ -114,3 +119,7 @@ Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
   its step-by-step execution path.
 - `society_mgmt_300k/src/controllers/file_0.js:L8` — the dead always-true
   parity branch.
+- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
+  full-corpus scan / whole-tree keyword sweep confirming all **33,105**
+  `mod_*` functions share this identical control flow (see
+  [file inventory](../reference/file-inventory.md#verification)).

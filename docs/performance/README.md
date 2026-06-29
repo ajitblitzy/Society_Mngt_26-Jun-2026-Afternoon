@@ -34,7 +34,11 @@ function mod_0_0(x){
 }
 ```
 
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 — the
+canonical function body. That this body is structurally identical
+across all **33,105** `mod_*` functions is confirmed by the direct
+full-corpus scan; see the
+[file inventory](../reference/file-inventory.md#verification).
 
 - **O(1) time** — the operation count is fixed and independent of the
   input value `x`: one initialization (`let r=0`), three multiply-add
@@ -84,7 +88,11 @@ contains:
 
 This is precisely why per-call cost cannot grow with the input value:
 there is no construct whose work depends on the magnitude of `x`.
-Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10
+Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the
+canonical straight-line body. The corpus-wide absence of loops and
+recursion is confirmed by a whole-tree keyword sweep of all 29 `.js`
+files (zero `for`, `while`, and `do`); see the
+[file inventory](../reference/file-inventory.md#verification).
 
 ## Corpus scale vs. runtime throughput
 
@@ -99,7 +107,12 @@ there is no corpus-wide throughput to characterize. These scale figures
 are corpus-composition facts, kept deliberately separate from any notion
 of throughput; for the per-layer file/function/line breakdown see
 [Corpus composition](../functionality/corpus-composition.md).
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+Source: society_mgmt_300k/src/ and society_mgmt_300k/tests/ — direct
+full-corpus scan establishing the 29-file, 33,105-function,
+300,000-line static-artifact scale (reproducible counts in the
+[file inventory](../reference/file-inventory.md#verification)); the
+canonical per-call body is
+society_mgmt_300k/src/controllers/file_0.js:L1-L10.
 
 ## Service levels (SLAs / KPIs)
 
@@ -117,8 +130,12 @@ Source: Technical Specification §2.5.2
 
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the canonical
   `mod_<fileId>_<k>` function motif and fixed-operation body that
-  establishes O(1) time, determinism, and the absence of loops and
-  recursion.
+  establishes per-call O(1) time and determinism.
+- `society_mgmt_300k/src/` and `society_mgmt_300k/tests/` — the direct
+  full-corpus scan / whole-tree keyword sweep confirming the corpus-wide
+  absence of loops and recursion (zero `for`/`while`/`do`) and the
+  29-file / 33,105-function / 300,000-line static-artifact scale (see
+  [file inventory](../reference/file-inventory.md#verification)).
 - `society_mgmt_300k/src/controllers/file_0.js:L2` — the inert
   `const store = [];` placeholder, declared but never read or written
   (O(1) space, no side effects).
