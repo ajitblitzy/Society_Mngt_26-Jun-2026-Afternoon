@@ -11,7 +11,7 @@ This document is the authoritative **per-layer module inventory** of the synthet
 The table below lists every layer with its file count, function count, and the module symbols (`mod_<N>`) it contains. Counts were confirmed by a first-hand scan (`grep -c '^function mod_'` per file and a recursive `find`/listing for the file set).
 
 | Layer (path) | Files | Functions | Module symbols |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `src/config/` | 2 | 2,400 | mod_6, mod_17 |
 | `src/controllers/` | 3 | 3,600 | mod_0, mod_11, mod_22 |
 | `src/domain/` | 2 | 2,400 | mod_8, mod_19 |

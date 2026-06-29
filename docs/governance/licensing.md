@@ -14,7 +14,7 @@ The repository declares **two different, legally distinct licenses** in two sepa
 - The project-subfolder file `society_mgmt_300k/LICENSE/LICENSE.txt` is the **MIT License**, bearing "Copyright (c) 2026" (Source: society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3).
 
 | Location | Path | License | Citation |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Repository root | `LICENSE` | Apache License 2.0 | `Source: /LICENSE:L1` |
 | Project subfolder | `society_mgmt_300k/LICENSE/LICENSE.txt` | MIT License | `Source: society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3` |
 
