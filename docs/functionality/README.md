@@ -48,12 +48,18 @@ governance concern.
 
 ```mermaid
 graph TD
-    F002["F-002 Unique Symbol Namespace<br/>mod_&lt;fileId&gt;_&lt;k&gt;"] -->|names| F001["F-001 Arithmetic Helper Corpus<br/>6x + 10"]
-    F004["F-004 store Placeholder<br/>inert const store = []"] -->|accompanies| F001
-    F001 -->|replicated across| F003["F-003 Layered Scaffold<br/>11 nominal layers"]
-    F001 -->|contributes lines to| F005["F-005 300,000-Line Sizing"]
-    FILLER["filler.js (comment-only)"] -->|pads to target| F005
+    F001["F-001 Arithmetic Helper Corpus<br/>6x + 10"]
+    F002["F-002 Unique Symbol Namespace<br/>mod_&lt;fileId&gt;_&lt;k&gt;"]
+    F003["F-003 Layered Scaffold<br/>11 nominal layers"]
+    F004["F-004 store Placeholder<br/>inert const store = []"]
+    F005["F-005 300,000-Line Sizing"]
     F006["F-006 Licensing Artifacts<br/>Apache-2.0 vs MIT (governance)"]
+    FILLER["filler.js (comment-only)"]
+    F002 -->|names| F001
+    F004 -->|accompanies| F001
+    F001 -->|replicated across| F003
+    F001 -->|contributes lines to| F005
+    FILLER -->|pads to target| F005
 ```
 
 In prose: **F-002** names **F-001**; **F-004** accompanies **F-001** in every

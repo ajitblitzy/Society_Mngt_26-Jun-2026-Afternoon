@@ -50,10 +50,7 @@ material for targeted lookups:
 
 ## Documentation map
 
-Every Markdown page in the `docs/` tree is indexed below. The **current
-documentation set** is grouped by area first; an earlier flat documentation set
-is listed afterwards under **Legacy / superseded pages**, so that no page is
-left unindexed.
+Every Markdown page in the `docs/` tree is indexed below, grouped by area.
 
 - **[Overview](overview.md)** — system overview; synthetic-corpus nature;
   "society management" as a label; what the system is **not**.
@@ -85,31 +82,6 @@ left unindexed.
     (E1–E12) that substantiate every corpus-wide count and absence claim.
   - [Glossary](reference/glossary.md) — terminology (`mod_`, `store`,
     `filler`, layer, short variant, synthetic corpus, dead branch).
-
-### Legacy / superseded pages
-
-The pages below are an **earlier, flat documentation set** that predates the
-structured tree above. They are retained for history but are **superseded** by
-the current documentation set; prefer the pages above. They are indexed here so
-this hub remains a complete index of every page under `docs/`.
-
-- [Architecture (legacy)](architecture.md) — superseded by the
-  [Architecture index](architecture/README.md) and
-  [Layered scaffold](architecture/layered-scaffold.md).
-- [Performance (legacy)](performance.md) — superseded by
-  [Performance](performance/README.md).
-- [Security (legacy)](security.md) — superseded by
-  [Security](security/README.md).
-- [Licensing governance (legacy)](governance/licensing.md) — superseded by the
-  F-006 section of [Security](security/README.md).
-- [Corpus sizing (legacy)](functionality/corpus-sizing.md) — superseded by
-  [Corpus composition](functionality/corpus-composition.md).
-- [Module reference (legacy)](functionality/module-reference.md) — superseded by
-  the [Code reference](reference/code-reference.md).
-- [Store placeholder (legacy)](functionality/store-placeholder.md) — superseded
-  by [Module anatomy](functionality/module-anatomy.md).
-- [Symbol namespace (legacy)](functionality/symbol-namespace.md) — superseded by
-  [Arithmetic helpers](functionality/arithmetic-helpers.md).
 
 ## Key facts at a glance
 
