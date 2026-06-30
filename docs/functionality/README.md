@@ -31,11 +31,11 @@ its primary source, and the detail pages and sibling areas expand on them.
 
 | Feature | Name | Description | Primary source |
 | --- | --- | --- | --- |
-| F-001 | Arithmetic Helper Corpus | 33,105 pure functions computing `6x + 10` (dead always-true parity branch) | `society_mgmt_300k/src/controllers/file_0.js:L3-L10` |
-| F-002 | Unique Symbol Namespace | `mod_<fileId>_<k>` naming — collision-free, file-local, not importable | `society_mgmt_300k/src/controllers/file_0.js:L3` |
-| F-003 | Layered Scaffold | 11 nominal layers with no inter-layer edges (see [Architecture](../architecture/README.md)) | `society_mgmt_300k/src/controllers/file_0.js:L1` |
-| F-004 | `store` Placeholder | inert `const store = [];` in 28 files, never read/written | `society_mgmt_300k/src/controllers/file_0.js:L2` |
-| F-005 | 300,000-Line Sizing | deterministic line target met exactly | `society_mgmt_300k/src/utils/filler.js:L1-L3` |
+| F-001 | Arithmetic Helper Corpus | 33,105 pure functions computing `6x + 10` (dead always-true parity branch) | `society_mgmt_300k/src/controllers/file_0.js:L3-L10` (representative body); `docs/reference/corpus-evidence.md:L47-L54` (33,105-function count), `L67-L95` (single byte-identical body corpus-wide) |
+| F-002 | Unique Symbol Namespace | `mod_<fileId>_<k>` naming — collision-free, file-local, not importable | `society_mgmt_300k/src/controllers/file_0.js:L3` (representative name); `docs/reference/corpus-evidence.md:L47-L65` (33,105 distinct names — collision-free), `L112-L151` (no module system — file-local) |
+| F-003 | Layered Scaffold | 11 nominal layers with no inter-layer edges (see [Architecture](../architecture/README.md)) | `society_mgmt_300k/src/controllers/file_0.js:L1` (representative header); `docs/reference/corpus-evidence.md:L112-L151` (zero module-system keywords — no inter-layer edges), `L177-L215` (per-layer composition) |
+| F-004 | `store` Placeholder | inert `const store = [];` in 28 files, never read/written | `society_mgmt_300k/src/controllers/file_0.js:L2` (representative declaration); `docs/reference/corpus-evidence.md:L97-L110` (28 declarations, zero reads/writes corpus-wide) |
+| F-005 | 300,000-Line Sizing | deterministic line target met exactly | `society_mgmt_300k/src/utils/filler.js:L1-L3` (filler exemplar); `docs/reference/corpus-evidence.md:L28-L54` (file/line/function counts), `L217-L232` (the three file shapes) |
 | F-006 | Licensing Artifacts | Apache-2.0 (root) vs MIT (inner) conflict — governance (see [Security](../security/README.md)) | `LICENSE`; `society_mgmt_300k/LICENSE/LICENSE.txt:L1` |
 
 ## Feature relationships

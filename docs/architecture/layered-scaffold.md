@@ -9,14 +9,21 @@ scaffold** of **11 nominal layers** — nine under `src/` (config, middleware,
 models, controllers, routes, domain, services, repositories, utils) and two under
 `tests/` (unit, integration). Across those layers it holds exactly **29 `.js`
 files**, **33,105** `mod_*` arithmetic functions, and **300,000 lines** in total
-(Source: `docs/reference/corpus-evidence.md:L28-L54`), every one of which follows
-a single canonical module motif (Source:
+(Source: `docs/reference/corpus-evidence.md:L28-L54`). Every **function-bearing**
+file follows a single canonical module motif (Source:
 `society_mgmt_300k/src/controllers/file_0.js:L1-L10` for the motif;
-`docs/reference/corpus-evidence.md:L67-L95` for its byte-identical recurrence).
+`docs/reference/corpus-evidence.md:L67-L95` for its byte-identical recurrence);
+the sole exception is the comment-only padding file
+`society_mgmt_300k/src/utils/filler.js`, which has **0 functions** and no header
+or `store` (Source: `society_mgmt_300k/src/utils/filler.js:L1-L3`;
+`docs/reference/corpus-evidence.md:L217-L232` for the three file shapes;
+`docs/reference/corpus-evidence.md:L248-L262` for the 28-file header scan).
 
 The layer names are borrowed from conventional web-application architecture, but
-the resemblance is **only in the naming**: each folder contains **only
-`mod_<id>_<k>(x)` arithmetic stubs** — the `6x + 10` helpers — and nothing else.
+the resemblance is **only in the naming**: every function-bearing file contains
+**only `mod_<id>_<k>(x)` arithmetic stubs** — the `6x + 10` helpers — and nothing
+else (the `src/utils` layer additionally holds the comment-only `filler.js`
+padding file noted above).
 There is **no module system** and there are **no dependencies between layers**: no
 file imports, requires, exports, or calls another, so the layers are fully
 isolated — confirmed by a source-corpus keyword sweep over

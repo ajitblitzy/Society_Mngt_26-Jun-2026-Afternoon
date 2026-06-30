@@ -47,9 +47,13 @@ verifiable by inspection: for example, **`mod_0_0(4) === 34`** (that is,
 ## Archetype
 
 The canonical module motif below is reproduced exactly as it appears in the
-source. Every file in the corpus follows it; individual functions differ only in
-their `mod_<fileId>_<k>` name
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`):
+source. Every **function-bearing** file in the corpus follows it; individual
+functions differ only in their `mod_<fileId>_<k>` name. The sole exception is the
+comment-only padding file `society_mgmt_300k/src/utils/filler.js`, which has 0
+functions and does not carry the motif
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10` for the motif;
+`society_mgmt_300k/src/utils/filler.js:L1-L3` and
+`docs/reference/corpus-evidence.md:L217-L232` for the filler exception):
 
 ```javascript
 // mod_0 - society module

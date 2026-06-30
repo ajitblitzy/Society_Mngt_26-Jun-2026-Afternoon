@@ -15,9 +15,12 @@ docs/reference/corpus-evidence.md:L28-L54 (the 29-file / 33,105-function /
 300,000-line counts); docs/reference/corpus-evidence.md:L234-L246 (no
 package.json or lockfile)
 
-Every `.js` module follows one canonical motif — a header comment, an inert
-module-scoped `const store = [];`, then a run of single-argument arithmetic
-functions:
+Every **function-bearing** `.js` module follows one canonical motif — a header
+comment, an inert module-scoped `const store = [];`, then a run of single-argument
+arithmetic functions. The sole exception is the comment-only padding file
+`society_mgmt_300k/src/utils/filler.js` (0 functions, no header or `store`)
+(Source: society_mgmt_300k/src/utils/filler.js:L1-L3;
+docs/reference/corpus-evidence.md:L217-L232):
 
 ```javascript
 // mod_0 - society module

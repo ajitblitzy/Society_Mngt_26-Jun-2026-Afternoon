@@ -8,9 +8,12 @@ nominal layers** — nine under `src/` (`config`, `controllers`, `domain`,
 `middleware`, `models`, `repositories`, `routes`, `services`, `utils`) and two
 under `tests/` (`unit`, `integration`). There is no build step, no package
 manifest, and no third-party dependency.
-Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (per-file motif);
-counts verified corpus-wide over society_mgmt_300k/**/*.js (29 files, 33,105
-functions, 300,000 lines).
+Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (representative
+per-file motif); docs/reference/corpus-evidence.md:L28-L54 (the 29-file /
+33,105-function / 300,000-line counts); docs/reference/corpus-evidence.md:L177-L215
+(per-layer composition across the 11 nominal layers);
+docs/reference/corpus-evidence.md:L234-L246 (no package.json or lockfile — zero
+third-party dependencies).
 
 ## What this is / is not
 
@@ -19,15 +22,22 @@ functions, 300,000 lines).
 - A **synthetic, static-analysis-oriented corpus** of pure arithmetic helper
   functions: every `mod_<fileId>_<k>(x)` deterministically computes `6x + 10`
   with no side effects.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10
+  Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (representative
+  body); docs/reference/corpus-evidence.md:L67-L95 (all 33,105 functions share
+  one byte-identical `6x + 10` body).
 - A **layered folder scaffold** of 11 nominal layers under `src/` and `tests/`,
   named after conventional web-application tiers but holding only the same
   arithmetic stubs in every layer.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (representative
+  motif); docs/reference/corpus-evidence.md:L177-L215 (per-layer scan: every
+  layer holds only `mod_*` functions); docs/reference/corpus-evidence.md:L67-L95
+  (the single byte-identical body shared corpus-wide).
 - **Dependency-free with no build step** — plain `.js` source with no module
   system (`require`/`import`/`export`/`module.exports`), no package manifest,
   and no runtime dependency.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+  Source: docs/reference/corpus-evidence.md:L112-L151 (source-corpus keyword
+  sweep: zero `require`/`import`/`export`/`module.exports`);
+  docs/reference/corpus-evidence.md:L234-L246 (no package.json or lockfile).
 
 ### What it is not
 
@@ -35,23 +45,37 @@ functions, 300,000 lines).
   **nominal label only** — it appears as the repository name and a per-file
   header comment (e.g. `// mod_0 - society module`); there is no implemented
   domain logic, no entities, and no business rules.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1
+  Source: society_mgmt_300k/src/controllers/file_0.js:L1 (representative header);
+  docs/reference/corpus-evidence.md:L248-L262 (the `// mod_<n> - society module`
+  header appears in 28 function-bearing files and "society" never appears as
+  implemented domain logic).
 - **Not a REST API or service.** The `controllers/` and `routes/` layers hold
   the same arithmetic stubs as every other layer — there are no endpoints,
   routes, or request/response handlers.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (representative
+  motif); docs/reference/corpus-evidence.md:L67-L95 (every layer shares the one
+  byte-identical body); docs/reference/corpus-evidence.md:L112-L151 (zero
+  module-system keywords — no routing or endpoints).
 - **No persistence, I/O, configuration, or authentication.** The module-scoped
   `const store = [];` is inert (never read or written), and the sole external
   input is the numeric argument `x` — there is no database, file/network I/O,
   configuration object, or auth/crypto anywhere in the source.
-  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+  Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (sole numeric input
+  `x`); docs/reference/corpus-evidence.md:L97-L110 (`store` declared in 28 files,
+  never read or written); docs/reference/corpus-evidence.md:L112-L151 (zero I/O,
+  config, auth, or crypto keywords corpus-wide).
 
 ## The `mod_*` archetype
 
-Every `.js` file in the corpus follows one canonical motif: a header comment, an
-inert module-scoped `const store = [];`, then a run of single-argument
-arithmetic functions. The first function of the first file is representative of
-all 33,105:
+Every **function-bearing** `.js` file in the corpus follows one canonical motif:
+a header comment, an inert module-scoped `const store = [];`, then a run of
+single-argument arithmetic functions. The one exception is
+`society_mgmt_300k/src/utils/filler.js` — a comment-only padding file with **0
+functions** and no header or `store`.
+Source: society_mgmt_300k/src/utils/filler.js:L1-L3;
+docs/reference/corpus-evidence.md:L217-L232 (the three file shapes: 27 standard
+files, the `file_27.js` short variant, and the comment-only `filler.js`).
+The first function of the first file is representative of all 33,105:
 
 ```javascript
 // mod_0 - society module

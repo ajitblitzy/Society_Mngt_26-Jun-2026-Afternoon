@@ -9,11 +9,11 @@ The `society_mgmt_300k` corpus presents a **minimal, verified-absent runtime att
 The only externally supplied value to any function is the **numeric argument `x`**, consumed by pure arithmetic helpers of the form `mod_<fileId>_<k>(x)` that accumulate `x*1 + x*2 + x*3` (= `6x`) and return `6x + 10`. These functions read no globals, perform no I/O, and produce no observable side effects. Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (canonical pure-function motif), docs/reference/corpus-evidence.md:L67-L95 (body uniformity: all 33,105 functions byte-identical apart from names)
 
 - **Externally reachable entry points:** none. There is no module system (no `require`/`import`/`export`/`module.exports`), so no symbol is importable from outside its file — every function is file-local. Source: docs/reference/corpus-evidence.md:L112-L151 (source-corpus keyword sweep over `society_mgmt_300k/**/*.js`: zero module-system keywords)
-- **Input domain:** a single numeric argument `x`. There is no string parsing, no structured/serialized input, and therefore no deserialization of untrusted data.
+- **Input domain:** a single numeric argument `x`. There is no string parsing, no structured/serialized input, and therefore no deserialization of untrusted data. Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (the sole input is the numeric `x`), docs/reference/corpus-evidence.md:L112-L151 (source-corpus keyword sweep: zero `eval`/module/I/O constructs, so no untrusted data is parsed or deserialized)
 - **Outputs / side effects:** each function returns a number and mutates only a local accumulator `r`; the module-scoped `const store = [];` is inert (never read or written). Source: society_mgmt_300k/src/controllers/file_0.js:L2 (the single declaration), docs/reference/corpus-evidence.md:L97-L110 (corpus-wide `store` scan: 28 declarations, zero read/write references)
-- **Trust boundaries:** none are crossed — with no I/O or network calls, the code never communicates with an external system.
+- **Trust boundaries:** none are crossed — with no I/O or network calls, the code never communicates with an external system. Source: docs/reference/corpus-evidence.md:L112-L151 (source-corpus keyword sweep: zero `fetch`/`Promise`/`async`/`await` and zero module-system keywords)
 
-Because the corpus is not runnable as a service (no endpoints, no module system), the practical attack surface is limited to whatever value a caller passes as `x` to an in-process function. See the [Glossary](../reference/glossary.md) for terms such as *pure function* and *synthetic corpus*.
+Because the corpus is not runnable as a service (no endpoints, no module system), the practical attack surface is limited to whatever value a caller passes as `x` to an in-process function. Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (the in-process numeric input/body), docs/reference/corpus-evidence.md:L112-L151 (no module system — nothing importable or externally reachable). See the [Glossary](../reference/glossary.md) for terms such as *pure function* and *synthetic corpus*.
 
 ## Verified absences (keyword sweep)
 
@@ -41,10 +41,10 @@ The repository declares **zero dependencies**: there is no `package.json`, lockf
 
 This is the **single live governance item** for the repository. It carries **two different licenses with no statement of precedence**:
 
-- Root [`LICENSE`](../../LICENSE) — **Apache License, Version 2.0**. Source: LICENSE:L1-L2
+- Root [`LICENSE`](../../LICENSE) — **Apache License, Version 2.0**. Source: LICENSE
 - Inner [`society_mgmt_300k/LICENSE/LICENSE.txt`](../../society_mgmt_300k/LICENSE/LICENSE.txt) — **MIT License** (line 1), Copyright (c) 2026 (line 3). Source: society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3
 
-**Risk.** Because the two licenses coexist without any precedence statement, downstream users face **legal ambiguity** about which terms govern reuse and redistribution. The licenses differ materially — Apache-2.0 includes an explicit patent grant and NOTICE/attribution requirements that the MIT license does not — so the ambiguity is substantive, not cosmetic. Source: LICENSE:L1-L2 (Apache License, Version 2.0), society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3 (MIT License and copyright)
+**Risk.** Because the two licenses coexist without any precedence statement, downstream users face **legal ambiguity** about which terms govern reuse and redistribution. The licenses differ materially — Apache-2.0 includes an explicit patent grant and NOTICE/attribution requirements that the MIT license does not — so the ambiguity is substantive, not cosmetic. Source: LICENSE (Apache License, Version 2.0), society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3 (MIT License and copyright)
 
 **Recommended resolution path (DOCUMENTED, NOT APPLIED here).** The following are recommendations only; editing license files is out of scope for this documentation effort, so no license file is modified:
 
@@ -62,6 +62,6 @@ These steps would resolve F-006; they are recorded here as guidance and are inte
 - `docs/reference/corpus-evidence.md:L153-L175` — the whole-tree contrast that explains why the sweep scope must be the JS source corpus and not the whole repository tree.
 - `docs/reference/corpus-evidence.md:L97-L110` — the `store` usage scan (28 declarations, zero reads/writes) backing the inert-placeholder claim.
 - `docs/reference/corpus-evidence.md:L234-L246` — the dependency-manifest scan (zero `package.json`, zero lockfiles) backing the zero-dependency supply-chain claim.
-- `LICENSE:L1-L2` — root Apache License, Version 2.0 (F-006).
+- `LICENSE` — root Apache License, Version 2.0 (F-006).
 - `society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3` — inner MIT License (line 1) and Copyright (c) 2026 (line 3) (F-006).
 - Terminology is defined in the [Glossary](../reference/glossary.md); return to the [documentation index](../README.md).
