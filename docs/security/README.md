@@ -1,5 +1,7 @@
 # Security
 
+← Back to the [documentation hub](../README.md)
+
 ## Overview
 
 The `society_mgmt_300k` corpus presents a **minimal, verified-absent runtime attack surface** and exactly **one live governance item** — a dual-license conflict (feature F-006). Every function in the corpus is a pure arithmetic helper whose sole external input is a numeric argument `x`; there is no I/O, network access, dynamic code execution, deserialization, secrets handling, authentication, or cryptography anywhere in the JavaScript source corpus. Consequently this document records a **verified-absence security posture**: where a security surface is absent, that absence is stated explicitly and backed by a source citation rather than by an assumed or fabricated threat model. The single genuine, actionable concern is licensing governance, documented in the [F-006 — Dual-license conflict](#f-006--dual-license-conflict) section below. Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (canonical pure-function motif), docs/reference/corpus-evidence.md:L112-L151 (source-corpus keyword sweep over `society_mgmt_300k/**/*.js` confirming the tree-wide absences)

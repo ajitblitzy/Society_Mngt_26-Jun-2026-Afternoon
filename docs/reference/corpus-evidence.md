@@ -152,27 +152,27 @@ exception channels** (`try`/`catch`/`throw` = 0), **no logging** (`console` = 0)
 
 ### E8 — Whole-tree contrast (why the sweep scope matters)
 
-The same keywords are **not** absent from the whole repository: documentation and
-license files legitimately mention them. The zero counts in E7 therefore hold
-**only** for the JavaScript source corpus, which is why security wording must say
-"source-corpus sweep over `society_mgmt_300k/**/*.js`" rather than "whole-tree".
+The same keywords are **not** absent from the whole repository: this documentation,
+the license texts, and platform-generated notes legitimately mention them. To keep
+this evidence reproducible, the check below pairs each keyword's durable source-corpus
+count with a stable yes/no for whether it occurs in any non-`.js` file.
 
 ```text
 $ for kw in auth token crypto import; do
-    w=$(grep -rwoE "$kw" . --include='*' --exclude-dir=.git | wc -l)
-    j=$(grep -rwoE "$kw" society_mgmt_300k --include='*.js' | wc -l)
-    printf '%-7s whole-tree(excl .git)=%s  society_mgmt_300k/**/*.js=%s\n' "$kw" "$w" "$j"
+    js=$(grep -rwoE "$kw" society_mgmt_300k --include='*.js' | wc -l)
+    grep -rwqE "$kw" . --include='*' --exclude-dir=.git --exclude='*.js' && o=yes || o=no
+    printf '%-7s society_mgmt_300k/**/*.js=%s  appears-outside-js-source=%s\n' "$kw" "$js" "$o"
   done
-auth    whole-tree(excl .git)=15  society_mgmt_300k/**/*.js=0
-token   whole-tree(excl .git)=34  society_mgmt_300k/**/*.js=0
-crypto  whole-tree(excl .git)=1   society_mgmt_300k/**/*.js=0
-import  whole-tree(excl .git)=54  society_mgmt_300k/**/*.js=0
+auth    society_mgmt_300k/**/*.js=0  appears-outside-js-source=yes
+token   society_mgmt_300k/**/*.js=0  appears-outside-js-source=yes
+crypto  society_mgmt_300k/**/*.js=0  appears-outside-js-source=yes
+import  society_mgmt_300k/**/*.js=0  appears-outside-js-source=yes
 ```
 
-**Proves** — a repository-wide sweep (excluding `.git`) finds many occurrences of
-these terms in non-source files (this documentation and the license texts), while
-the source corpus has zero. The verified-absence posture is accurate **for the JS
-source corpus** and must be scoped as such.
+**Proves** — every keyword is **absent from the JavaScript source corpus** (count
+`0`) yet **present somewhere outside it** (`yes`), so the verified-absence posture is
+accurate **only for `society_mgmt_300k/**/*.js`** and must be scoped as such. The
+yes/no form is deterministic, so this evidence does not drift as docs or notes change.
 
 ### E9 — Per-layer composition
 
