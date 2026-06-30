@@ -1,35 +1,85 @@
-# Society Management 300k Corpus
+# society_mgmt_300k
 
-A deterministic, **synthetic JavaScript corpus** (`society_mgmt_300k`)
-deliberately sized to exactly **300,000 lines** across **29 `.js` files** and
-**33,105 functions**, organized into a nominal layered scaffold. It exists for
-static analysis and code traversal rather than execution — there is no runnable
-application.
-(Source: `society_mgmt_300k/**/*.js`; AAP §0.3.1; Tech Spec §1.2)
+`society_mgmt_300k` is a **synthetic, dependency-free JavaScript corpus** built
+for static analysis and code traversal rather than execution. It comprises
+**29 `.js` files** that declare **33,105 functions** named `mod_<fileId>_<k>`
+and total **exactly 300,000 lines**, arranged as a layered scaffold of **11
+nominal layers** — nine under `src/` (`config`, `controllers`, `domain`,
+`middleware`, `models`, `repositories`, `routes`, `services`, `utils`) and two
+under `tests/` (`unit`, `integration`). There is no build step, no package
+manifest, and no third-party dependency.
+Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (representative
+per-file motif); docs/reference/corpus-evidence.md:L28-L54 (the 29-file /
+33,105-function / 300,000-line counts); docs/reference/corpus-evidence.md:L177-L215
+(per-layer composition across the 11 nominal layers);
+docs/reference/corpus-evidence.md:L234-L246 (no package.json or lockfile — zero
+third-party dependencies).
 
-## What This Is / What This Is Not
+## What this is / is not
 
 ### What it is
 
-- A **deterministic, synthetic JavaScript corpus** of exactly 300,000 lines
-  spread across 29 `.js` files and 33,105 functions.
-  (Source: `society_mgmt_300k/**/*.js`; AAP §0.3.1)
-- A collection of **byte-identical arithmetic helper functions**: every
-  function is the same representative function, which computes `6x + 10` for an
-  integer input `x`.
-  (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`)
-- A **nominal layered directory scaffold** — nine `src/` layers (`config`,
-  `controllers`, `domain`, `middleware`, `models`, `repositories`, `routes`,
-  `services`, `utils`) plus a `tests/` tree (`unit`, `integration`).
-  (Source: `society_mgmt_300k/src/**`; AAP §0.3.1)
-- A set of **license and documentation artifacts** (see
-  [Documentation](#documentation) and [Licensing](#licensing) below).
-  (Source: `/LICENSE`, `society_mgmt_300k/LICENSE/LICENSE.txt`)
+- A **synthetic, static-analysis-oriented corpus** of pure arithmetic helper
+  functions: every `mod_<fileId>_<k>(x)` deterministically computes `6x + 10`
+  with no side effects.
+  Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (representative
+  body); docs/reference/corpus-evidence.md:L67-L95 (all 33,105 functions share
+  one byte-identical `6x + 10` body).
+- A **layered folder scaffold** of 11 nominal layers under `src/` and `tests/`,
+  named after conventional web-application tiers but holding only the same
+  arithmetic stubs in every layer.
+  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (representative
+  motif); docs/reference/corpus-evidence.md:L177-L215 (per-layer scan: every
+  layer holds only `mod_*` functions); docs/reference/corpus-evidence.md:L67-L95
+  (the single byte-identical body shared corpus-wide).
+- **Dependency-free with no build step** — plain `.js` source with no module
+  system (`require`/`import`/`export`/`module.exports`), no package manifest,
+  and no runtime dependency.
+  Source: docs/reference/corpus-evidence.md:L112-L151 (source-corpus keyword
+  sweep: zero `require`/`import`/`export`/`module.exports`);
+  docs/reference/corpus-evidence.md:L234-L246 (no package.json or lockfile).
 
-The single representative function — identical across all 33,105 occurrences —
-is:
+### What it is not
+
+- **Not a runnable society-management application.** "Society management" is a
+  **nominal label only** — it appears as the repository name and a per-file
+  header comment (e.g. `// mod_0 - society module`); there is no implemented
+  domain logic, no entities, and no business rules.
+  Source: society_mgmt_300k/src/controllers/file_0.js:L1 (representative header);
+  docs/reference/corpus-evidence.md:L248-L262 (the `// mod_<n> - society module`
+  header appears in 28 function-bearing files and "society" never appears as
+  implemented domain logic).
+- **Not a REST API or service.** The `controllers/` and `routes/` layers hold
+  the same arithmetic stubs as every other layer — there are no endpoints,
+  routes, or request/response handlers.
+  Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 (representative
+  motif); docs/reference/corpus-evidence.md:L67-L95 (every layer shares the one
+  byte-identical body); docs/reference/corpus-evidence.md:L112-L151 (zero
+  module-system keywords — no routing or endpoints).
+- **No persistence, I/O, configuration, or authentication.** The module-scoped
+  `const store = [];` is inert (never read or written), and the sole external
+  input is the numeric argument `x` — there is no database, file/network I/O,
+  configuration object, or auth/crypto anywhere in the source.
+  Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 (sole numeric input
+  `x`); docs/reference/corpus-evidence.md:L97-L110 (`store` declared in 28 files,
+  never read or written); docs/reference/corpus-evidence.md:L112-L151 (zero I/O,
+  config, auth, or crypto keywords corpus-wide).
+
+## The `mod_*` archetype
+
+Every **function-bearing** `.js` file in the corpus follows one canonical motif:
+a header comment, an inert module-scoped `const store = [];`, then a run of
+single-argument arithmetic functions. The one exception is
+`society_mgmt_300k/src/utils/filler.js` — a comment-only padding file with **0
+functions** and no header or `store`.
+Source: society_mgmt_300k/src/utils/filler.js:L1-L3;
+docs/reference/corpus-evidence.md:L217-L232 (the three file shapes: 27 standard
+files, the `file_27.js` short variant, and the comment-only `filler.js`).
+The first function of the first file is representative of all 33,105:
 
 ```javascript
+// mod_0 - society module
+const store = [];
 function mod_0_0(x){
  let r=0;
  r+=x*1;
@@ -40,52 +90,42 @@ function mod_0_0(x){
 }
 ```
 
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`)
-
-### What it is not
-
-- **Not a runnable application** — there is no entry point, framework, server,
-  or inter-module wiring.
-  (Source: `society_mgmt_300k/**/*.js`; AAP §0.2.2; Tech Spec §1.2)
-- **No exported or importable API** — there are zero `module.exports` and zero
-  `require(...)` occurrences across the corpus; every symbol is module-local.
-  (Source: `society_mgmt_300k/**/*.js`; AAP §0.2.2)
-- **No framework, server, database, network, or external input** beyond the
-  single numeric argument `x`. (Source: `society_mgmt_300k/**/*.js`; Tech Spec §1.2)
-- **No configuration values** — the `config/` layer holds arithmetic
-  functions, not configuration.
-  (Source: `society_mgmt_300k/src/config/file_6.js:L1-L11`; AAP §0.2.2)
-- **No functional tests** — the files under `tests/` contain no assertions.
-  (Source: `society_mgmt_300k/tests/**`; AAP §0.3.1)
-- **No dependency manifest** — there is no `package.json` or lockfile.
-  (Source: AAP §0.2.1)
-
-This README uses an honest **verified-absence** framing: it documents only what
-a first-hand scan of the corpus confirms and does not imply capabilities the
-code does not have.
+Each `mod_<fileId>_<k>(x)` accumulates `x*1 + x*2 + x*3` (= `6x`) and then adds
+`10` when the accumulator is even. Because `6x` is always even, the
+`if (r % 2 === 0)` test is **always true** — a *dead always-true branch* — so
+every function effectively returns **`6x + 10`**. For example, `mod_0_0(4)`
+returns `6*4 + 10`, that is **`34`** (`mod_0_0(4) === 34`).
+Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10
 
 ## Documentation
 
-Full documentation lives under [`docs/`](docs/README.md). Begin at the index
-and follow the topic links below:
+Full documentation lives under [`docs/`](docs/README.md). Start at
+[docs/README.md](docs/README.md) and follow the topic links below:
 
-- [Documentation index / navigation hub](docs/README.md)
-- [System overview](docs/overview.md)
-- [Layered scaffold & architecture](docs/architecture.md)
-- [Functionality reference](docs/functionality/README.md) — arithmetic
-  helpers, symbol namespace, module reference, store placeholder, and corpus
-  sizing
-- [Performance characteristics](docs/performance.md)
-- [Security posture](docs/security.md)
-- [Licensing governance](docs/governance/licensing.md) — the Apache-vs-MIT
-  inconsistency
+- [docs/README.md](docs/README.md) — documentation index / navigation hub.
+- [docs/overview.md](docs/overview.md) — system overview (synthetic-corpus
+  nature; "society management" as a label).
+- [docs/functionality/README.md](docs/functionality/README.md) — functionality
+  catalog (features F-001..F-006).
+- [docs/architecture/README.md](docs/architecture/README.md) — layered scaffold
+  plus control-flow diagrams.
+- [docs/performance/README.md](docs/performance/README.md) — O(1) complexity,
+  determinism, and the explicit absence of SLAs.
+- [docs/security/README.md](docs/security/README.md) — verified-absence security
+  posture plus the F-006 dual-license discussion.
+- [docs/reference/file-inventory.md](docs/reference/file-inventory.md) — full
+  inventory of all 29 `.js` files.
+- [docs/reference/code-reference.md](docs/reference/code-reference.md) — code
+  reference for the `mod_*` family.
+- [docs/reference/glossary.md](docs/reference/glossary.md) — terminology.
 
-## Licensing
+## License
 
-This repository contains license artifacts in two locations, and they are
-currently **inconsistent**: the root [`LICENSE`](LICENSE) is the **Apache
-License 2.0**, while the project copy
+This repository currently carries **two conflicting licenses** with no statement
+of precedence (governance item **F-006**): the root [`LICENSE`](LICENSE) is the
+**Apache License 2.0**, while the inner
 [`society_mgmt_300k/LICENSE/LICENSE.txt`](society_mgmt_300k/LICENSE/LICENSE.txt)
-is the **MIT License**. This discrepancy is documented — not resolved here —
-in [Licensing governance](docs/governance/licensing.md).
-(Source: `/LICENSE:L1`, `society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3`)
+is the **MIT License**. This unresolved conflict is **documented, not resolved
+here** — see [docs/security/README.md](docs/security/README.md) for the full
+F-006 discussion and recommended resolution paths.
+Source: LICENSE; Source: society_mgmt_300k/LICENSE/LICENSE.txt:L1

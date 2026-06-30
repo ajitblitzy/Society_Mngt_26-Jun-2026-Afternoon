@@ -1,16 +1,86 @@
-# Arithmetic Helpers (F-001)
+# Arithmetic Helpers (F-001 & F-002)
 
-← Back to the [functionality index](./README.md) · [documentation hub](../README.md)
+← Back to the [functionality index](README.md) · [documentation hub](../README.md)
+
+## Overview
+
+This page documents the corpus's **only** behavioral capability: the `mod_*`
+arithmetic helper family. The family spans all **33,105** functions of the
+synthetic [`society_mgmt_300k`](../overview.md) JavaScript *corpus*, and every one
+of them effectively returns **`6x + 10`** for a numeric input `x`. The canonical
+single-function body is shown directly
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`), while the facts
+that there are exactly **33,105** such functions and that all of them are
+**byte-identical apart from their names** are established by reproducible
+corpus-wide scans (Source: `docs/reference/corpus-evidence.md:L47-L54` for the
+function count, `docs/reference/corpus-evidence.md:L67-L95` for the body
+uniformity). These functions are *pure*, *deterministic*, single-argument, and
+structurally identical — differing only in their `mod_<fileId>_<k>` name — so this
+single page documents the entire family. (The terms *pure*, *deterministic*,
+*dead (always-true) branch*, and *synthetic corpus* are defined in the
+[glossary](../reference/glossary.md); this page does not redefine them.)
+
+"Society management" is a **nominal label** only: it appears solely as the
+repository name and a per-file header comment (`// mod_0 - society module`), not
+as implemented domain behavior
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L1`). For the step-by-step
+execution diagram of a single call, see
+[Module control flow](../architecture/module-control-flow.md); for the API-style
+archetype (signature and parameter/return table), see
+[Code reference](../reference/code-reference.md).
 
 ## Purpose
 
-This document describes **F-001**, the single computational motif of the synthetic [`society_mgmt_300k`](../overview.md) JavaScript *corpus*. Every one of the corpus's **33,105 functions** is byte-identical and computes the same expression, **`6x + 10`**, for an integer input `x`. Rather than enumerate 33,105 near-identical functions, this document specifies **one representative function contract** that stands in for all of them — the *representative-pattern* approach used throughout this documentation (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`; Tech Spec §2.2.2).
+Each `mod_*` function is a deterministic numeric helper: given a single number
+`x`, it returns a single number. There is no domain logic of any kind — the
+`// mod_0 - society module` header comment is nominal, a label rather than a
+description of behavior
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L1`).
 
-## Representative Contract
+## Signature
 
-The representative contract is `mod_<fileId>_<k>(x) → 6x + 10`: a single-argument function whose name encodes its originating module (`fileId`) and its index within that module (`k`), and which returns `6x + 10` for an integer input `x`. The canonical function body, reproduced exactly as it appears in the source, is (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`):
+Every function shares the signature `mod_<fileId>_<k>(x)`: it takes a single
+numeric parameter `x`, runs synchronously, and returns a number
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3`).
+
+## The computation
+
+The function body accumulates three products into a local variable `r`: starting
+from `let r = 0`, it runs `r += x*1`, then `r += x*2`, then `r += x*3`. After the
+three additions, `r = x*1 + x*2 + x*3`, i.e. **`r = 6x`**
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L4-L7`).
+
+## The conditional `+10` (dead always-true branch)
+
+After the accumulation, the body runs `if (r % 2 === 0) { r += 10 }`. Because
+`r = 6x` is a multiple of `6` (hence a multiple of `2`), it is **always even**,
+so the parity test `r % 2 === 0` is **always true** and the `r += 10` **always
+executes**. The implicit `false`/`else` path — the case where the `+ 10` is
+skipped — is therefore **unreachable (dead code)**
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L8`). This *dead
+(always-true) branch* (defined in the [glossary](../reference/glossary.md)) is
+documented **faithfully**, exactly as it executes; it is **not** "fixed",
+simplified, or removed, because altering the source would be a code change and is
+out of scope. For the annotated control-flow diagram, see
+[Module control flow](../architecture/module-control-flow.md)
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L8`).
+
+## Return value
+
+The function returns the accumulator `r`. Because the `+ 10` always runs, the
+returned value always equals **`6x + 10`**
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L9-L10`).
+
+## Worked example
+
+The canonical function body below is reproduced exactly as it appears in the
+source. The inert `const store = [];` declaration is intentionally omitted here
+(it is covered in [Module anatomy](module-anatomy.md)), and the computed result
+is appended as a trailing comment
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`):
 
 ```javascript
+// mod_0 - society module
 function mod_0_0(x){
  let r=0;
  r+=x*1;
@@ -19,82 +89,77 @@ function mod_0_0(x){
  if(r%2===0){r+=10}
  return r;
 }
+// mod_0_0(4) === 34   (6*4 + 10)
 ```
 
-The three additions accumulate the running total `r`:
+Because the function is pure and deterministic, `mod_0_0(4)` is exactly `34`
+(that is, `6*4 + 10 = 34`)
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
 
-- `r += x*1` adds `x`,
-- `r += x*2` adds `2x`,
-- `r += x*3` adds `3x`,
+## Formula table
 
-so after the three statements `r = x*1 + x*2 + x*3 = 6x`. The parity guard `if(r%2===0){r+=10}` then adds `10`, yielding the final result `6x + 10` (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`; Tech Spec §2.2.2).
+A few sample inputs and their exact return values, all following the `6x + 10`
+rule (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`):
 
-## Behavior
+| x  | 6x | returns 6x + 10 |
+|----|----|-----------------|
+| 1  | 6  | 16              |
+| 2  | 12 | 22              |
+| 4  | 24 | 34              |
+| 10 | 60 | 70              |
 
-The representative function is **pure, synchronous, deterministic, and side-effect-free**:
+## Naming rules (F-002)
 
-- **Pure / deterministic** — its result depends only on the single numeric argument `x`; the same input always produces the same output.
-- **Synchronous** — it performs no asynchronous work; there are no promises, callbacks, timers, or `await`.
-- **Side-effect-free** — it reads only `x`, performs in-memory integer arithmetic on a single local accumulator `r`, allocates nothing, performs no I/O (no file, network, console, or database access), references no external or module-scoped state, and returns a number.
+Functions are named with the scheme `mod_<fileId>_<k>`, where `<fileId>` is the
+file's numeric id and `<k>` is the function's **0-based** index within that file
+— so `mod_0_0` is the first function declared in `file_0.js`, `mod_0_1` the
+second, and so on
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3`). Because each name
+combines the file id with the position, the **33,105** names are
+**collision-free**: the file id plus the index uniquely identifies every
+function. This is verified directly — a corpus-wide scan finds exactly 33,105
+function declarations and exactly 33,105 distinct names, with no duplicates
+(Source: `docs/reference/corpus-evidence.md:L47-L65`). The symbols are
+**file-local** and **not importable** — the corpus has no module system, so a
+**source-corpus keyword sweep over `society_mgmt_300k/**/*.js`** finds zero
+occurrences of `require`, `import`, `export`, or `module.exports`, and no `mod_*`
+symbol can be referenced from another file
+(Source: `docs/reference/corpus-evidence.md:L112-L151`). The `mod_` prefix
+itself is defined in the [glossary](../reference/glossary.md).
 
-These properties are a *verified absence*: there are no additional parameters, overloads, error handling, exceptions, or asynchronous behavior in the source — the function consists solely of the arithmetic shown above (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`).
+## See also
 
-## The Dead Always-True Parity Branch
-
-For any integer `x`, the accumulated value `r = 6x` is **always even** (it is a multiple of `6`, hence a multiple of `2`). Consequently the parity guard `if(r%2===0)` is **always true** for integer inputs, so the body `r += 10` **always executes**, and the implicit `false` path — the case where the `if` is skipped — is **unreachable / dead code** for integer `x` (Source: `society_mgmt_300k/src/controllers/file_0.js:L8`; Tech Spec §2.2.2).
-
-This is a **static observation** — a constant-fold / dead-code property of the source — and not a runtime cost: the branch is evaluated in constant time on every call regardless of which path is logically reachable. The same branch is analyzed from the performance angle in [`../performance.md`](../performance.md), which shares the computation flowchart shown below.
-
-## Worked Example
-
-Evaluating the contract for `x = 5`:
-
-1. `r = 0`
-2. `r += 5*1` → `r = 5`
-3. `r += 5*2` → `r = 15`
-4. `r += 5*3` → `r = 30` (this is `6 × 5 = 30`)
-5. `30 % 2 === 0` is **true** (30 is even), so `r += 10` → `r = 40`
-6. `return 40`
-
-The result is **`6 × 5 + 10 = 40`**. Because every function in the corpus is byte-identical, this single worked example fully characterizes the behavior of all of them — one example suffices (Source: evaluation of `6x + 10`; `society_mgmt_300k/src/controllers/file_0.js:L3-L11`).
-
-## Equivalence Note
-
-This one representative function stands in for **all 33,105 byte-identical functions** in the corpus. Every function across all 11 layers shares the identical body shown above and differs only in its `mod_<fileId>_<k>` name; none is enumerated individually here (the *representative-pattern* approach) (Source: first-hand repository scan — byte-identical bodies across layers; AAP §0.7.1).
-
-- For the full per-layer rollup of all 29 files and their function counts, see [`./module-reference.md`](./module-reference.md).
-- For the `mod_<fileId>_<k>` naming scheme and why every symbol is globally unique, see [`./symbol-namespace.md`](./symbol-namespace.md).
-
-## Computation Flowchart
-
-The flowchart below traces the computation: the `6x` accumulation, the always-true parity branch, and the `+10` result. This diagram is **shared verbatim** with [`../performance.md`](../performance.md); the **`False`** edge is the dead / unreachable path for integer `x`, as explained above.
-
-```mermaid
-flowchart TD
-    A["Input: integer x"] --> B["r = 0"]
-    B --> C["r += x*1; r += x*2; r += x*3  →  r = 6x"]
-    C --> D{"r % 2 === 0 ?"}
-    D -->|"True — always taken for integer x"| E["r += 10  →  r = 6x + 10"]
-    D -->|"False — unreachable for integer x"| F["dead path"]
-    E --> G["return r"]
-    F --> G
-```
-
-## Cross-References
-
-- [`../performance.md`](../performance.md) — analyzes the same computation (and the same shared flowchart) from the performance angle: constant-time `O(1)` per call and the dead always-true parity branch.
-- [`./symbol-namespace.md`](./symbol-namespace.md) — the `mod_<fileId>_<k>` naming scheme, per-file index ranges, and global uniqueness.
-- [`./module-reference.md`](./module-reference.md) — the per-layer inventory of all 29 files that this representative contract describes.
-- [`./README.md`](./README.md) — the functionality index.
-- [`../README.md`](../README.md) — the top-level documentation hub.
+- [Module control flow](../architecture/module-control-flow.md) — the
+  step-by-step execution of a `mod_*` function, with the dead always-true branch
+  annotated in a flowchart.
+- [Code reference](../reference/code-reference.md) — the API-style archetype for
+  the `mod_*` family (signature and parameter/return table).
+- [Module anatomy](module-anatomy.md) — the anatomy of a module file, including
+  the inert `store` placeholder omitted from the worked example above.
+- [Corpus composition](corpus-composition.md) — the per-layer file, function, and
+  line composition of the corpus.
+- [Glossary](../reference/glossary.md) — definitions of `mod_`, *pure*,
+  *deterministic*, *dead (always-true) branch*, and *synthetic corpus*.
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L11` — the canonical function body computing `6x + 10`, representative of all 33,105 byte-identical functions.
-- `society_mgmt_300k/src/controllers/file_0.js:L8` — the always-true parity guard `if(r%2===0){r+=10}`, whose `false` path is dead for integer `x`.
-- Tech Spec §2.2.2 — the representative `6x + 10` contract and the dead always-true parity branch.
-- First-hand repository scan; AAP §0.7.1 — byte-identical bodies across layers; the representative-pattern documentation approach standing in for all 33,105 functions.
+- `society_mgmt_300k/src/controllers/file_0.js:L1` — the nominal
+  `// mod_0 - society module` header comment (the "society management" label) and
+  the basis of the `mod_<fileId>_<k>` naming scheme.
+- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the canonical function
+  body that accumulates `6x` and returns `6x + 10`, including the dead
+  always-true parity branch on line 8.
+- `docs/reference/corpus-evidence.md:L47-L65` — the reproducible scans proving the
+  corpus contains exactly **33,105** `mod_*` functions and that all **33,105**
+  names are distinct (collision-free).
+- `docs/reference/corpus-evidence.md:L67-L95` — the body-uniformity scan proving
+  the `mod_*` family documented here is **byte-identical apart from their names**
+  across all 33,105 functions.
+- `docs/reference/corpus-evidence.md:L112-L151` — the source-corpus keyword sweep
+  over `society_mgmt_300k/**/*.js` proving the absence of any module system
+  (`require`/`import`/`export`/`module.exports`), so the `mod_*` symbols are
+  file-local and not importable.
 
 ---
 
-← Back to the [functionality index](./README.md) · [documentation hub](../README.md)
+← Back to the [functionality index](README.md) · [documentation hub](../README.md)
