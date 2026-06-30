@@ -1,0 +1,24 @@
+{
+  // markdownlint-cli2 configuration for the society_mgmt_300k documentation.
+  //
+  // Rationale: This documentation is authored for GitHub-native Markdown
+  // rendering, which soft-wraps long lines. The line-length rule (MD013) is
+  // therefore disabled because:
+  //   * Source citations (e.g. "(Source: society_mgmt_300k/src/.../file_0.js:L3-L11)")
+  //     and inventory table rows deliberately exceed 80 columns, and Markdown
+  //     table rows cannot be wrapped without breaking the table.
+  //   * Enforcing an 80-column limit would degrade readability without changing
+  //     how the documents render on GitHub.
+  //
+  // Every other rule (including structural rules such as MD040 fenced-code
+  // language, MD024 duplicate headings, MD034 bare URLs, and MD060
+  // table-column-style) remains enabled so genuine defects are still caught.
+  "config": {
+    "default": true,
+    "MD013": false
+  },
+  "globs": [
+    "README.md",
+    "docs/**/*.md"
+  ]
+}
