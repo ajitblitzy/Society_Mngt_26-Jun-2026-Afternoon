@@ -41,7 +41,7 @@ classDiagram
         +mod_N_1(x) number
         +mod_N_k(x) number
     }
-    note for CanonicalModule "L1 headerComment is the // mod_N - society module line. L2 store is const store, an empty array that is inert: never read or written. L3 and beyond, the mod_N_k(x) functions all return 6x + 10 and are byte-identical except their names (1,200 per file; 705 in the short variant file_27.js). filler.js is the sole exception: comment-only, 0 functions."
+    note for CanonicalModule "L1 headerComment is the // mod_N - society module line. L2 store is const store, an empty array that is inert: never read or written. L3 and beyond, the mod_N_k(x) functions all return 6x + 10 for integer input and are byte-identical except their names (1,200 per file; 705 in the short variant file_27.js). filler.js is the sole exception: comment-only, 0 functions."
 ```
 
 *Figure: the canonical module shape shared by every non-filler file — an L1 header comment, an inert L2 `store`, and a run of identical `mod_*` functions `[society_mgmt_300k/src/config/file_6.js:L1-L10]`.*
@@ -60,10 +60,10 @@ The single file that does **not** follow the canonical pattern is `society_mgmt_
 
 ## Related documentation
 
-- [Architecture overview](overview.md) — how the nominal layers relate, and why there are no runtime edges between them.
+- [Architecture overview](overview.md) — how the nominal layers relate, and why there are no runtime edges between them `[Technical Specification §5.4.2]`.
 - [Function reference](../reference/function-reference.md) — the full signature, behavior, and dead-branch treatment of the `mod_*` functions.
-- [Source layout](../reference/source-layout.md) — the exhaustive per-layer inventory of all 29 files, 33,105 functions, and 300,000 lines.
-- [Glossary](../glossary.md) — definitions of `mod_*`, the inert `store`, `filler`, synthetic corpus, and dead branch.
+- [Source layout](../reference/source-layout.md) — the exhaustive per-layer inventory of all 29 files, 33,105 functions, and 300,000 lines `[Technical Specification §1.2.2]`.
+- [Glossary](../glossary.md) — definitions of the corpus-specific terminology used throughout this documentation.
 
 ---
 

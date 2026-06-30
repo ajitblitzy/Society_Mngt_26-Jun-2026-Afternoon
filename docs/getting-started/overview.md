@@ -4,7 +4,7 @@ Welcome to `society_mgmt_300k`. Despite its name, this repository is **not** a s
 
 ## What this repository is
 
-`society_mgmt_300k` is a [synthetic corpus](../glossary.md) of exactly **300,000 lines** across **29 `.js` files**, containing **33,105 near-identical functions** `[Technical Specification §1.2.2]`. Every one of those functions does the same thing: it takes a single numeric argument `x` and returns **`6x + 10`** `[society_mgmt_300k/src/config/file_6.js:L3-L10]`. There is no other behavior anywhere in the tree — the corpus was machine-generated to reach a target line count, not to implement any product or business domain `[Technical Specification §1.2.1]`.
+`society_mgmt_300k` is a [synthetic corpus](../glossary.md) of exactly **300,000 lines** across **29 `.js` files**, containing **33,105 near-identical functions** `[Technical Specification §1.2.2]`. Every one of those functions does the same thing: it takes a single numeric argument `x` and, for integer input, returns **`6x + 10`** `[society_mgmt_300k/src/config/file_6.js:L3-L10]`; the non-integer case is covered in the [function reference](../reference/function-reference.md). There is no other behavior anywhere in the tree — the corpus was machine-generated to reach a target line count, not to implement any product or business domain `[Technical Specification §1.2.1]`.
 
 ## Name versus substance
 
@@ -32,9 +32,9 @@ For the full signature, the parameter and return detail, and a flow diagram of t
 ## Where to go next
 
 - [Repository tour](repository-tour.md) — how to navigate `src/` and `tests/`, and how to open and read a file.
-- [Function reference](../reference/function-reference.md) — the full `6x + 10` signature, behavior, and flow diagram.
-- [Architecture overview](../architecture/overview.md) — the layered layout and why the layers have no runtime edges.
-- [Glossary](../glossary.md) — definitions of `mod_*`, the inert `store`, synthetic corpus, dead branch, and nominal layer.
+- [Function reference](../reference/function-reference.md) — the full signature, integer-input `6x + 10` behavior, and flow diagram `[society_mgmt_300k/src/config/file_6.js:L3-L10]`.
+- [Architecture overview](../architecture/overview.md) — the layered layout and why the layers have no runtime edges `[Technical Specification §5.4.2]`.
+- [Glossary](../glossary.md) — definitions of the corpus-specific terminology used throughout this documentation.
 
 ---
 

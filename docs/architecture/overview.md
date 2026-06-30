@@ -1,6 +1,6 @@
 # Architecture overview
 
-This page describes the architecture of the `society_mgmt_300k` [synthetic corpus](../glossary.md): how its files are organized into conventionally named [layers](../glossary.md), and — most importantly — why those layers have **no runtime edges** between them. For the canonical shape of an individual file, see the [module pattern](module-pattern.md); for the exhaustive per-file inventory, see the [source layout](../reference/source-layout.md).
+This page describes the architecture of the `society_mgmt_300k` [synthetic corpus](../glossary.md): how its files are organized into conventionally named [layers](../glossary.md) `[Technical Specification §1.2.2]`, and — most importantly — why those layers have **no runtime edges** between them `[Technical Specification §5.4.2]`. For the canonical shape of an individual file, see the [module pattern](module-pattern.md); for the exhaustive per-file inventory, see the [source layout](../reference/source-layout.md).
 
 ## Summary
 
@@ -70,9 +70,9 @@ The `tests/unit` and `tests/integration` directories do not contain executable t
 ## Related documentation
 
 - [Module pattern](module-pattern.md) — the canonical file anatomy: the header comment, the inert `store`, and the `mod_*` functions.
-- [Source layout](../reference/source-layout.md) — the exhaustive per-layer inventory of all 29 files, 33,105 functions, and 300,000 lines.
-- [Function reference](../reference/function-reference.md) — the signature and `6x + 10` behavior of the `mod_*` functions.
-- [Glossary](../glossary.md) — definitions of nominal layer, synthetic corpus, `mod_*`, the inert `store`, `filler`, and fixture.
+- [Source layout](../reference/source-layout.md) — the exhaustive per-layer inventory of all 29 files, 33,105 functions, and 300,000 lines `[Technical Specification §1.2.2]`.
+- [Function reference](../reference/function-reference.md) — the signature and integer-input `6x + 10` behavior of the `mod_*` functions `[society_mgmt_300k/src/config/file_6.js:L3-L10]`.
+- [Glossary](../glossary.md) — definitions of the corpus-specific terminology used throughout this documentation.
 
 ---
 

@@ -58,7 +58,7 @@ The corpus is **exactly 300,000 lines** across its 29 `.js` files, and the figur
 - **`society_mgmt_300k/src/utils/filler.js`** is **comment-only padding**: **1,999 lines** of the form `// filler NNNNNN` (spanning `// filler 298001` through `// filler 299999`) and **0 functions**, whose sole purpose is to pad the corpus to exactly 300,000 lines `[society_mgmt_300k/src/utils/filler.js]`.
 - **`society_mgmt_300k/src/middleware/file_27.js`** is a **short variant**: **6,347 lines** with **705 functions**, instead of the standard 10,802 lines with 1,200 functions `[society_mgmt_300k/src/middleware/file_27.js]`.
 
-The remaining 27 files are standard, with 1,200 functions and 10,802 lines each `[society_mgmt_300k/src/config/file_6.js:L1-L10]`. The functions therefore reconcile as `27 × 1,200 + 705 = 33,105`, and the lines reconcile to exactly 300,000 `[Technical Specification §1.2.2]`:
+The remaining 27 files are standard — each following the canonical file shape `[society_mgmt_300k/src/config/file_6.js:L1-L10]` — with 1,200 functions and 10,802 lines apiece `[Technical Specification §1.2.2]` (the per-file inventory is owned by the [source layout](../reference/source-layout.md)). The functions therefore reconcile as `27 × 1,200 + 705 = 33,105`, and the lines reconcile to exactly 300,000 `[Technical Specification §1.2.2]`:
 
 ```text
 27 standard files × 10,802 lines = 291,654
@@ -73,10 +73,10 @@ For the full per-layer breakdown — every directory's file, function, and line 
 ## Where to go next
 
 - [Overview](overview.md) — what this repository actually is versus its misleading name.
-- [Source layout](../reference/source-layout.md) — the exhaustive per-layer file, function, and line inventory.
-- [Function reference](../reference/function-reference.md) — the full `6x + 10` signature, behavior, and flow diagram.
-- [Architecture overview](../architecture/overview.md) — the layered layout and why the layers have no runtime edges.
-- [Glossary](../glossary.md) — definitions of `mod_*`, the inert `store`, `filler`, synthetic corpus, nominal layer, dead branch, and fixture.
+- [Source layout](../reference/source-layout.md) — the exhaustive per-layer file, function, and line inventory `[Technical Specification §1.2.2]`.
+- [Function reference](../reference/function-reference.md) — the full signature, integer-input `6x + 10` behavior, and flow diagram `[society_mgmt_300k/src/config/file_6.js:L3-L10]`.
+- [Architecture overview](../architecture/overview.md) — the layered layout and why the layers have no runtime edges `[Technical Specification §5.4.2]`.
+- [Glossary](../glossary.md) — definitions of the corpus-specific terminology used throughout this documentation.
 
 ---
 
