@@ -48,9 +48,12 @@ product:
   **`tests/`** tree of two layers (`unit`, `integration`). The layer names are
   organizational only and carry **no inter-layer wiring**. Source:
   `society_mgmt_300k/src/routes/file_3.js:L1-L11`; Tech Spec §1.2.2, §2.2.4.
-- **License and documentation artifacts.** Aside from the source, the repository's
-  only artifacts are its license files and this documentation tree. Source:
-  `/LICENSE:L1`; `society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3`.
+- **License and documentation artifacts.** Alongside the source, the repository
+  includes license files — an Apache 2.0 license at the repository root and an MIT
+  license inside the project subfolder — and Markdown documentation: a top-level
+  `README.md` and this `docs/` tree. These are the notable non-source artifacts,
+  not an exhaustive inventory of every tracked file. Source: `/LICENSE:L1`;
+  `society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3`; first-hand repository scan.
 
 ## What This Is NOT (Verified Absence)
 
