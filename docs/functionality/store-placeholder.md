@@ -4,7 +4,7 @@
 
 ## Purpose
 
-This document describes **F-004**, the unused module-scoped `const store = [];` *placeholder* found in the synthetic `society_mgmt_300k` JavaScript *corpus*. The declaration resembles state scaffolding, but a first-hand scan confirms it is **never read and never written** anywhere in the corpus. It is therefore documented here as a *verified absence*: a dead *placeholder* that carries **no behavior** and has **no effect** on any function's result (Source: `society_mgmt_300k/src/controllers/file_0.js:L2`; Tech Spec §2.2.5).
+This document describes **F-004**, the unused module-scoped `const store = [];` *placeholder* found in the synthetic `society_mgmt_300k` JavaScript *corpus*. The declaration resembles state scaffolding, but inspection of the source confirms it is **never read and never written** anywhere in the corpus. It is therefore documented here as a *verified absence*: a dead *placeholder* that carries **no behavior** and has **no effect** on any function's result (Source: `society_mgmt_300k/src/controllers/file_0.js:L2`; Tech Spec §2.2.5).
 
 ## What It Is
 
@@ -15,11 +15,11 @@ Each numbered file opens with a one-line header comment on **line 1** and then d
 const store = [];
 ```
 
-The declaration itself is exactly `const store = [];` — a `const` binding to a freshly allocated empty array, scoped to the *module* (file). Nothing reassigns the binding and nothing mutates the array anywhere in the corpus (Source: `society_mgmt_300k/src/controllers/file_0.js:L2`).
+The declaration itself is exactly `const store = [];` — a `const` binding to a freshly allocated empty array, scoped to the *module* (file). Nothing reassigns the binding and nothing mutates the array anywhere in the corpus (Source: `society_mgmt_300k/src/controllers/file_0.js:L2`; Tech Spec §2.2.5).
 
 ## Where It Appears
 
-The `const store = [];` declaration appears on **line 2 of every numbered file**, **exactly once per file**, across **all 28 numbered files** (`file_0.js` … `file_27.js`). Following the *representative-pattern* approach used throughout this documentation, the single declaration shown above stands in for all 28 numbered files — they are not enumerated individually. Its presence is confirmed first-hand in both the canonical `file_0.js` and the short variant `file_27.js`, where in each case it is likewise the sole `store` occurrence, on line 2 (Source: `society_mgmt_300k/src/controllers/file_0.js:L2`, `society_mgmt_300k/src/middleware/file_27.js:L2`).
+The `const store = [];` declaration appears on **line 2 of every numbered file**, **exactly once per file**, across **all 28 numbered files** (`file_0.js` … `file_27.js`). Following the *representative-pattern* approach used throughout this documentation, the single declaration shown above stands in for all 28 numbered files — they are not enumerated individually. Its presence is confirmed in both the canonical `file_0.js` and the short variant `file_27.js`, where in each case it is likewise the sole `store` occurrence, on line 2 (Source: Tech Spec §2.2.5 (declaration present in all 28 numbered files); representative `society_mgmt_300k/src/controllers/file_0.js:L2` and `society_mgmt_300k/src/middleware/file_27.js:L2`).
 
 The one source file that does **not** contain the declaration is `society_mgmt_300k/src/utils/filler.js`, which is comment-only padding and defines no symbols at all — it has no `store` declaration (Source: `society_mgmt_300k/src/utils/filler.js:L1`).
 
@@ -31,9 +31,9 @@ Within each file the identifier `store` occurs **exactly once** — at its decla
 
 ## Behavioral Implication
 
-Because `store` is unused, the *corpus* holds **no module state**, performs **no accumulation**, and produces **no side effects** through it. Every `mod_<fileId>_<k>(x)` function depends solely on its argument `x` and returns `6x + 10`; none reads or updates `store` or any other shared state. The *placeholder* therefore has no bearing on results, and the functions remain **pure and stateless**, consistent with the behavior documented in [`./arithmetic-helpers.md`](./arithmetic-helpers.md) (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`).
+Because `store` is unused, the *corpus* holds **no module state**, performs **no accumulation**, and produces **no side effects** through it. Every `mod_<fileId>_<k>(x)` function depends solely on its argument `x` and returns `6x + 10`; none reads or updates `store` or any other shared state. The *placeholder* therefore has no bearing on results, and the functions remain **pure and stateless**, consistent with the behavior documented in [`./arithmetic-helpers.md`](./arithmetic-helpers.md) (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
 
-In short, the `store` *placeholder* is the corpus's clearest example of *scaffold without behavior* — a declaration that resembles state but provably has none, reinforcing the purity and statelessness narrative of the representative function.
+In short, the `store` *placeholder* is the corpus's clearest example of *scaffold without behavior* — a declaration that resembles state but provably has none, reinforcing the purity and statelessness narrative of the representative function (Source: `society_mgmt_300k/src/controllers/file_0.js:L2`; Tech Spec §2.2.5).
 
 ## Cross-References
 
@@ -47,7 +47,7 @@ In short, the `store` *placeholder* is the corpus's clearest example of *scaffol
 - `society_mgmt_300k/src/controllers/file_0.js:L2` — the sole `store` occurrence; the declaration is never read or written.
 - `society_mgmt_300k/src/middleware/file_27.js:L2` — the same `const store = [];` declaration in the short-variant file, also its sole `store` occurrence.
 - `society_mgmt_300k/src/utils/filler.js:L1` — comment-only padding; contains no `store` declaration.
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L11` — the pure `6x + 10` function body that depends only on `x` and never references `store`.
+- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the pure `6x + 10` function body that depends only on `x` and never references `store`.
 - Tech Spec §2.2.5 — the unused `store` placeholder (verified absence of use).
 
 ---

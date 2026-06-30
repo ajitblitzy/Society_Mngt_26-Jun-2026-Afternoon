@@ -14,8 +14,9 @@ graph, no call graph, and no data or request flow between the layers, because
 the source contains zero imports, zero exports, and zero cross-module calls.
 This document therefore uses an honest **verified-absence** framing — the
 architectural relationships a layered name might normally imply are reported as
-verified absences rather than assumed. Source: `society_mgmt_300k/src/**`;
-Tech Spec §1.2.2; AAP §0.4.1.
+verified absences rather than assumed (Source: Tech Spec §2.2.4 (no inter-layer
+wiring); Tech Spec §1.2.2 (the layered scaffold); representative
+`society_mgmt_300k/src/controllers/file_0.js:L1`).
 
 ## Layered Scaffold
 
@@ -25,12 +26,14 @@ directory `society_mgmt_300k/`:
 - A **`src/` tree with nine layers**: `config`, `controllers`, `domain`,
   `middleware`, `models`, `repositories`, `routes`, `services`, and `utils`.
   These names mirror the conventional layers of a layered application
-  architecture. Source: `society_mgmt_300k/src/**`; Tech Spec §1.2.2.
+  architecture (Source: Tech Spec §1.2.2; representative
+  `society_mgmt_300k/src/controllers/file_0.js:L1`).
 - A **`tests/` tree with two layers**: `unit` and `integration`. These mirror a
   conventional test layout, but the test files hold the same arithmetic
   functions as the `src` layers and contain **no assertions** — they are not
-  functional tests. Source: `society_mgmt_300k/tests/**`; see the
-  [module reference](./functionality/module-reference.md) and Tech Spec §1.2.2.
+  functional tests (Source: Tech Spec §1.2.2; representative
+  `society_mgmt_300k/tests/unit/file_9.js:L3`); see the
+  [module reference](./functionality/module-reference.md).
 
 **Round-robin file distribution.** The 28 numbered files (`file_0.js` …
 `file_27.js`) are distributed across these layers **round-robin by file number**
@@ -38,14 +41,15 @@ directory `society_mgmt_300k/`:
 `routes`, `file_6` → `config`, and `file_27` → `middleware`. Because placement
 is purely a function of the file number, **layer membership does not change a
 file's content**: every numbered file holds the same `6x + 10` *module*
-functions regardless of the layer it lands in. Source:
-`society_mgmt_300k/src/**` (file headers, line 1); AAP §0.3.1.
+functions regardless of the layer it lands in (Source:
+`society_mgmt_300k/src/controllers/file_0.js:L1` (representative module header);
+Tech Spec §1.2.2).
 
 **Self-contained files.** Each numbered file is fully self-contained and follows
 an identical shape: a one-line header comment `// mod_<n> - society module`,
 then a single unused module-scoped declaration `const store = [];`, then a
 sequence of `mod_<n>_<k>(x)` functions. A `routes` file illustrates the shape
-that every layer repeats. Source: `society_mgmt_300k/src/routes/file_3.js:L1-L3`.
+that every layer repeats (Source: `society_mgmt_300k/src/routes/file_3.js:L1-L10`).
 
 ```javascript
 // mod_3 - society module
@@ -62,34 +66,35 @@ function mod_3_0(x){
 
 The lone non-numbered source file, `src/utils/filler.js`, is **comment-only
 padding** (`// filler NNNNNN` on every line) and declares no functions; it
-participates in the scaffold purely as the 29th `.js` file. Source:
-`society_mgmt_300k/src/utils/filler.js`.
+participates in the scaffold purely as the 29th `.js` file (Source:
+`society_mgmt_300k/src/utils/filler.js:L1` … `society_mgmt_300k/src/utils/filler.js:L1999`).
 
 ## No Inter-Layer Wiring
 
-The layering is **nominal only**. A first-hand scan of the entire `src` and
-`tests` trees finds **zero `module.exports` and zero `require(`** occurrences,
-so nothing is exported and nothing is imported anywhere in the *corpus*. Source:
-repository scan (0 exports / 0 imports across `society_mgmt_300k/src/**` and
-`society_mgmt_300k/tests/**`); Tech Spec §2.2.4.
+The layering is **nominal only**. Across the entire `src` and
+`tests` trees there are **zero `module.exports` and zero `require(`** occurrences,
+so nothing is exported and nothing is imported anywhere in the *corpus* (Source:
+Tech Spec §2.2.4 — zero `module.exports` / zero `require(` across the corpus;
+representative `society_mgmt_300k/src/controllers/file_0.js`).
 
 Consequently, the following architectural relationships are **verified absent**:
 
 - **No inter-layer dependencies** — no layer imports or requires any other
-  layer; the layers do not depend on one another. Source: repository scan
-  (0 imports across `society_mgmt_300k/src/**`); Tech Spec §2.2.4.
+  layer; the layers do not depend on one another (Source: Tech Spec §2.2.4 —
+  no inter-layer imports).
 - **No dependency graph** — because there are no imports between files, there
-  are no edges to form a module dependency graph. Source: repository scan
-  (0 exports / 0 imports); Tech Spec §2.2.4.
+  are no edges to form a module dependency graph (Source: Tech Spec §2.2.4 —
+  no imports between files).
 - **No call graph between modules** — every `mod_<n>_<k>(x)` function is
   file-local and is never invoked by another file; there are no cross-module
   calls. A representative `routes` file is self-contained arithmetic with no
-  imports and no calls into other layers. Source:
-  `society_mgmt_300k/src/routes/file_3.js:L1-L11`; Tech Spec §2.2.4.
+  imports and no calls into other layers (Source:
+  `society_mgmt_300k/src/routes/file_3.js:L1-L10`; Tech Spec §2.2.4).
 - **No data flow or request flow** — there is no server, router wiring, or
   shared state connecting the layers; the module-scoped `const store = [];` in
   each file is never read or written, so it carries no data between modules.
-  Source: `society_mgmt_300k/src/routes/file_3.js:L2`; AAP §0.3.1.
+  Source: `society_mgmt_300k/src/routes/file_3.js:L2` (the unused
+  `const store = [];`); Tech Spec §2.2.5.
 
 In short, the directory names suggest a layered application, but **no runtime
 architecture connects them**. The scaffold is a static organizational
@@ -101,7 +106,7 @@ The table below inventories all **11 layers** — nine `src` layers plus two
 `tests` layers — with their file counts, function counts, and module symbols
 (`mod_<N>`). The counts are reconciled against the authoritative
 [module reference](./functionality/module-reference.md), which carries the full
-per-file breakdown. Source: file/function scan; AAP §0.3.1.
+per-file breakdown (Source: Tech Spec §1.2.2 — per-layer file and function counts).
 
 | Layer (path) | Files | Functions | Module symbols |
 | --- | --- | --- | --- |
@@ -122,8 +127,8 @@ per-file breakdown. Source: file/function scan; AAP §0.3.1.
 (`file_0.js` … `file_27.js`) plus the comment-only `src/utils/filler.js` — and
 the function counts sum to **33,105**. The `middleware` layer totals **3,105**
 rather than 3,600 because `file_27.js` is a short variant with **705** functions
-instead of the standard 1,200 (`2 × 1,200 + 705 = 3,105`). Source: file/function
-scan; `society_mgmt_300k/src/middleware/file_27.js`; AAP §0.3.1. For the complete
+instead of the standard 1,200 (`2 × 1,200 + 705 = 3,105`) (Source:
+`society_mgmt_300k/src/middleware/file_27.js:L1`; Tech Spec §1.2.2). For the complete
 per-file listing, see the
 [module reference](./functionality/module-reference.md).
 
@@ -133,7 +138,7 @@ The diagram below shows the scaffold as a **containment hierarchy only**. The
 arrows represent directory containment (a parent directory *contains* its
 children); there are **deliberately no edges between the layer nodes** inside the
 `src layers` and `tests layers` groups, because no inter-layer wiring exists to
-represent. Source: repository scan (0 exports / 0 imports); Tech Spec §2.2.4.
+represent (Source: Tech Spec §2.2.4 — no inter-layer wiring).
 
 ```mermaid
 flowchart TD
@@ -161,9 +166,8 @@ flowchart TD
 
 **Caption.** The absence of edges among the layer nodes is **intentional**: it
 reflects the *verified absence* of inter-layer wiring (zero imports, zero
-exports, zero cross-module calls). Source: repository scan (0 exports /
-0 imports across `society_mgmt_300k/src/**` and `society_mgmt_300k/tests/**`);
-Tech Spec §2.2.4.
+exports, zero cross-module calls) (Source: Tech Spec §2.2.4 — the verified
+absence of inter-layer wiring).
 
 ## Cross-References
 
@@ -174,27 +178,29 @@ Tech Spec §2.2.4.
 
 ## Source Citations
 
-- `society_mgmt_300k/src/**` — the nine `src` layers (`config`, `controllers`,
-  `domain`, `middleware`, `models`, `repositories`, `routes`, `services`,
-  `utils`) and the round-robin file distribution (file headers, line 1).
-- `society_mgmt_300k/tests/**` — the two `tests` layers (`unit`, `integration`)
-  and the non-functional, assertion-free nature of the test files.
-- `society_mgmt_300k/src/routes/file_3.js:L1-L3` — the self-contained file shape
-  (header comment, `const store = [];`, `mod_<n>_<k>(x)` functions).
-- `society_mgmt_300k/src/routes/file_3.js:L1-L11` — a representative layer file
-  that is self-contained arithmetic with no imports and no cross-layer calls.
-- `society_mgmt_300k/src/middleware/file_27.js` — the 705-function short variant
-  that yields the `middleware` total of 3,105.
-- `society_mgmt_300k/src/utils/filler.js` — the comment-only padding file (the
-  29th `.js` file, 0 functions).
-- Repository scan (0 `module.exports` / 0 `require(` across
-  `society_mgmt_300k/src/**` and `society_mgmt_300k/tests/**`) — the verified
-  absence of inter-layer wiring, a dependency graph, and a call graph.
-- Tech Spec §1.2.2 — the nominal layered scaffold and the non-functional test
-  layout.
-- Tech Spec §2.2.4 — the absence of inter-module wiring.
-- AAP §0.3.1, §0.4.1 — the per-layer file/function counts and the
-  documentation scope for this architecture document.
+- `society_mgmt_300k/src/controllers/file_0.js:L1` — representative `src`-layer
+  module header (`// mod_0 - society module`); the nine `src` layers share this
+  one-line header shape and the round-robin file distribution.
+- `society_mgmt_300k/tests/unit/file_9.js:L3` — representative `tests`-layer
+  function, illustrating that the test files hold the same arithmetic and contain
+  no assertions.
+- `society_mgmt_300k/src/routes/file_3.js:L1-L10` — the self-contained file shape
+  reproduced in this document (header comment, `const store = [];`, and the
+  eight-line `mod_<n>_<k>(x)` body); also the representative layer file with no
+  imports and no cross-layer calls.
+- `society_mgmt_300k/src/routes/file_3.js:L2` — the module-scoped, unused
+  `const store = [];` that carries no data between modules.
+- `society_mgmt_300k/src/middleware/file_27.js:L1` — the 705-function short
+  variant whose header opens the file that yields the `middleware` total of 3,105.
+- `society_mgmt_300k/src/utils/filler.js:L1` … `society_mgmt_300k/src/utils/filler.js:L1999`
+  — the comment-only padding file (the 29th `.js` file, 0 functions, 1,999 lines).
+- Tech Spec §1.2.2 — the nominal layered scaffold, the per-layer file/function
+  counts, and the non-functional, assertion-free test layout.
+- Tech Spec §2.2.4 — the verified absence of inter-module wiring (zero
+  `module.exports`, zero `require(`), and therefore no dependency graph and no
+  call graph.
+- Tech Spec §2.2.5 — the unused `const store = [];` declaration that is never
+  read or written.
 
 ---
 

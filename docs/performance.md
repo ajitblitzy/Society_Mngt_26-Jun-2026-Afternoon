@@ -14,9 +14,9 @@ its **scale** — 300,000 lines of source — whose cost is a one-time
 *parse / traverse* expense paid by tooling rather than at runtime. Conventional
 runtime concerns — throughput, latency, concurrency, and scalability — are
 **Not Applicable**, because the corpus is not a runnable application and has no
-server, request path, or data path (Source: verified absence of any entry point
-and `0` `module.exports`/`require` occurrences; AAP §0.3.2; Tech Spec
-§2.5.2-§2.5.3).
+server, request path, or data path (Source: Tech Spec §2.2.4 — no entry point
+and zero `module.exports`/`require(` occurrences; Tech Spec §2.5.2-§2.5.3 —
+runtime concerns Not Applicable).
 
 ## Per-Call Complexity: Constant-Time `O(1)`
 
@@ -27,7 +27,7 @@ single local accumulator and then returns — there are
 console, or database access). The amount of work is independent of the input
 value `x`, so the per-call cost does not grow with input magnitude. The
 canonical function body, reproduced exactly as it appears in the source, is
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`; Tech Spec
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`; Tech Spec
 §2.5.2):
 
 ```javascript
@@ -44,13 +44,13 @@ function mod_0_0(x){
 The three additions accumulate `r = x*1 + x*2 + x*3 = 6x`, after which the
 parity guard adds `10`, so the function computes **`6x + 10`** in a fixed,
 constant number of steps (Source:
-`society_mgmt_300k/src/controllers/file_0.js:L3-L11`; Tech Spec §2.5.2).
+`society_mgmt_300k/src/controllers/file_0.js:L3-L10`; Tech Spec §2.5.2).
 
 This single `O(1)` profile is a *representative pattern*: every one of the
 corpus's **33,105 functions** is byte-identical and shares this exact body, so
 one complexity analysis characterizes the entire corpus and no per-function
-profiling is required (Source: first-hand repository scan — byte-identical
-bodies across all layers; AAP §0.7.1).
+profiling is required (Source: Tech Spec §2.2.2 — byte-identical bodies across
+all 33,105 functions; `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
 
 ## The Dead Always-True Parity Branch
 
@@ -73,8 +73,9 @@ runtime (Source: `society_mgmt_300k/src/controllers/file_0.js:L8`; Tech Spec
 
 The single performance-adjacent property of this project is its **scale**. The
 corpus comprises **300,000 lines** of JavaScript across **29 files** that
-together define **33,105 functions** (Source: first-hand repository scan; AAP
-§0.3.1):
+together define **33,105 functions** (Source: Tech Spec §1.2.2 — 29 files and
+per-layer function counts; Tech Spec §2.2.6 — the 300,000-line composition and
+33,105-function total):
 
 | Metric | Value |
 | --- | --- |
@@ -89,7 +90,8 @@ large source tree — the time and memory a build tool, linter, IDE, or `git`
 operation spends to **parse, lint, index, or traverse** 300,000 lines. This cost
 is paid once by tooling at rest, scales with the size of the tree rather than
 with any workload, and is never incurred repeatedly at runtime (Source:
-first-hand repository scan; AAP §0.3.1).
+Tech Spec §2.2.6 — the 300,000-line scale; Tech Spec §2.5.2 — performance
+characterization).
 
 ## Runtime Scalability: Not Applicable
 
@@ -98,18 +100,20 @@ reported here as a *verified absence* rather than as zero-valued metrics:
 
 - **Scalability — Not Applicable.** There is no server, request path, data path,
   concurrency model, or workload; nothing runs as a long-lived service that
-  could be scaled (Source: verified absence of any entry point and `0`
-  `module.exports`/`require` occurrences; AAP §0.3.2; Tech Spec §2.5.2-§2.5.3).
+  could be scaled (Source: Tech Spec §2.2.4 — no entry point and zero
+  `module.exports`/`require(` occurrences; Tech Spec §2.5.2-§2.5.3 — scalability
+  Not Applicable).
 - **Throughput / latency — Not Applicable.** With no executing service and no
   request lifecycle, there is no throughput to measure and no latency to
   observe.
 - **No SLAs, targets, or benchmarks.** No service-level agreements, performance
   targets, or benchmark suites exist for this corpus, and none are applicable;
-  none are asserted or fabricated here (Source: AAP §0.7.2).
+  none are asserted or fabricated here (Source: Tech Spec §2.5.2-§2.5.3 — no
+  SLAs, targets, or benchmarks apply to a non-runnable corpus).
 
 Each of these properties does not exist for this corpus, so it is documented as
-a verified absence and no figures are invented for it (Source: AAP §0.7.2; Tech
-Spec §2.5.2-§2.5.3).
+a verified absence and no figures are invented for it (Source: Tech Spec
+§2.5.2-§2.5.3 — these runtime properties do not exist for a non-runnable corpus).
 
 ## Computation Flowchart
 
@@ -140,19 +144,20 @@ flowchart TD
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L11` — the canonical,
+- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the canonical,
   constant-time function body computing `6x + 10`; representative of all 33,105
   byte-identical functions.
 - `society_mgmt_300k/src/controllers/file_0.js:L8` — the always-true parity
   guard `if(r%2===0){r+=10}`, whose `false` path is dead for integer `x`.
-- First-hand repository scan; AAP §0.3.1 — 300,000 lines / 29 files / 33,105
-  functions, and `0` exported/importable symbols.
-- AAP §0.3.2; Tech Spec §2.5.2-§2.5.3 — runtime scalability, throughput, and
-  latency are Not Applicable (no server, request path, or data path).
-- AAP §0.7.1 — the representative-pattern approach: one `O(1)` profile stands in
-  for all 33,105 byte-identical functions.
-- AAP §0.7.2 — no SLAs, performance targets, or benchmarks exist or are
-  applicable.
+- Tech Spec §1.2.2 and §2.2.6 — 300,000 lines / 29 files / 33,105
+  functions, and `0` exported/importable symbols (Tech Spec §2.2.4).
+- Tech Spec §2.5.2-§2.5.3 — runtime scalability, throughput, and
+  latency are Not Applicable (no server, request path, or data path); Tech Spec
+  §2.2.4 — no entry point or executing service.
+- Tech Spec §2.2.2 — byte-identical bodies across all 33,105 functions, so one
+  `O(1)` profile (the representative pattern) characterizes the entire corpus.
+- Tech Spec §2.5.2-§2.5.3 — no SLAs, performance targets, or benchmarks exist or
+  are applicable.
 
 ---
 

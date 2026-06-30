@@ -8,7 +8,7 @@ This document is the authoritative **per-layer module inventory** of the synthet
 
 ## Per-Layer Inventory
 
-The table below lists every layer with its file count, function count, and the module symbols (`mod_<N>`) it contains. Counts were confirmed by a first-hand scan (`grep -c '^function mod_'` per file and a recursive `find`/listing for the file set).
+The table below lists every layer with its file count, function count, and the module symbols (`mod_<N>`) it contains (Source: Tech Spec §1.2.2 — per-layer file and function counts; representative module header `society_mgmt_300k/src/controllers/file_0.js:L1`).
 
 | Layer (path) | Files | Functions | Module symbols |
 | --- | --- | --- | --- |
@@ -25,20 +25,20 @@ The table below lists every layer with its file count, function count, and the m
 | `tests/integration/` | 2 | 2,400 | mod_10, mod_21 |
 | **Total** | **29** | **33,105** | — |
 
-**Reconciliation.** The file counts sum to **29** — `2 + 3 + 2 + 3 + 3 + 2 + 3 + 3 + 3 (+ filler.js) + 2 + 2`, i.e. 28 numbered files plus `src/utils/filler.js` — and the function counts sum to **33,105**. Source: first-hand repository scan of `society_mgmt_300k/src/**` and `society_mgmt_300k/tests/**`.
+**Reconciliation.** The file counts sum to **29** — `2 + 3 + 2 + 3 + 3 + 2 + 3 + 3 + 3 (+ filler.js) + 2 + 2`, i.e. 28 numbered files plus `src/utils/filler.js` — and the function counts sum to **33,105** (Source: Tech Spec §1.2.2 (per-layer counts); Tech Spec §2.2.6 (corpus total of 33,105 functions)).
 
-- **File → module mapping.** Each file declares its module identity in its header comment `// mod_<N> - society module` on line 1, and files are assigned to layers by a round-robin distribution over the file number (`file_0` → `controllers/mod_0`, `file_1` → `services/mod_1`, …, `file_27` → `middleware/mod_27`). Source: `society_mgmt_300k/src/**` (file headers, line 1).
+- **File → module mapping.** Each file declares its module identity in its header comment `// mod_<N> - society module` on line 1, and files are assigned to layers by a round-robin distribution over the file number (`file_0` → `controllers/mod_0`, `file_1` → `services/mod_1`, …, `file_27` → `middleware/mod_27`) (Source: `society_mgmt_300k/src/controllers/file_0.js:L1` (representative header `// mod_0 - society module`); Tech Spec §1.2.2).
 
 ## Notes
 
 The following verified specifics explain the counts above:
 
-- **Standard files contain 1,200 functions each** — `mod_<id>_0` … `mod_<id>_1199`. This uniform count holds for all 28 numbered files except the short variant noted below. Source: `society_mgmt_300k/src/controllers/file_0.js` (`grep -c '^function mod_'` = 1,200).
-- **Short variant — `src/middleware/file_27.js` contains 705 functions** (`mod_27_0` … `mod_27_704`). This is the sole deviation from the uniform 1,200, and it is why the `middleware` layer totals **3,105** functions (`= 2 × 1,200 + 705`) rather than 3,600. Source: `society_mgmt_300k/src/middleware/file_27.js`.
-- **`src/utils/filler.js` contains 0 functions** — it is comment-only padding (`// filler NNNNNN` on every line) and contributes nothing to the function totals, although it is counted among the 29 `.js` files. Source: `society_mgmt_300k/src/utils/filler.js`.
-- **The `config/` layer holds arithmetic functions, NOT configuration values** — `file_6.js` and `file_17.js` contain the same `6x + 10` functions as every other layer; there are no configuration keys, values, or settings anywhere in the corpus. Source: `society_mgmt_300k/src/config/file_6.js:L1`.
-- **The `tests/` files contain NO assertions** — `tests/unit/**` and `tests/integration/**` hold the same arithmetic functions as the `src` layers and are **not** functional tests; an assertion-keyword scan finds zero `expect`, `assert`, `describe`, `it`, or `test` occurrences. Source: `society_mgmt_300k/tests/**` (assertion-keyword scan = 0); Tech Spec §1.2.2.
-- **Nothing is exported or importable** — there are zero `module.exports` and zero `require(` occurrences across `src` and `tests`, so every module symbol is **file-local** and the corpus exposes no public API. This is a *verified absence*, not an omission from this inventory. Source: repository scan (0 exports / 0 imports across `society_mgmt_300k/src/**` and `society_mgmt_300k/tests/**`).
+- **Standard files contain 1,200 functions each** — `mod_<id>_0` … `mod_<id>_1199`. This uniform count holds for all 28 numbered files except the short variant noted below (Source: `society_mgmt_300k/src/controllers/file_0.js:L3` (first function `mod_0_0`); Tech Spec §1.2.2 — 1,200 functions per standard file).
+- **Short variant — `src/middleware/file_27.js` contains 705 functions** (`mod_27_0` … `mod_27_704`). This is the sole deviation from the uniform 1,200, and it is why the `middleware` layer totals **3,105** functions (`= 2 × 1,200 + 705`) rather than 3,600 (Source: `society_mgmt_300k/src/middleware/file_27.js:L1`; Tech Spec §1.2.2 — the 705-function short variant).
+- **`src/utils/filler.js` contains 0 functions** — it is comment-only padding (`// filler NNNNNN` on every line) and contributes nothing to the function totals, although it is counted among the 29 `.js` files (Source: `society_mgmt_300k/src/utils/filler.js:L1` and `society_mgmt_300k/src/utils/filler.js:L1999` — comment-only padding; Tech Spec §2.2.6).
+- **The `config/` layer holds arithmetic functions, NOT configuration values** — `file_6.js` and `file_17.js` contain the same `6x + 10` functions as every other layer; there are no configuration keys, values, or settings anywhere in the corpus (Source: `society_mgmt_300k/src/config/file_6.js:L1`; Tech Spec §2.2.2 — config-layer files hold the same `6x + 10` arithmetic, not configuration values).
+- **The `tests/` files contain NO assertions** — `tests/unit/**` and `tests/integration/**` hold the same arithmetic functions as the `src` layers and are **not** functional tests; they contain no assertion keywords (`expect`, `assert`, `describe`, `it`, or `test`) (Source: Tech Spec §1.2.2 — `tests/unit` and `tests/integration` hold the same arithmetic functions with no assertions or test-runner code; representative `society_mgmt_300k/tests/unit/file_9.js:L3`).
+- **Nothing is exported or importable** — there are zero `module.exports` and zero `require(` occurrences across `src` and `tests`, so every module symbol is **file-local** and the corpus exposes no public API. This is a *verified absence*, not an omission from this inventory (Source: Tech Spec §2.2.4 — zero `module.exports` and zero `require(` across the corpus, so every symbol is file-local with no public API).
 
 ## Cross-References
 
@@ -50,11 +50,11 @@ The following verified specifics explain the counts above:
 
 ## Source Citations
 
-- `society_mgmt_300k/src/**` — file headers (`// mod_<N> - society module`, line 1) and the per-file / per-layer file and function counts.
+- `society_mgmt_300k/src/controllers/file_0.js:L1` (representative header `// mod_0 - society module`); Tech Spec §1.2.2 — the per-file / per-layer file and function counts.
 - `society_mgmt_300k/src/config/file_6.js:L1` — the `config/` layer holds arithmetic functions, not configuration values.
-- `society_mgmt_300k/src/middleware/file_27.js` — the 705-function short variant that yields the `middleware` total of 3,105.
-- `society_mgmt_300k/src/utils/filler.js` — comment-only padding with 0 functions.
-- `society_mgmt_300k/tests/**` — the test layers contain the same arithmetic functions and zero assertions.
+- `society_mgmt_300k/src/middleware/file_27.js:L1` — the 705-function short variant that yields the `middleware` total of 3,105.
+- `society_mgmt_300k/src/utils/filler.js:L1` and `society_mgmt_300k/src/utils/filler.js:L1999` — comment-only padding with 0 functions.
+- `society_mgmt_300k/tests/unit/file_9.js:L3`; Tech Spec §1.2.2 — the test layers contain the same arithmetic functions and no assertions or test-runner code.
 - Tech Spec §1.2.2 — the nominal layered scaffold and the non-functional nature of the `tests/` files.
 
 ---
