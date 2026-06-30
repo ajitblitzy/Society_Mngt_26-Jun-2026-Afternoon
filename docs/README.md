@@ -13,14 +13,23 @@ traversal rather than execution. It comprises **29 `.js` files** totaling
 **exactly 300,000 lines** and defining **33,105 functions** named
 `mod_<fileId>_<k>`, every one of which computes the same expression, `6x + 10`,
 for a numeric input `x`
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`).
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10` for the per-file
+motif and the `6x + 10` body; `docs/reference/corpus-evidence.md:L28-L54` for the
+verified 29-file / 33,105-function / 300,000-line counts and
+`docs/reference/corpus-evidence.md:L67-L95` for the body being byte-identical
+across all 33,105 functions).
 
 The files are arranged as a **layered scaffold of 11 nominal layers** under
 `src/` and `tests/`, with **no inter-layer dependencies** and no module system.
 The name "society management" is a **nominal label only** — it appears as the
 repository name and a per-file header comment, and is **not** implemented
 domain functionality
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L1`). These documents are
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L1` for the per-file header
+comment; `docs/reference/corpus-evidence.md:L177-L215` for the 11-layer
+composition, `docs/reference/corpus-evidence.md:L112-L151` for the zero
+`require`/`import`/`export`/`module.exports` sweep that confirms no module system
+and no inter-layer edges, and `docs/reference/corpus-evidence.md:L248-L262` for
+the evidence that "society management" is only a label). These documents are
 plain Markdown with any diagrams embedded as fenced `mermaid` blocks that render
 natively on GitHub, so **no build step** is required to read them.
 
@@ -41,7 +50,10 @@ material for targeted lookups:
 
 ## Documentation map
 
-Every documentation page is indexed below, grouped by area.
+Every Markdown page in the `docs/` tree is indexed below. The **current
+documentation set** is grouped by area first; an earlier flat documentation set
+is listed afterwards under **Legacy / superseded pages**, so that no page is
+left unindexed.
 
 - **[Overview](overview.md)** — system overview; synthetic-corpus nature;
   "society management" as a label; what the system is **not**.
@@ -69,26 +81,62 @@ Every documentation page is indexed below, grouped by area.
     to layer / function count / line count.
   - [Code reference](reference/code-reference.md) — the `mod_*` archetype
     (file-local, not a public API).
+  - [Corpus evidence](reference/corpus-evidence.md) — the reproducible scans
+    (E1–E12) that substantiate every corpus-wide count and absence claim.
   - [Glossary](reference/glossary.md) — terminology (`mod_`, `store`,
     `filler`, layer, short variant, synthetic corpus, dead branch).
+
+### Legacy / superseded pages
+
+The pages below are an **earlier, flat documentation set** that predates the
+structured tree above. They are retained for history but are **superseded** by
+the current documentation set; prefer the pages above. They are indexed here so
+this hub remains a complete index of every page under `docs/`.
+
+- [Architecture (legacy)](architecture.md) — superseded by the
+  [Architecture index](architecture/README.md) and
+  [Layered scaffold](architecture/layered-scaffold.md).
+- [Performance (legacy)](performance.md) — superseded by
+  [Performance](performance/README.md).
+- [Security (legacy)](security.md) — superseded by
+  [Security](security/README.md).
+- [Licensing governance (legacy)](governance/licensing.md) — superseded by the
+  F-006 section of [Security](security/README.md).
+- [Corpus sizing (legacy)](functionality/corpus-sizing.md) — superseded by
+  [Corpus composition](functionality/corpus-composition.md).
+- [Module reference (legacy)](functionality/module-reference.md) — superseded by
+  the [Code reference](reference/code-reference.md).
+- [Store placeholder (legacy)](functionality/store-placeholder.md) — superseded
+  by [Module anatomy](functionality/module-anatomy.md).
+- [Symbol namespace (legacy)](functionality/symbol-namespace.md) — superseded by
+  [Arithmetic helpers](functionality/arithmetic-helpers.md).
 
 ## Key facts at a glance
 
 - **Scale:** 29 `.js` files, 33,105 functions, exactly 300,000 lines
-  (Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`).
+  (Source: `docs/reference/corpus-evidence.md:L28-L54`; per-file motif:
+  `society_mgmt_300k/src/controllers/file_0.js:L1-L10`).
 - **Behavior:** every `mod_<fileId>_<k>(x)` returns `6x + 10`; for example,
   `mod_0_0(4)` = `6*4 + 10` = `34`. The parity branch (`if (r % 2 === 0)`) is a
   **dead always-true branch** because `6x` is always even
-  (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
+  (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10` for the body and
+  dead branch; `docs/reference/corpus-evidence.md:L67-L95` confirms this body is
+  byte-identical across all 33,105 functions).
 - **Structure:** 11 nominal layers under `src/` and `tests/` with **no
   inter-layer edges**
-  (Source: `society_mgmt_300k/src/controllers/file_0.js:L1`).
+  (Source: `docs/reference/corpus-evidence.md:L177-L215` for the per-layer
+  roll-up and `docs/reference/corpus-evidence.md:L112-L151` for the zero
+  `require`/`import`/`export` sweep that confirms no inter-layer edges).
 - **Dependencies:** zero — there is no module system, package manifest, or
   external dependency
-  (Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`).
+  (Source: `docs/reference/corpus-evidence.md:L112-L151` for the zero-module
+  sweep and `docs/reference/corpus-evidence.md:L234-L246` for the absence of any
+  `package.json` or lockfile).
 - **Naming:** "society management" is a **nominal label**, not implemented
   functionality
-  (Source: `society_mgmt_300k/src/controllers/file_0.js:L1`).
+  (Source: `society_mgmt_300k/src/controllers/file_0.js:L1` for the per-file
+  header comment; `docs/reference/corpus-evidence.md:L248-L262` for the
+  corpus-wide header-comment scan).
 - **Licensing:** a **dual-license conflict (F-006)** exists — the root
   `LICENSE` is Apache-2.0 while `society_mgmt_300k/LICENSE/LICENSE.txt` is MIT;
   it is documented (not resolved) in [Security](security/README.md)
@@ -110,10 +158,13 @@ Every page in this tree follows the same conventions so they are predictable:
 
 ## Source Citations
 
-- Canonical module motif and corpus counts (the `// mod_0 - society module`
-  header, the inert `const store = []`, and the `6x + 10` function body that is
-  byte-identical across all 33,105 functions) — Source:
+- Canonical module motif (the `// mod_0 - society module` header, the inert
+  `const store = []`, and the `6x + 10` function body) — Source:
   `society_mgmt_300k/src/controllers/file_0.js:L1-L10`.
+- Corpus-wide counts (29 `.js` files, 33,105 functions, 300,000 lines) and the
+  function body being byte-identical across all 33,105 functions — Source:
+  `docs/reference/corpus-evidence.md:L28-L54` (counts) and
+  `docs/reference/corpus-evidence.md:L67-L95` (body uniformity).
 - Dual-license conflict (F-006) — Source: `LICENSE` (Apache-2.0) and
   `society_mgmt_300k/LICENSE/LICENSE.txt:L1` (MIT).
 - Project identity and documentation entry point — Source: `README.md`.
