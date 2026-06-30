@@ -1,91 +1,69 @@
-# Society Management 300k Corpus
+# society_mgmt_300k
 
-A deterministic, **synthetic JavaScript corpus** (`society_mgmt_300k`)
-deliberately sized to exactly **300,000 lines** across **29 `.js` files** and
-**33,105 functions**, organized into a nominal layered scaffold. It exists for
-static analysis and code traversal rather than execution — there is no runnable
-application.
-(Source: `society_mgmt_300k/**/*.js`; AAP §0.3.1; Tech Spec §1.2)
+`society_mgmt_300k` is a deterministic, **synthetic JavaScript corpus** of exactly **300,000 lines** spread across **29 `.js` files** and holding **33,105 near-identical functions** [Technical Specification §1.2.2]. Despite its "Society Management" name, it contains **no society-management — or any other — business logic**: every function does the same thing, returning **`6x + 10`** for an integer input `x` [society_mgmt_300k/src/config/file_6.js:L3-L10] [Technical Specification §1.2.1]. The repository exists to be read, navigated, and statically analyzed at scale rather than executed — there is no entry point, runtime, or framework [Technical Specification §1.2.2]. Read the name as a label on a box of repeated arithmetic, and start at the [documentation home](docs/index.md).
 
-## What This Is / What This Is Not
+## What this is / what this is not
 
 ### What it is
 
-- A **deterministic, synthetic JavaScript corpus** of exactly 300,000 lines
-  spread across 29 `.js` files and 33,105 functions.
-  (Source: `society_mgmt_300k/**/*.js`; AAP §0.3.1)
-- A collection of **byte-identical arithmetic helper functions**: every
-  function is the same representative function, which computes `6x + 10` for an
-  integer input `x`.
-  (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`)
-- A **nominal layered directory scaffold** — nine `src/` layers (`config`,
-  `controllers`, `domain`, `middleware`, `models`, `repositories`, `routes`,
-  `services`, `utils`) plus a `tests/` tree (`unit`, `integration`).
-  (Source: `society_mgmt_300k/src/**`; AAP §0.3.1)
-- A set of **license and documentation artifacts** (see
-  [Documentation](#documentation) and [Licensing](#licensing) below).
-  (Source: `/LICENSE`, `society_mgmt_300k/LICENSE/LICENSE.txt`)
-
-The single representative function — identical across all 33,105 occurrences —
-is:
-
-```javascript
-function mod_0_0(x){
- let r=0;
- r+=x*1;
- r+=x*2;
- r+=x*3;
- if(r%2===0){r+=10}
- return r;
-}
-```
-
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`)
+- A **deterministic arithmetic helper corpus**: every function computes `6x + 10` and is pure, side-effect-free, and `O(1)`, with no loops, recursion, `throw`/`try`/`catch`, or `async`/`await` [society_mgmt_300k/src/config/file_6.js:L3-L10] [Technical Specification §4.3.3].
+- A **layered directory layout by name only**: nine `src/` layers plus a `tests/` tree, where the familiar layer names are nominal labels with no imports, exports, classes, shared state, or calls between files [Technical Specification §5.4.2].
+- A set of **generated test fixtures**: the files under `tests/unit` and `tests/integration` hold the same `mod_*` functions with no assertions and no test-runner code [Technical Specification §1.2.2].
 
 ### What it is not
 
-- **Not a runnable application** — there is no entry point, framework, server,
-  or inter-module wiring.
-  (Source: `society_mgmt_300k/**/*.js`; AAP §0.2.2; Tech Spec §1.2)
-- **No exported or importable API** — there are zero `module.exports` and zero
-  `require(...)` occurrences across the corpus; every symbol is module-local.
-  (Source: `society_mgmt_300k/**/*.js`; AAP §0.2.2)
-- **No framework, server, database, network, or external input** beyond the
-  single numeric argument `x`. (Source: `society_mgmt_300k/**/*.js`; Tech Spec §1.2)
-- **No configuration values** — the `config/` layer holds arithmetic
-  functions, not configuration.
-  (Source: `society_mgmt_300k/src/config/file_6.js:L1-L11`; AAP §0.2.2)
-- **No functional tests** — the files under `tests/` contain no assertions.
-  (Source: `society_mgmt_300k/tests/**`; AAP §0.3.1)
-- **No dependency manifest** — there is no `package.json` or lockfile.
-  (Source: AAP §0.2.1)
+- **Not a runnable application** — there is no `index.js`/`app.js`/`server.js`/`main.js` entry point, no runtime, and no framework [Technical Specification §1.2.2].
+- **Not a web or API service** — there are no HTTP endpoints, route definitions, or request handlers anywhere in the tree [Technical Specification §5.4.2].
+- **Not a data layer** — there are no schemas, data fields, or database access; the `models/`, `repositories/`, and `domain/` layers hold only arithmetic helpers [Technical Specification §1.2.2].
+- **No configuration and no dependencies** — there is no configuration object, no `package.json`, and zero third-party dependencies [Technical Specification §1.2.2].
 
-This README uses an honest **verified-absence** framing: it documents only what
-a first-hand scan of the corpus confirms and does not imply capabilities the
-code does not have.
+## Structure at a glance
+
+The corpus is organized into **11 directories** — nine nominal `src/` layers plus two `tests/` directories. The counts below reconcile to **29 files**, **33,105 functions**, and exactly **300,000 lines** [Technical Specification §1.2.2].
+
+| Directory | Files | Functions |
+| --- | --- | --- |
+| `society_mgmt_300k/src/config` | 2 | 2,400 |
+| `society_mgmt_300k/src/middleware` | 3 | 3,105 |
+| `society_mgmt_300k/src/models` | 3 | 3,600 |
+| `society_mgmt_300k/src/controllers` | 3 | 3,600 |
+| `society_mgmt_300k/src/routes` | 3 | 3,600 |
+| `society_mgmt_300k/src/domain` | 2 | 2,400 |
+| `society_mgmt_300k/src/services` | 3 | 3,600 |
+| `society_mgmt_300k/src/repositories` | 2 | 2,400 |
+| `society_mgmt_300k/src/utils` | 3 + `filler.js` | 3,600 |
+| `society_mgmt_300k/tests/unit` | 2 | 2,400 |
+| `society_mgmt_300k/tests/integration` | 2 | 2,400 |
+| **Total** | **29** | **33,105** |
+
+The grand total is exactly **300,000 lines** of JavaScript [Technical Specification §1.2.2]. The extra file counted in `src/utils` is `filler.js`, a **comment-only** file with **0 functions** that pads the corpus to that exact line count [society_mgmt_300k/src/utils/filler.js]. A full per-layer inventory is in the [source layout](docs/reference/source-layout.md).
+
+## The one behavior
+
+Every non-filler file follows one canonical shape: a header comment `// mod_<fileId> - society module` on line 1, an inert `const store = [];` on line 2 (declared but never read or written), then a run of `mod_<fileId>_<k>(x)` functions [society_mgmt_300k/src/config/file_6.js:L1-L10]. All 33,105 functions are byte-for-byte identical except for their names, so the single example below is representative of every one of them [society_mgmt_300k/src/config/file_6.js:L3-L10]:
+
+```javascript
+// representative of all 33,105 functions; returns 6x + 10
+mod_6_0(2);  // => 22   (6*2 + 10)
+mod_6_0(5);  // => 40   (6*5 + 10)
+```
+
+Each function accumulates `r = x*1 + x*2 + x*3` (which equals `6x`), then runs `if (r % 2 === 0) { r += 10 }` before returning `r`. Because `6x` is always even for integer input, the parity check is **always true**, the `+= 10` runs unconditionally, and the `else` path is a **dead, unreachable branch** — so each function effectively returns `6x + 10` [society_mgmt_300k/src/config/file_6.js:L3-L10] [Technical Specification §4.3.1]. See the [function reference](docs/reference/function-reference.md) for the full signature and flow.
 
 ## Documentation
 
-Full documentation lives under [`docs/`](docs/README.md). Begin at the index
-and follow the topic links below:
+Full documentation lives under [`docs/`](docs/index.md); the index is the master navigation hub for the whole set.
 
-- [Documentation index / navigation hub](docs/README.md)
-- [System overview](docs/overview.md)
-- [Layered scaffold & architecture](docs/architecture.md)
-- [Functionality reference](docs/functionality/README.md) — arithmetic
-  helpers, symbol namespace, module reference, store placeholder, and corpus
-  sizing
-- [Performance characteristics](docs/performance.md)
-- [Security posture](docs/security.md)
-- [Licensing governance](docs/governance/licensing.md) — the Apache-vs-MIT
-  inconsistency
+- [Documentation home](docs/index.md)
+- [Overview](docs/getting-started/overview.md) · [Repository tour](docs/getting-started/repository-tour.md)
+- [Architecture overview](docs/architecture/overview.md) · [Module pattern](docs/architecture/module-pattern.md)
+- [Function reference](docs/reference/function-reference.md) · [Source layout](docs/reference/source-layout.md)
+- [Performance](docs/performance.md) · [Security](docs/security.md) · [Glossary](docs/glossary.md)
+
+## No build, run, or test
+
+There is **nothing to install, build, run, or test**. The repository has no `package.json`, no runtime or framework, no build or CI configuration, and no test runner; the `tests/` directories are fixtures without assertions [Technical Specification §1.2.2]. The files are meant to be opened and read or fed to static-analysis tooling — see the [repository tour](docs/getting-started/repository-tour.md) for guidance on navigating the tree.
 
 ## Licensing
 
-This repository contains license artifacts in two locations, and they are
-currently **inconsistent**: the root [`LICENSE`](LICENSE) is the **Apache
-License 2.0**, while the project copy
-[`society_mgmt_300k/LICENSE/LICENSE.txt`](society_mgmt_300k/LICENSE/LICENSE.txt)
-is the **MIT License**. This discrepancy is documented — not resolved here —
-in [Licensing governance](docs/governance/licensing.md).
-(Source: `/LICENSE:L1`, `society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3`)
+This repository contains **two conflicting license files**: the root `LICENSE` is the **Apache License 2.0** [LICENSE:L1-L2], while `society_mgmt_300k/LICENSE/LICENSE.txt` is the **MIT License** (Copyright (c) 2026) [society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3]. This inconsistency is a known governance issue [Technical Specification §1.3.3]; it is **not resolved here** and is recorded as an open item in [security](docs/security.md).
