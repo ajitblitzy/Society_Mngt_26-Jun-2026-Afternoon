@@ -21,7 +21,7 @@ the [System overview](./overview.md).
 
 ## Documentation map
 
-Begin with the overview, then open the area you need. All eleven documents are
+Begin with the overview, then open the area you need. All fourteen documents are
 listed below.
 
 ### Overview & architecture
@@ -44,6 +44,16 @@ listed below.
   module-scoped `const store = []` declaration.
 - [Corpus sizing (F-005)](./functionality/corpus-sizing.md) — the deterministic
   300,000-line composition.
+
+### Reference
+
+- [Function reference](./reference/function-reference.md) — the authoritative
+  `mod_<fileId>_<k>(x) → 6x + 10` signature, behavior, parameters/return, and
+  the dead always-true parity branch.
+- [Source layout](./reference/source-layout.md) — the exhaustive per-layer
+  inventory of all 29 files, 33,105 functions, and exactly 300,000 lines.
+- [Glossary](./glossary.md) — definitions of `mod_*`, `store`, `filler`,
+  synthetic corpus, dead branch, and nominal layer.
 
 ### Performance & security
 
