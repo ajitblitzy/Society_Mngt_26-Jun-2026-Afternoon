@@ -7,12 +7,17 @@
 This page documents the corpus's **only** behavioral capability: the `mod_*`
 arithmetic helper family. The family spans all **33,105** functions of the
 synthetic [`society_mgmt_300k`](../overview.md) JavaScript *corpus*, and every one
-of them effectively returns **`6x + 10`** for a numeric input `x`
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`). These functions
-are *pure*, *deterministic*, single-argument, and structurally identical —
-differing only in their `mod_<fileId>_<k>` name — so this single page documents
-the entire family. (The terms *pure*, *deterministic*, *dead (always-true)
-branch*, and *synthetic corpus* are defined in the
+of them effectively returns **`6x + 10`** for a numeric input `x`. The canonical
+single-function body is shown directly
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`), while the facts
+that there are exactly **33,105** such functions and that all of them are
+**byte-identical apart from their names** are established by reproducible
+corpus-wide scans (Source: `docs/reference/corpus-evidence.md:L47-L54` for the
+function count, `docs/reference/corpus-evidence.md:L67-L95` for the body
+uniformity). These functions are *pure*, *deterministic*, single-argument, and
+structurally identical — differing only in their `mod_<fileId>_<k>` name — so this
+single page documents the entire family. (The terms *pure*, *deterministic*,
+*dead (always-true) branch*, and *synthetic corpus* are defined in the
 [glossary](../reference/glossary.md); this page does not redefine them.)
 
 "Society management" is a **nominal label** only: it appears solely as the
@@ -112,11 +117,14 @@ second, and so on
 (Source: `society_mgmt_300k/src/controllers/file_0.js:L3`). Because each name
 combines the file id with the position, the **33,105** names are
 **collision-free**: the file id plus the index uniquely identifies every
-function. The symbols are **file-local** and **not importable** — the corpus has
-no module system, so a whole-tree keyword sweep finds zero occurrences of
-`require`, `import`, `export`, or `module.exports`, and no `mod_*` symbol can be
-referenced from another file
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L3`). The `mod_` prefix
+function. This is verified directly — a corpus-wide scan finds exactly 33,105
+function declarations and exactly 33,105 distinct names, with no duplicates
+(Source: `docs/reference/corpus-evidence.md:L47-L65`). The symbols are
+**file-local** and **not importable** — the corpus has no module system, so a
+**source-corpus keyword sweep over `society_mgmt_300k/**/*.js`** finds zero
+occurrences of `require`, `import`, `export`, or `module.exports`, and no `mod_*`
+symbol can be referenced from another file
+(Source: `docs/reference/corpus-evidence.md:L112-L151`). The `mod_` prefix
 itself is defined in the [glossary](../reference/glossary.md).
 
 ## See also
@@ -141,8 +149,16 @@ itself is defined in the [glossary](../reference/glossary.md).
 - `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the canonical function
   body that accumulates `6x` and returns `6x + 10`, including the dead
   always-true parity branch on line 8.
-- The `mod_*` family documented here covers all **33,105** functions in the
-  corpus, verified corpus-wide to be byte-identical apart from their names.
+- `docs/reference/corpus-evidence.md:L47-L65` — the reproducible scans proving the
+  corpus contains exactly **33,105** `mod_*` functions and that all **33,105**
+  names are distinct (collision-free).
+- `docs/reference/corpus-evidence.md:L67-L95` — the body-uniformity scan proving
+  the `mod_*` family documented here is **byte-identical apart from their names**
+  across all 33,105 functions.
+- `docs/reference/corpus-evidence.md:L112-L151` — the source-corpus keyword sweep
+  over `society_mgmt_300k/**/*.js` proving the absence of any module system
+  (`require`/`import`/`export`/`module.exports`), so the `mod_*` symbols are
+  file-local and not importable.
 
 ---
 

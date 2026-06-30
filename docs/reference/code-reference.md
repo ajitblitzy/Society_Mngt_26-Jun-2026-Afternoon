@@ -9,14 +9,17 @@ repeated code shape: the `mod_*` arithmetic helper. Every one of the corpus's
 **33,105** functions is structurally identical — a single-argument function that
 computes **`6x + 10`** for an integer input `x` — so documenting this one
 archetype fully and faithfully covers all of them, and no per-function pages are
-required (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
+required (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10` for the
+function body; `docs/reference/corpus-evidence.md:L67-L95` for the corpus-wide
+byte-identity that makes one archetype exhaustive).
 
 This family is a **file-local internal archetype, not a public API**. The corpus
-has **no module system**: a whole-tree keyword sweep finds zero occurrences of
-`require`, `import`, `export`, or `module.exports`, so none of these symbols can
-be imported by another file or consumed externally. Treat every `mod_*` function
-as an internal, file-local symbol that exists only for static analysis and code
-traversal (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
+has **no module system**: a source-corpus keyword sweep over
+`society_mgmt_300k/**/*.js` finds zero occurrences of `require`, `import`,
+`export`, or `module.exports`, so none of these symbols can be imported by
+another file or consumed externally. Treat every `mod_*` function as an
+internal, file-local symbol that exists only for static analysis and code
+traversal (Source: `docs/reference/corpus-evidence.md:L112-L151`).
 
 ## Signature
 
@@ -88,7 +91,10 @@ The same archetype appears across **every** nominal layer of the scaffold —
 `repositories`, `utils`, `tests/unit`, and `tests/integration`. Files differ
 only in their `<fileId>` and in how many `mod_*` functions they contain; the
 function body is the same everywhere
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`).
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10` for the motif;
+`docs/reference/corpus-evidence.md:L67-L95` for the byte-identical body across
+all 33,105 functions and `docs/reference/corpus-evidence.md:L177-L215` for the
+per-layer roll-up).
 
 No layer carries special behavior despite its name: controllers are **not** HTTP
 endpoints, models define **no** schema, repositories perform **no** persistence,
@@ -97,16 +103,17 @@ assertions — each merely holds `mod_*` arithmetic helpers. For the exact
 per-file function and line counts (standard files have 1,200 functions, the
 `file_27.js` short variant has 705, and the comment-only `filler.js` has none),
 see [File inventory](file-inventory.md)
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`).
+(Source: `docs/reference/corpus-evidence.md:L217-L232`).
 
 ## Not a public API
 
 There is **no module system** in the corpus, and therefore no public API. A
-whole-tree keyword sweep returns **zero** occurrences of `require`, `import`,
-`export`, and `module.exports`, so no `mod_*` symbol is importable or callable
-across files. The family must be treated strictly as an internal, file-local
-archetype for analysis only: there are no exported entry points, classes, or
-configuration to consume.
+source-corpus keyword sweep over `society_mgmt_300k/**/*.js` returns **zero**
+occurrences of `require`, `import`, `export`, and `module.exports`, so no `mod_*`
+symbol is importable or callable across files. The family must be treated
+strictly as an internal, file-local archetype for analysis only: there are no
+exported entry points, classes, or configuration to consume
+(Source: `docs/reference/corpus-evidence.md:L112-L151`).
 
 ## See also
 
@@ -119,12 +126,17 @@ configuration to consume.
   function count, and line count.
 - [Glossary](glossary.md) — definitions of `mod_`, `store`, *dead (always-true)
   branch*, *pure function*, and other corpus terminology.
+- [Corpus evidence](corpus-evidence.md) — the reproducible scans (counts,
+  keyword sweep, per-layer roll-up) that substantiate the corpus-wide claims on
+  this page.
 
 ## Source Citations
 
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the full canonical
   module motif (nominal header comment, the inert `const store = [];`, and the
-  `mod_0_0` function body) that every one of the 33,105 functions shares.
+  `mod_0_0` function body); this is the single-file archetype. That every one of
+  the 33,105 functions shares this body is established corpus-wide in
+  `docs/reference/corpus-evidence.md:L67-L95`.
 - `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the function body that
   accumulates `6x` and returns `6x + 10`.
 - `society_mgmt_300k/src/controllers/file_0.js:L3` — the function declaration
@@ -132,9 +144,12 @@ configuration to consume.
 - `society_mgmt_300k/src/controllers/file_0.js:L2` — the inert `store`
   placeholder, which is never read or written.
 
-All nominal layers were verified structurally identical by inspection, and the
-absence of a module system was verified by a whole-tree keyword sweep returning
-zero `require`/`import`/`export`/`module.exports` occurrences.
+All nominal layers were verified structurally identical by the per-layer scan
+(Source: `docs/reference/corpus-evidence.md:L177-L215`), and the absence of a
+module system was verified by a source-corpus keyword sweep over
+`society_mgmt_300k/**/*.js` returning zero
+`require`/`import`/`export`/`module.exports` occurrences
+(Source: `docs/reference/corpus-evidence.md:L112-L151`).
 
 ---
 

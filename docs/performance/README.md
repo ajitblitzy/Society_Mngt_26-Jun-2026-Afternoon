@@ -8,7 +8,13 @@ The runtime cost of the synthetic `society_mgmt_300k` corpus is dominated by
 trivial, constant-time scalar arithmetic. Every callable in the corpus is one of
 the **33,105** byte-identical `mod_<fileId>_<k>(x)` functions, each of which
 performs a fixed handful of operations on a single local accumulator and returns
-immediately (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
+immediately. The single-function body is shown directly
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`), while the facts
+that there are exactly **33,105** such functions and that all of them are
+**byte-identical apart from their names** are established by reproducible
+corpus-wide scans
+(Source: `docs/reference/corpus-evidence.md:L47-L54` for the function count,
+`docs/reference/corpus-evidence.md:L67-L95` for the body uniformity).
 There is **no measured performance program** anywhere in the repository — no
 benchmark suite, no load test, no performance CI, and no service-level
 objectives — so this document reports the performance surface **faithfully from
@@ -19,9 +25,11 @@ surface is absent, that absence is stated explicitly rather than implied.
 ## Time & space complexity
 
 Every `mod_*` call runs in **`O(1)` time** and **`O(1)` space**. The analysis
-rests entirely on the canonical function body, which is byte-identical across
-all 33,105 functions and is reproduced here verbatim from the source
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`):
+rests entirely on the canonical function body, reproduced here verbatim from the
+source (Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`); that this
+body is byte-identical across all **33,105** functions — so the single-body
+analysis applies to every callable — is confirmed corpus-wide
+(Source: `docs/reference/corpus-evidence.md:L67-L95`):
 
 ```javascript
 // mod_0 - society module
@@ -93,8 +101,9 @@ absences rather than as measured optimisations.
 
 The corpus's **generation-time scale** is large — **29** `.js` files,
 **33,105** `mod_*` functions, and exactly **300,000** lines — but this describes
-the size of the static artefact, **not** a runtime cost
-(Source: `society_mgmt_300k/src/controllers/file_0.js:L1-L10`). Any single
+the size of the static artefact, **not** a runtime cost. These corpus-wide counts
+are established by reproducible file/line/function scans
+(Source: `docs/reference/corpus-evidence.md:L28-L54`). Any single
 invocation touches only one function's `O(1)` body; the number of other files or
 functions in the tree does not change a call's latency or memory use. There is
 also **no aggregate runtime workload** — no orchestrator, server, or harness
@@ -116,20 +125,26 @@ first — they are **not** present today.)
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the canonical,
-  byte-identical function motif (header comment, inert `store`, and
-  fixed-operation body) that establishes the `O(1)` time and space complexity,
-  the determinism, and the absence of loops and recursion.
+- `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the canonical
+  single-function motif (header comment, inert `store`, and fixed-operation body)
+  that establishes the per-call `O(1)` time and space complexity, the
+  determinism, and the absence of loops and recursion.
 - `society_mgmt_300k/src/controllers/file_0.js:L2` — the inert module-scoped
   `const store = [];` placeholder, never read or written (`O(1)` space, no side
   effects).
 - `society_mgmt_300k/src/controllers/file_0.js:L4-L9` — the `6x` accumulation
   and always-true parity branch yielding the effective result `6x + 10` (worked
   example `mod_0_0(4) === 34`).
+- `docs/reference/corpus-evidence.md:L67-L95` — the body-uniformity scan proving
+  the function body is **byte-identical across all 33,105 functions**, so the
+  single-body `O(1)` analysis applies to every callable.
+- `docs/reference/corpus-evidence.md:L28-L54` — the file/line/function count
+  scans (29 files, 300,000 lines, 33,105 functions) that substantiate the
+  generation-time scale figures, kept distinct from any runtime cost.
 - `Technical Specification §2.5.2` — the explicit absence of SLAs, KPIs,
   benchmarks, and performance targets for the corpus.
 - [Corpus composition](../functionality/corpus-composition.md) — the per-layer
-  file / function / line figures cited here as generation-time scale.
+  file / function / line breakdown cited here as generation-time scale.
 
 ---
 

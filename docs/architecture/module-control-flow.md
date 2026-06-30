@@ -9,7 +9,10 @@ the execution path that runs every time any function in the synthetic
 [`society_mgmt_300k`](../overview.md) *corpus* is called. All **33,105** functions
 across the corpus are byte-identical apart from their names, so this one control
 flow is a faithful, exhaustive description of every one of them: a single uniform
-archetype (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
+archetype. The function body is shown in the canonical file
+(Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`); that all 33,105
+function bodies are byte-identical is verified corpus-wide
+(Source: `docs/reference/corpus-evidence.md:L67-L95`).
 
 Each function is **pure**, **deterministic**, synchronous, and
 **side-effect-free**: it reads only its single numeric argument `x`, accumulates
@@ -127,12 +130,15 @@ the same `6x + 10` rule
 - [Architecture index](README.md) — the architecture documentation index.
 - [Glossary](../reference/glossary.md) — definitions of *dead (always-true)
   branch*, *pure function*, *deterministic*, and other corpus terminology.
+- [Corpus evidence](../reference/corpus-evidence.md) — the body-uniformity scan
+  showing all 33,105 functions share one byte-identical body.
 
 ## Source Citations
 
 - `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the full canonical
   module motif (header comment, the inert `store` declaration, and the function
-  body) shared by all 33,105 functions.
+  body); this is the single-file archetype. That all 33,105 functions share this
+  body is verified corpus-wide in `docs/reference/corpus-evidence.md:L67-L95`.
 - `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the function body that
   accumulates `6x` and returns `6x + 10`.
 - `society_mgmt_300k/src/controllers/file_0.js:L8` — the parity branch
