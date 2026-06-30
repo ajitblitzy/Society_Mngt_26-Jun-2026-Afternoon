@@ -21,7 +21,7 @@ does not have are reported as verified absences — confirmed by a first-hand sc
   `find . -name "*.js" -exec cat {} + | wc -l` = 300000; AAP §0.3.1).
 - **33,105 byte-identical arithmetic helper functions**, each computing
   **`6x + 10`** for an integer input `x` (Source:
-  `society_mgmt_300k/src/controllers/file_0.js:L3-L11`).
+  `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
 - A **nominal layered directory *scaffold*** — nine `src/` layers (`config`,
   `controllers`, `domain`, `middleware`, `models`, `repositories`, `routes`,
   `services`, `utils`) plus a `tests/` tree (`unit`, `integration`) (Source:
@@ -31,7 +31,7 @@ does not have are reported as verified absences — confirmed by a first-hand sc
   `society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3`).
 
 A single *representative function* stands in for all 33,105 byte-identical
-functions (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`):
+functions (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`):
 
 ```javascript
 function mod_0_0(x){
@@ -54,7 +54,7 @@ function mod_0_0(x){
   repository scan; AAP §0.2.2).
 - **No framework, server, database, network, or external input** beyond the
   numeric argument `x` (Source:
-  `society_mgmt_300k/src/controllers/file_0.js:L3-L11`).
+  `society_mgmt_300k/src/controllers/file_0.js:L3-L10`).
 - **No configuration values** — despite its name, the `config/` layer holds the
   same arithmetic functions as every other layer (Source:
   `society_mgmt_300k/src/config/file_6.js:L1`).
@@ -98,7 +98,7 @@ only and not resolved here.
   layered *scaffold* — Source: first-hand repository scan
   (`find . -name "*.js" -exec cat {} + | wc -l` = 300000); AAP §0.3.1.
 - **Representative function** computing **`6x + 10`**, byte-identical across the
-  corpus — Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`.
+  corpus — Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
 - **No exported or importable API** (**0** `module.exports`, **0** `require(`),
   and no framework, server, database, network, dependencies, or manifest —
   Source: first-hand repository scan; AAP §0.2.1, §0.2.2.

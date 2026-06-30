@@ -74,7 +74,7 @@ Every document in this tree follows the same conventions:
 ## Source citations
 
 - Representative function body computing `6x + 10` (byte-identical across the
-  corpus) — Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`;
+  corpus) — Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`;
   AAP §0.3.1.
 - 300,000 lines / 29 `.js` files / 33,105 functions, arranged in the layered
   *scaffold* — Source: first-hand repository scan; AAP §0.3.1.

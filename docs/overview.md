@@ -29,7 +29,7 @@ product:
   computes **`6x + 10`** for an integer input `x`: the canonical body accumulates
   `r = x*1 + x*2 + x*3` (`= 6x`) and then adds `10`. One *representative function*
   therefore stands in for all 33,105 functions; they are never enumerated
-  individually. Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`.
+  individually. Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
 
   ```javascript
   function mod_0_0(x){
@@ -69,7 +69,7 @@ merely undocumented or assumed:
   (0 exports / 0 imports); AAP §0.2.2.
 - **No framework, server, database, network, or filesystem.** The corpus performs
   only in-memory integer arithmetic; there is no external input beyond the numeric
-  argument `x`. Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L11`;
+  argument `x`. Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`;
   first-hand repository scan.
 - **No configuration values.** Despite its name, the `config/` layer holds the
   same arithmetic functions as every other layer — no credentials, connection
@@ -90,7 +90,7 @@ merely undocumented or assumed:
 The table below summarizes the corpus at a glance. The figures are drawn from the
 first-hand repository scan and AAP §0.3.1; the line total is from the source scan
 (`wc -l` = 300000) and Tech Spec §1.2; the representative function is from
-`society_mgmt_300k/src/controllers/file_0.js:L3-L11`.
+`society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
 
 | Property | Value |
 | --- | --- |
@@ -124,7 +124,7 @@ rest of the documentation tree (every document also links back to the index):
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L11` — the canonical,
+- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the canonical,
   byte-identical function body computing `6x + 10`; the *representative function*
   for all 33,105 functions.
 - `society_mgmt_300k/src/routes/file_3.js:L1-L11` — a representative layer file
