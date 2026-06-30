@@ -6,7 +6,7 @@ define **33,105 functions**, arranged in a nominal layered *scaffold* and
 intended for **static analysis and traversal rather than execution** (Source:
 first-hand repository scan `find . -name "*.js" -exec cat {} + | wc -l` = 300000;
 AAP §0.3.1). It is not a runnable product: there is no entry point, framework, or
-inter-module wiring (Source: first-hand repository scan; AAP §0.2.2, §1.2).
+inter-module wiring (Source: first-hand repository scan; AAP §0.2.2; Tech Spec §1.2).
 
 ## What This Is / What This Is Not
 
@@ -48,7 +48,7 @@ function mod_0_0(x){
 
 - **Not a runnable application** — no entry point, framework, server, or wiring;
   nothing starts, listens, or runs (Source: first-hand repository scan;
-  AAP §0.2.2, §1.2).
+  AAP §0.2.2; Tech Spec §1.2).
 - **No exported or importable API** — the scan found **0** `module.exports` and
   **0** `require(` occurrences across `src/` and `tests/` (Source: first-hand
   repository scan; AAP §0.2.2).

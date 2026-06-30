@@ -62,7 +62,7 @@ merely undocumented or assumed:
 
 - **Not a runnable application.** There is no entry point and no application
   wiring; nothing starts, listens, or runs. Source: first-hand repository scan;
-  AAP §0.2.2, §1.2.
+  AAP §0.2.2; Tech Spec §1.2.
 - **No exported or importable API.** The scan found **0** occurrences of
   `module.exports` and **0** of `require(` across `src/` and `tests/`, so nothing
   is exportable and no other code can import the corpus. Source: repository scan

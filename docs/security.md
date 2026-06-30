@@ -22,7 +22,7 @@ The `config/` layer, despite its name, is **not** a source of secrets or configu
 | Authentication / authorization | **Absent** | No auth surface; no users, sessions, tokens, or roles (Source: Tech Spec §2.5.4) |
 | External / user input | **Absent (beyond numeric `x`)** | The only input is the numeric parameter `x` to a pure function (Source: `society_mgmt_300k/src/controllers/file_0.js:L3-L10`) |
 | Public / importable API | **Absent** | 0 `module.exports`, 0 `require(` across `src` and `tests` (Source: Tech Spec §2.2.4; Tech Spec §2.5.4) |
-| Third-party dependencies | **Absent** | No `package.json` or lockfile; zero dependencies (Source: Tech Spec §3.3.1) |
+| Third-party dependencies | **Absent** | No `package.json` or lockfile; zero dependencies (Source: first-hand repository scan — no `package.json`/lockfile; AAP §0.2.1) |
 
 Because every one of these vectors is verifiably absent, there is no meaningful attack surface to enumerate, threat-model, or defend.
 
@@ -37,7 +37,7 @@ In verified-absence terms, the *correct* posture for a pure, side-effect-free ar
 What little security-relevant hygiene the corpus exhibits is achieved **by absence** rather than by any active control:
 
 - **No committed secrets.** No credentials, API keys, tokens, or connection strings are embedded in the `.js` files (Source: Tech Spec §2.5.4).
-- **Zero third-party dependencies — no supply-chain surface.** The repository has **no `package.json` and no lockfile**, so it pulls in no external packages; there is therefore no dependency supply-chain that could be compromised (Source: Tech Spec §3.3.1).
+- **Zero third-party dependencies — no supply-chain surface.** The repository has **no `package.json` and no lockfile**, so it pulls in no external packages; there is therefore no dependency supply-chain that could be compromised (Source: first-hand repository scan — no `package.json`/lockfile; AAP §0.2.1).
 - **Repository integrity tracked by Git.** Content and change history are tracked by Git, providing a verifiable record of every modification (Source: Tech Spec §2.5.4).
 
 These properties reduce risk simply because the corresponding risky constructs — embedded secrets and external dependencies — are **not present** to begin with.
@@ -94,12 +94,12 @@ flowchart TD
 
 - `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the canonical pure function computing `6x + 10`; representative of all 33,105 byte-identical functions and the corpus's only behavior.
 - `society_mgmt_300k/src/config/file_6.js:L1` — the `config/` layer holds arithmetic functions, not secrets or configuration values.
-- Tech Spec §2.2.4 — **0** `module.exports`, **0** `require(` across `src` and `tests`. Tech Spec §3.3.1 — no `package.json` or lockfile (zero dependencies). Tech Spec §2.5.4 — no committed secrets; the names `DB_HOST` and `API_KEY` (and their values) are absent from all `.js` source.
+- Tech Spec §2.2.4 — **0** `module.exports`, **0** `require(` across `src` and `tests`. AAP §0.2.1 — no `package.json` or lockfile (zero dependencies; confirmed by first-hand repository scan). Tech Spec §2.5.4 — no committed secrets; the names `DB_HOST` and `API_KEY` (and their values) are absent from all `.js` source.
 - `Tech Spec §2.5.4` — security posture: near-zero attack surface and verified-absence framing.
 - `Tech Spec §6.4` — ADR-06, the explicit no-security-controls decision, and the governance treatment of the licensing item.
 - User-provided setup instructions (operational input) — referenced plaintext `DB_HOST` and `API_KEY`; an operational hygiene note only, NOT present in the code (Tech Spec §6.4).
 - `/LICENSE:L1-L2`; `society_mgmt_300k/LICENSE/LICENSE.txt:L1` — the Apache-vs-MIT licensing inconsistency, documented in [governance/licensing.md](./governance/licensing.md).
-- Tech Spec §3.3.1 — zero declared dependencies (no `package.json` or lockfile). Tech Spec §6.4.6 — the compliance Not-Applicable rationale.
+- AAP §0.2.1 — zero declared dependencies (no `package.json` or lockfile; confirmed by first-hand repository scan). Tech Spec §6.4.6 — the compliance Not-Applicable rationale.
 
 ---
 

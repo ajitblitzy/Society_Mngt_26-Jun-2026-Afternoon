@@ -22,13 +22,13 @@ Because every function is byte-identical, these documents use a **representative
 | [`module-reference.md`](./module-reference.md) | Inventory | The per-layer module inventory of all 29 files (files, function counts, and module symbols). (Source: Tech Spec §1.2.2) |
 | [`store-placeholder.md`](./store-placeholder.md) | **F-004** | The unused module-scoped `const store = []` placeholder present in every numbered file. (Source: `society_mgmt_300k/src/controllers/file_0.js:L2`; Tech Spec §2.2.5) |
 | [`corpus-sizing.md`](./corpus-sizing.md) | **F-005** | The deterministic 300,000-line composition arithmetic. (Source: Tech Spec §2.2.6) |
-| [`../governance/licensing.md`](../governance/licensing.md) | **F-006** | The repository licensing artifacts and the Apache-vs-MIT license inconsistency between the root `LICENSE` (Apache-2.0) and the nested `society_mgmt_300k/LICENSE/LICENSE.txt` (MIT). (Source: `/LICENSE:L1-L2`; `society_mgmt_300k/LICENSE/LICENSE.txt:L1`; Tech Spec §2.2.7) |
+| [`../governance/licensing.md`](../governance/licensing.md) | **F-006** | The repository licensing artifacts and the Apache-vs-MIT license inconsistency between the root `LICENSE` (Apache License 2.0) and the nested `society_mgmt_300k/LICENSE/LICENSE.txt` (MIT). (Source: `/LICENSE:L1-L2`; `society_mgmt_300k/LICENSE/LICENSE.txt:L1`; Tech Spec §2.2.7) |
 
 ## Documentation Conventions
 
 All functionality documents follow the same conventions:
 
-- **Verified-absence framing** — only behavior present in the source is documented. The corpus has no runtime, framework, server, database, network, or dependencies, and the documentation never implies a capability the code does not have (Source: Tech Spec §2.2.4 — no wiring / not runnable; Tech Spec §2.5.4 — no network or database; Tech Spec §3.3.1 — zero dependencies).
+- **Verified-absence framing** — only behavior present in the source is documented. The corpus has no runtime, framework, server, database, network, or dependencies, and the documentation never implies a capability the code does not have (Source: Tech Spec §2.2.4 — no wiring / not runnable; Tech Spec §2.5.4 — no network or database; AAP §0.2.1 — zero dependencies (no manifest)).
 - **Source citations on every claim** — each technical statement cites a `path:line` location or a Technical Specification section.
 - **Representative-pattern approach** — one canonical function stands in for all 33,105 byte-identical functions (Source: Tech Spec §2.2.2).
 - **GitHub-native rendering** — plain Markdown with Mermaid diagrams in fenced `mermaid` code blocks; no build step is required.
