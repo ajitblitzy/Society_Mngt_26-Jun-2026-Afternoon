@@ -45,7 +45,7 @@ function, and line counts. The **Total** row reconciles exactly to
 | **Total** | **29** | **33,105** | **300,000** |
 
 Every `src` directory shares the identical canonical module pattern, documented
-in the [module pattern](../architecture.md#layered-scaffold) page; only the two
+in the [module pattern](../architecture/module-pattern.md) page; only the two
 anomalies described under [Special cases](#special-cases) — `file_27.js` and
 `filler.js` — deviate from it, which is why a naive "every file has 1,200
 functions" estimate would not reconcile `[Technical Specification §1.2.2]`.
@@ -141,8 +141,8 @@ inventory can be trusted exactly `[Technical Specification §1.2.2]`.
 
 ## Related documentation
 
-- [← Documentation Home](../README.md)
+- [← Documentation Home](../index.md)
 - [Function reference](function-reference.md) — the behavior of the `mod_*` functions inventoried here.
-- [Architecture overview](../architecture.md) — how the layers relate, and why there are no runtime edges between them.
-- [Module pattern](../architecture.md#layered-scaffold) — the canonical file shape shared by every module.
+- [Architecture overview](../architecture/overview.md) — how the layers relate, and why there are no runtime edges between them.
+- [Module pattern](../architecture/module-pattern.md) — the canonical file shape shared by every module.
 - [Glossary](../glossary.md) — definitions of `mod_*`, `store`, `filler`, synthetic corpus, and nominal layer.

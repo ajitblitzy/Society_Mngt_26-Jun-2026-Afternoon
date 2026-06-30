@@ -6,10 +6,13 @@ The `society_mgmt_300k` corpus has only two performance-relevant properties, and
 
 ## Per-function complexity
 
-Every [`mod_*`](glossary.md) function executes in constant time, `O(1)`: it runs a fixed sequence of three additions, one always-true comparison, and one further addition, then returns — independent of the magnitude of its input `x` [society_mgmt_300k/src/config/file_6.js:L3-L10] [Technical Specification §4.3.3]. The canonical function body, taken verbatim from the source, is [society_mgmt_300k/src/config/file_6.js:L3-L10]:
+Every [`mod_*`](glossary.md) function executes in constant time, `O(1)`: it runs a fixed sequence of three additions, one parity comparison, and — for integer input — one further addition, then returns, independent of the magnitude of its input `x` [society_mgmt_300k/src/config/file_6.js:L3-L10] [Technical Specification §4.3.3]. The parity comparison `r % 2 === 0` is always true for integer `x` (because `r = 6x` is even), so the further addition always executes for integer input; for a non-integer such as `x = 0.5` the comparison is false and that addition is skipped — but the operation count is fixed and bounded either way, so the per-call cost is `O(1)` for all numeric inputs [society_mgmt_300k/src/config/file_6.js:L8] [Technical Specification §4.3.3]. The canonical function body, reproduced from the source, is [society_mgmt_300k/src/config/file_6.js:L3-L10]:
 
 ```javascript
-function mod_6_0(x){ let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10} return r; }
+function mod_6_0(x) {
+  let r = 0; r += x*1; r += x*2; r += x*3;  // accumulate r = 6x
+  if (r % 2 === 0) { r += 10 } return r;    // returns 6x + 10 for integer x
+}
 ```
 
 The three additions accumulate `r = x*1 + x*2 + x*3 = 6x`, and the parity guard then adds `10`, so each function returns `6x + 10` for integer input [society_mgmt_300k/src/config/file_6.js:L3-L10]. Because there is no runtime to execute it, the result is verified by hand against the arithmetic [Technical Specification §1.2.2]:
@@ -70,4 +73,4 @@ The single honest performance statement for this project is therefore that each 
 
 ---
 
-[← Documentation Home](README.md)
+[← Documentation Home](index.md)

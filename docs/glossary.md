@@ -4,7 +4,7 @@ This page is the canonical reference for the corpus-specific terms used througho
 
 ## `mod_*` function
 
-The `mod_*` function — written generally as `mod_<fileId>_<k>(x)`, where `<fileId>` is the source file's number and `<k>` is the function's index within that file — is the **sole behavioral capability** of the corpus. It takes a single argument `x`, accumulates `r = x*1 + x*2 + x*3` (that is, `6x`), and returns `6x + 10` [society_mgmt_300k/src/config/file_6.js:L3-L10]. Every one of the **33,105** such functions is byte-for-byte identical except for its name [Technical Specification §4.3.3].
+The `mod_*` function — written generally as `mod_<fileId>_<k>(x)`, where `<fileId>` is the source file's number and `<k>` is the function's index within that file — is the **sole behavioral capability** of the corpus. It takes a single argument `x`, accumulates `r = x*1 + x*2 + x*3` (that is, `6x`), and returns `6x + 10` for integer input [society_mgmt_300k/src/config/file_6.js:L3-L10]. The `+ 10` comes from the parity guard `if (r % 2 === 0)`, which is always true for integer `x` because `6x` is even; for a non-integer numeric value such as `0.5` (`6x = 3`, odd) the guard is false and the `+ 10` is skipped, so the `+10` branch is not guaranteed for non-integer input [society_mgmt_300k/src/config/file_6.js:L8]. Every one of the **33,105** such functions is byte-for-byte identical except for its name [Technical Specification §4.3.3].
 
 ```javascript
 function mod_6_0(x){ let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10} return r; }
@@ -39,4 +39,4 @@ A fixture here is a file under `tests/unit` or `tests/integration` that contains
 
 ---
 
-[← Documentation Home](README.md)
+[← Documentation Home](index.md)
