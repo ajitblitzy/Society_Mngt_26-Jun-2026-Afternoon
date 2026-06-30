@@ -44,11 +44,10 @@ These properties reduce risk simply because the corresponding risky constructs �
 
 ## Operational note on secrets
 
-This is an **operational hygiene** note about how a project is run, not a finding against the corpus code:
+This is an **operational hygiene** note, not a finding against the corpus code:
 
 - This documentation effort was supplied with **no environment variables and no secrets** — the setup configuration lists none — and the baseline-hygiene scan above confirms that **no secret values are committed anywhere in the corpus source** [Technical Specification §6.4].
-- Any secret values referenced in operator-supplied setup instructions — for example, a database host or an API key used to run a deployment — belong only to that **operational/runtime context**, never to the code, and should be supplied at runtime via **environment variables** or a dedicated **secrets manager**, and kept out of shell history, setup scripts, and documentation [AAP §0.5.2].
-- Secret *values* are deliberately **never reproduced** in this documentation; where a secret is discussed it is referred to by role only [AAP §0.1.4].
+- Because the corpus is **runtime-free** — it has no deployment, database, network, or API context — there is **no operational secret to manage** for this project; this note simply records that verified-absent state rather than prescribing controls the corpus does not need [Technical Specification §6.4].
 
 ## Licensing governance note
 
@@ -61,7 +60,7 @@ The repository contains **two conflicting license files**, recorded here as the 
 
 The repository-root `LICENSE` is the **Apache License, Version 2.0** — its header reads "Apache License" followed by "Version 2.0, January 2004" [LICENSE:L1-L2] — while the project-subfolder `society_mgmt_300k/LICENSE/LICENSE.txt` is the **MIT License**, bearing "Copyright (c) 2026" [society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3]. Both are permissive but legally distinct, so a downstream consumer cannot determine with certainty which terms govern the repository as a whole [Technical Specification §1.3.3].
 
-This inconsistency is **documented here but deliberately not resolved** — selecting, rewriting, or deleting a license file is out of scope, and the decision rests with the repository owners [Technical Specification §1.3.3]. For the full governance write-up and neutral resolution guidance, see [Licensing governance](./governance/licensing.md).
+This inconsistency is **documented here but deliberately not resolved** — selecting, rewriting, or deleting a license file is out of scope, and the decision rests with the repository owners [Technical Specification §1.3.3]. This section is the corpus's authoritative governance note for the license conflict [Technical Specification §1.3.3].
 
 ## Compliance (not applicable)
 
@@ -90,7 +89,6 @@ To summarize the posture above in terms of data flow: the only input is the nume
 ## Related documentation
 
 - [Glossary](glossary.md) — definitions of `mod_*`, the inert `store`, dead branch, synthetic corpus, and nominal layer.
-- [Licensing governance](./governance/licensing.md) — the Apache-versus-MIT license inconsistency, recorded as the one open governance item for the corpus [LICENSE:L1-L2] [society_mgmt_300k/LICENSE/LICENSE.txt:L1-L3].
 - [Documentation Home](index.md) — the navigation hub for all corpus documentation.
 
 ---

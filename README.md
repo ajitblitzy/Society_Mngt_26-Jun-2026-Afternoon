@@ -48,11 +48,11 @@ mod_6_0(2);  // => 22   (6*2 + 10)
 mod_6_0(5);  // => 40   (6*5 + 10)
 ```
 
-Each function accumulates `r = x*1 + x*2 + x*3` (which equals `6x`), then runs `if (r % 2 === 0) { r += 10 }` before returning `r`. Because `6x` is always even for integer input, the parity check is **always true**, the `+= 10` runs unconditionally, and the `else` path is a **dead, unreachable branch** — so each function effectively returns `6x + 10` [society_mgmt_300k/src/config/file_6.js:L3-L10] [Technical Specification §4.3.1]. See the [function reference](docs/reference/function-reference.md) for the full signature and flow.
+Each function accumulates `r = x*1 + x*2 + x*3` (which equals `6x`), then runs `if (r % 2 === 0) { r += 10 }` before returning `r`. Because `6x` is always even for integer input, the parity check is **always true** and the `+= 10` runs unconditionally; the implicit branch-not-taken path — the case where the `+= 10` would be skipped — is therefore a **dead, unreachable branch**, and there is no literal `else` keyword in the source, so each function effectively returns `6x + 10` [society_mgmt_300k/src/config/file_6.js:L3-L10] [Technical Specification §4.3.1]. See the [function reference](docs/reference/function-reference.md) for the full signature and flow.
 
 ## Documentation
 
-Full documentation lives under [`docs/`](docs/index.md); the index is the master navigation hub for the whole set.
+Full documentation lives under [`docs/`](docs/index.md); the index is the master navigation hub and lists every page in the `docs/` tree, all of which are linked below.
 
 - [Documentation home](docs/index.md)
 - [Overview](docs/getting-started/overview.md) · [Repository tour](docs/getting-started/repository-tour.md)

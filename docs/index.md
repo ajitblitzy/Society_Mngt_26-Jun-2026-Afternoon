@@ -1,6 +1,6 @@
 # society_mgmt_300k documentation
 
-Welcome to the documentation home for `society_mgmt_300k`. This page is the master navigation hub for the entire `docs/` tree: it states what the repository honestly is, notes who these documents are for, and links to every other page in the set.
+Welcome to the documentation home for `society_mgmt_300k`. This page is the master navigation hub for the entire `docs/` tree: it states what the repository honestly is, notes who these documents are for, and links to every other page in the `docs/` tree.
 
 ## Purpose
 
@@ -16,7 +16,7 @@ These documents are written for engineers and analysts who need to read, navigat
 
 ## Documentation map
 
-The table below is the canonical table of contents for the whole documentation set. Each page appears exactly once, paired with the topic it covers.
+The table below is the canonical table of contents for the whole documentation set — it maps every other page in the `docs/` tree, each appearing exactly once, paired with the topic it covers.
 
 | Page | What it covers |
 | --- | --- |
