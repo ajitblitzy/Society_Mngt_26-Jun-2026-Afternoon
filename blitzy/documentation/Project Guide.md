@@ -1,7 +1,10 @@
-# Blitzy Project Guide — `society_mgmt_300k` Documentation Deliverable
+# Blitzy Project Guide
 
-> Evidence-based developer documentation for a synthetic 300,000-line JavaScript corpus.
-> Branch: `blitzy-4c9fc988-d596-46cd-819b-f4937575a16c` · HEAD: `f373759` · Generated: 2026-06-29
+**Project:** `society_mgmt_300k` — Code Documentation Deliverable
+**Branch:** `blitzy-a1607eb1-4f55-4b93-b257-34a54f3c75b7`
+**Base:** `origin/26-Jun-2026-Br1`
+**Deliverable type:** Documentation (no build / runtime / deployment)
+**Overall completion:** **89.4%** (55.0 of 61.5 AAP‑scoped hours)
 
 ---
 
@@ -9,65 +12,63 @@
 
 ### 1.1 Project Overview
 
-This is a **documentation-only** project. The objective was to scan the `society_mgmt_300k` synthetic JavaScript corpus — 29 `.js` files, exactly 300,000 lines, and 33,105 byte-identical arithmetic functions — and produce developer-facing documentation that clearly enumerates the code's **functionalities**, highlights its **performance** characteristics, and highlights its **security** posture. The audience is developers and maintainers who must understand a non-executable corpus that has no entry point, framework, dependencies, or exported API. The deliverable is twelve new Markdown documents plus a rewritten root README, authored with an honest "verified-absence" framing, a source citation on every technical claim, and three Mermaid diagrams — rendered natively by GitHub with no build pipeline.
+This project delivers complete, evidence‑based **code documentation** for the `society_mgmt_300k` repository — a synthetic JavaScript corpus of **29 `.js` files, 33,105 functions, and exactly 300,000 lines**. Every function is a pure, single‑argument arithmetic helper named `mod_<fileId>_<k>` that computes `6x + 10`. The objective (verbatim): *"Document the code after scanning it ensure the functionalities are clearly mentioend. Also the performance and security information is highlighted."* The deliverable is a new `docs/` tree (15 Markdown files) plus a rewritten root `README.md`, covering functionality, architecture, performance, and security. The audience is engineers and maintainers who must understand a generated corpus whose "society management" name is a **nominal label**, not implemented domain logic.
 
 ### 1.2 Completion Status
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'pie1':'#5B39F3','pie2':'#FFFFFF','pieStrokeColor':'#B23AF2','pieOuterStrokeColor':'#B23AF2','pieSectionTextColor':'#B23AF2','pieStrokeWidth':'2px','pieTitleTextSize':'16px'}}}%%
-pie showData title Completion — 87.3% Complete
-    "Completed Work (48h)" : 48
-    "Remaining Work (7h)" : 7
+%%{init: {'theme':'base','themeVariables':{'pie1':'#5B39F3','pie2':'#FFFFFF','pieStrokeColor':'#B23AF2','pieStrokeWidth':'2px','pieOuterStrokeWidth':'2px','pieTitleTextSize':'18px','pieSectionTextSize':'15px','pieLegendTextSize':'14px','fontFamily':'Helvetica'}}}%%
+pie showData title Completion Status — 89.4% Complete
+    "Completed Work (AI)" : 55
+    "Remaining Work" : 6.5
 ```
 
-| Metric | Hours |
-| --- | --- |
-| **Total Hours** | 55.0 |
-| **Completed Hours (AI + Manual)** | 48.0 (AI: 48.0 · Manual: 0.0) |
-| **Remaining Hours** | 7.0 |
-| **Percent Complete** | **87.3%** |
+| Metric | Value |
+|--------|-------|
+| **Total Hours** | **61.5** |
+| **Completed Hours (AI + Manual)** | **55.0** (AI/autonomous: 55.0 · Manual: 0.0) |
+| **Remaining Hours** | **6.5** |
+| **Percent Complete** | **89.4%** |
 
-> Completion is computed by the AAP-scoped hours method: `48.0 ÷ 55.0 = 87.3%`. All 100% of the AAP authoring scope is complete, validated, and committed; the remaining 7.0 hours are path-to-production activities (human review, merge, license governance, optional CI hardening). Color key: **Completed = Dark Blue `#5B39F3`**, **Remaining = White `#FFFFFF`**.
+> Completion % is AAP‑scoped (PA1): `55.0 / (55.0 + 6.5) = 89.4%`. All 16 in‑scope authoring deliverables are complete; the remaining 6.5h are human path‑to‑production gates (governance, review, merge).
 
 ### 1.3 Key Accomplishments
 
-- [x] **Full functionality documentation (R1)** — all six catalogued functionalities **F-001…F-006** documented (arithmetic helper contract, symbol namespace, module reference, store placeholder, corpus sizing, licensing).
-- [x] **Performance documentation (R2)** — `docs/performance.md` covers constant-time `O(1)` per call, the dead always-true parity branch, and the 300,000-line corpus scale; runtime scalability honestly marked Not Applicable.
-- [x] **Security documentation (R3)** — `docs/security.md` documents the near-zero attack surface, the deliberate no-controls decision (ADR-06), baseline hygiene by absence, and an operational secrets note.
-- [x] **Representative-pattern contract** — one canonical function `mod_<fileId>_<k>(x) → 6x + 10` documented with a worked example (`x = 5 → 40`), standing in for all 33,105 byte-identical functions.
-- [x] **Architecture & module reference** — nominal layered scaffold with an edge-less containment diagram; per-layer inventory of all 29 files across 11 layers.
-- [x] **Three Mermaid diagrams** — computation flowchart, edge-less layered containment, and security verified-absence view (all render-validated).
-- [x] **Root README rewritten** — placeholder text replaced with an honest overview, a table of contents into `docs/`, and a licensing note.
-- [x] **Source citation on every technical claim** across all 13 documents; honest "verified-absence" framing throughout.
-- [x] **Quality gates passing** — markdownlint 0 errors (13 files), 0 dead links (74 links), 4/4 anchors, 100% factual accuracy re-verified against source, 4/4 diagrams render, 3 pages render cleanly in Chrome.
-- [x] **Optional quality-gate config** committed (`.markdownlint-cli2.jsonc`) to make the lint gate reproducible.
+- [x] **Complete `docs/` tree authored** — 15 Markdown files across overview, functionality, architecture, performance, security, and reference areas (≈2,167 lines).
+- [x] **Root `README.md` rewritten** — placeholder replaced with a real evidence‑based overview, quick orientation to the `mod_*` archetype, and a documentation map into `docs/`.
+- [x] **All six features documented** — F‑001 (arithmetic corpus `6x+10`), F‑002 (unique symbol namespace), F‑003 (layered scaffold), F‑004 (`store` placeholder), F‑005 (300,000‑line sizing), F‑006 (dual‑license artifacts).
+- [x] **Three Mermaid diagrams** authored and verified to render: layer map, module control‑flow (dead‑branch annotated), and feature‑relationship graph.
+- [x] **Performance documented faithfully** — O(1) time/space, determinism, no loops/recursion/allocation, and the explicit *absence* of SLAs (no fabricated metrics).
+- [x] **Security documented faithfully** — verified‑absence posture (no I/O, eval, secrets, auth, crypto), zero‑dependency supply chain, and the F‑006 dual‑license conflict.
+- [x] **Full traceability** — every technical claim carries a `Source: path:Lx-Ly` citation; 295/295 citations resolve.
+- [x] **Evidence ledger shipped** — `docs/reference/corpus-evidence.md` records reproducible commands (E1–E12) for re‑verification.
+- [x] **5‑gate autonomous validation passed** — content accuracy, runtime render/navigation, zero unresolved errors, all in‑scope files, and Markdown/Mermaid "compilation".
 
 ### 1.4 Critical Unresolved Issues
 
-**No release-blocking issues were identified.** Every AAP deliverable is authored, validated, and committed, and all quality gates pass. The items below are **non-blocking advisories** that warrant a human decision but do not prevent the documentation from being merged or read.
-
 | Issue | Impact | Owner | ETA |
-| --- | --- | --- | --- |
-| Apache-vs-MIT license inconsistency (root `/LICENSE` is Apache-2.0; `society_mgmt_300k/LICENSE/LICENSE.txt` is MIT) | Legal/redistribution ambiguity for consumers of the corpus. Documented (flag-only) in `docs/governance/licensing.md`; resolution is an owner decision per AAP §0.8.2. | Repository owner / Legal | 1.5h once a license is chosen |
-| Documentation not yet human-reviewed/merged | Docs are accurate per autonomous validation but not yet signed off by a stakeholder. | Reviewing engineer | 3.5h (review + merge) |
+|-------|--------|-------|-----|
+| F‑006 dual‑license conflict (Apache‑2.0 root `LICENSE` vs MIT `society_mgmt_300k/LICENSE/LICENSE.txt`) | Legal/governance ambiguity over which license governs the corpus; documented but not resolved (resolution is a code/governance change, out of documentation scope) | Repository owner / Legal | 2.0h |
+| Subject‑matter accuracy sign‑off on all 16 documents | Final human confirmation of faithful framing before publication | SME / Technical Writer | 3.0h |
+
+> No issue blocks the documentation deliverable itself; both items are standard path‑to‑production gates.
 
 ### 1.5 Access Issues
 
-**No access issues identified.** The repository, branch, full git history, and all source/documentation files were accessible throughout the engagement. The project declares zero application dependencies and no manifest, so no package-registry, service-credential, or third-party API access was required. Optional documentation tooling (markdownlint-cli2, markdown-link-check, mermaid-cli) was available locally without restriction.
-
 | System / Resource | Type of Access | Issue Description | Resolution Status | Owner |
-| --- | --- | --- | --- | --- |
-| Repository & branch | Read/Write | None — full access confirmed | ✅ No issue | — |
-| Documentation tooling (npm) | Local install | None — markdownlint-cli2 v0.22.1 available | ✅ No issue | — |
-| External services / APIs | N/A | None required (zero dependencies, no runtime) | ✅ Not applicable | — |
+|-------------------|----------------|-------------------|-------------------|-------|
+| Git repository (branch `blitzy-a1607eb1-...`) | Read/Write | None — branch present, working tree clean, docs committed | ✅ No issue | — |
+| npm registry (optional tooling: markdownlint‑cli2, mermaid‑cli) | Network (first `npx` fetch only) | Optional quality tools require one‑time network fetch; not required to read the docs | ⚠ Optional / non‑blocking | Maintainer |
+| Runtime / deployment credentials | N/A | Documentation‑only deliverable — no runtime, services, or secrets involved | ✅ Not applicable | — |
+
+> No access issue blocks validation, integration, or the deliverable. The repository is intentionally zero‑dependency with no build or deploy step.
 
 ### 1.6 Recommended Next Steps
 
-1. **[High]** Review the 13 documents for accuracy and completeness against the source (spot-check the 300,000-line and 33,105-function claims, the `6x + 10` contract, and the F-001…F-006 coverage). — *3.0h*
-2. **[High]** Approve the pull request and merge the branch to `main`; the docs render on GitHub natively with no build step. — *0.5h*
-3. **[Medium]** Make the governance decision to resolve the Apache-vs-MIT license inconsistency and align both license files. — *1.5h*
-4. **[Low]** *(Optional)* Wire `markdownlint-cli2` and `markdown-link-check` into CI to operationalize the committed quality-gate config and prevent future documentation drift. — *2.0h*
-5. **[Low]** *(Optional, deferred)* Stand up a hosted documentation site (Docusaurus/mkdocs) only if offline or branded hosting is desired — not required for GitHub-native rendering.
+1. **[High]** Resolve the F‑006 dual‑license conflict — select a single canonical license, add a precedence statement, or add an `SPDX-License-Identifier`, and apply it to both license files (2.0h).
+2. **[Medium]** Conduct an SME / technical‑writer accuracy and faithful‑framing review across all 16 documents (3.0h).
+3. **[Medium]** Review the pull request (+2,221 / −1,204 across 25 files) and merge to `origin/26-Jun-2026-Br1` (1.0h).
+4. **[Low]** Decide markdownlint MD013 (line‑length) handling — accept as‑is or add a config (noting a config introduces the repo's first manifest, currently out of scope) (0.5h).
 
 ---
 
@@ -75,360 +76,328 @@ pie showData title Completion — 87.3% Complete
 
 ### 2.1 Completed Work Detail
 
-All components below trace to AAP deliverables (authoring) or to the autonomous validation that hardened them. **Total = 48.0 hours (all autonomous/AI).**
-
 | Component | Hours | Description |
-| --- | --- | --- |
-| Corpus first-hand scan & fact verification | 5.0 | Scanned all 29 `.js` files; verified 300,000 lines, 33,105 functions, byte-identical `6x+10` bodies, 28 `const store` placeholders, 0 `module.exports`, 0 `require(`, and the Apache-vs-MIT inconsistency (R1 foundation). |
-| Documentation tooling research | 1.5 | Web-verified current tool versions (Node, mermaid, markdownlint-cli2, markdown-link-check, jsdoc, docusaurus) and docs-as-code conventions (AAP §0.2.3, §0.6). |
-| System overview (`docs/overview.md`) | 3.0 | Honest synthetic-corpus overview; what it is / is not; 145 lines, fully cited. |
-| Architecture doc + containment diagram (`docs/architecture.md`) | 4.0 | Nominal layered scaffold (9 `src` + 2 `tests` layers) and the deliberately edge-less Mermaid containment diagram; 201 lines. |
-| Functionality suite F-001…F-005 (5 docs + index) | 13.0 | `arithmetic-helpers` (F-001 contract + flowchart + worked example), `symbol-namespace` (F-002), `module-reference` (29-file inventory), `store-placeholder` (F-004), `corpus-sizing` (F-005), and the functionality index. |
-| Performance documentation (`docs/performance.md`, R2) | 3.5 | `O(1)` per-call complexity, dead always-true parity branch, 300k-line corpus scale, scalability Not Applicable; 159 lines. |
-| Security documentation (`docs/security.md`, R3) + diagram | 3.5 | Verified-absence posture, attack-surface table, ADR-06 no-controls decision, operational secrets note, compliance N/A, verified-absence Mermaid view; 106 lines. |
-| Governance / licensing (`docs/governance/licensing.md`, F-006) | 1.5 | Apache-vs-MIT inconsistency analysis and recommended single-license resolution; 51 lines. |
-| Navigation hub + root README rewrite | 3.0 | `docs/README.md` documentation index hub (83 lines) and the root `README.md` rewrite with TOC, overview, and licensing note (+90/-3). |
-| Quality-gate config (`.markdownlint-cli2.jsonc`) | 1.0 | Optional, in-scope (AAP §0.8.1) markdownlint config; all default rules enabled, MD013 disabled with full justification; globs scoped to docs. |
-| Validation: markdownlint sweep + MD060 fixes | 1.5 | Lint sweep across 13 files → 0 errors; normalized 2 MD060 table separators in `module-reference.md` and `licensing.md`. |
-| Validation: link check + anchor resolution | 2.0 | 74 links checked, 0 dead; 4/4 intra-page anchors resolve (incl. colon-stripped `#attack-surface-none`). |
-| Validation: factual accuracy re-verification | 2.5 | Every numeric/technical claim re-verified against source; 100% match. |
-| Validation: render (Mermaid SVG + Chrome pages) | 3.0 | 4/4 Mermaid diagrams → valid SVG via `mmdc`; 3 pages render in real Chrome (`RENDER_OK`, 0 console errors). |
-| **Total Completed** | **48.0** | |
+|-----------|------:|-------------|
+| Corpus static scan & evidence ledger | 6.0 | Whole‑tree scan; verified 29 files / 33,105 fns / 300,000 lines, 28 `store=[]`, zero‑result keyword sweep; authored `docs/reference/corpus-evidence.md` (E1–E12) |
+| Overview & navigation | 5.0 | `docs/README.md` hub, `docs/overview.md`, and rewrite of root `README.md` (placeholder → real overview) |
+| Functionality area | 9.0 | `functionality/README.md` (catalog + feature‑relationship diagram), `arithmetic-helpers.md` (F‑001/F‑002), `module-anatomy.md` (F‑004), `corpus-composition.md` (F‑005) |
+| Architecture area | 7.0 | `architecture/README.md`, `layered-scaffold.md` (F‑003 + layer‑map diagram), `module-control-flow.md` (control‑flow diagram with dead branch) |
+| Performance documentation | 3.5 | `performance/README.md` — O(1) complexity, determinism/purity, corpus‑scale vs runtime, explicit no‑SLA framing |
+| Security documentation | 4.0 | `security/README.md` — verified‑absence posture, keyword‑sweep table, zero‑dependency supply chain, F‑006 dual‑license analysis |
+| Reference area | 6.0 | `file-inventory.md` (29‑file table), `code-reference.md` (`mod_*` archetype), `glossary.md` |
+| Autonomous 5‑gate validation | 9.0 | Citation/link resolution, inventory row‑by‑row, 72 empirical fn executions, offline render harness, lint/mermaid checks, 5 evidence screenshots |
+| Iterative QA / code‑review resolution | 5.5 | Restructure of earlier flat docs into AAP hierarchy; false‑positive triage; consistency sweeps across 16 files |
+| **Total Completed** | **55.0** | |
 
 ### 2.2 Remaining Work Detail
 
-All remaining work is path-to-production; **no AAP authoring work remains.** **Total = 7.0 hours.**
-
 | Category | Hours | Priority |
-| --- | --- | --- |
-| Human review & accuracy sign-off of all 13 documents | 3.0 | High |
-| PR approval & merge to `main` / publish | 0.5 | High |
-| Governance: resolve Apache-vs-MIT license inconsistency | 1.5 | Medium |
-| Optional: wire markdownlint + link-check into CI quality gate | 2.0 | Low |
-| **Total Remaining** | **7.0** | |
+|----------|------:|----------|
+| SME / technical‑writer accuracy & faithful‑framing review (16 docs) | 3.0 | Medium |
+| Resolve F‑006 dual‑license conflict (governance decision) | 2.0 | High |
+| PR review & merge to base branch `origin/26-Jun-2026-Br1` | 1.0 | Medium |
+| Decide markdownlint MD013 (line‑length) handling | 0.5 | Low |
+| **Total Remaining** | **6.5** | |
 
-> **Cross-section check:** Section 2.1 (48.0h) + Section 2.2 (7.0h) = **55.0h** total, matching Section 1.2. Remaining = **7.0h** in Sections 1.2, 2.2, and 7.
+**Remaining by priority:** High = 2.0h · Medium = 4.0h · Low = 0.5h · **Total = 6.5h**
 
-### 2.3 Effort Distribution Notes
+### 2.3 Total Project Hours & Reconciliation
 
-- **Confidence:** High. The scope is fully defined by the AAP, every deliverable exists on disk, and the numeric claims were independently re-verified.
-- **Manual hours to date:** 0.0 — all completed work was performed autonomously by Blitzy agents across 10 commits (`c416c02 … f373759`).
-- **No source-code hours:** Editing any `.js` file is out of scope (it would break the deliberate 300,000-line sizing property F-005), so no implementation/refactor hours exist.
+| Bucket | Hours |
+|--------|------:|
+| Completed (Section 2.1) | 55.0 |
+| Remaining (Section 2.2) | 6.5 |
+| **Total Project Hours** | **61.5** |
+
+Reconciliation: `55.0 + 6.5 = 61.5`; completion `55.0 / 61.5 = 89.4%`. These figures are identical in Sections 1.2, 2.x, and 7.
 
 ---
 
 ## 3. Test Results
 
-For a documentation deliverable, the standard test gates map to **documentation quality gates**. Every result below originates from Blitzy's autonomous validation logs (re-confirmed first-hand against committed state `f373759`).
+All entries below originate from Blitzy's **autonomous validation logs** for this documentation project. Because the deliverable is documentation (no executable application), "tests" are validation checks executed by the autonomous validator.
 
-| Test Category | Framework | Total Tests | Passed | Failed | Coverage % | Notes |
-| --- | --- | --- | --- | --- | --- | --- |
-| Lint (structural) | markdownlint-cli2 v0.22.1 (markdownlint v0.40.0) | 13 | 13 | 0 | 100% | All `README.md` + `docs/**/*.md`; 0 errors. MD013 intentionally disabled with justification; all structural rules enabled. |
-| Link integrity | markdown-link-check 3.14.2 | 74 | 74 | 0 | 100% | 0 dead links across all 13 documents (internal + external). |
-| Anchor resolution | Custom GitHub-slug checker | 4 | 4 | 0 | 100% | All intra-page anchors resolve, incl. `#attack-surface-none` (colon correctly stripped). |
-| Factual accuracy | Source re-verification vs corpus | 15 | 15 | 0 | 100% | 300,000 lines, 33,105 functions, 29 files, 28 `store`, 0 exports, 0 requires, `6x+10`, `x=5→40`, mod ranges, Apache/MIT, tests-0-assertions, 11 layers, byte-identical bodies. |
-| Diagram render | @mermaid-js/mermaid-cli 11.15.0 (`mmdc`) | 4 | 4 | 0 | 100% | All Mermaid blocks render to valid SVG (architecture, performance, security, arithmetic-helpers). |
-| Page render (UI) | Chrome + marked + mermaid.js harness | 3 | 3 | 0 | 100% | `performance.md`, `architecture.md`, `security.md` render `RENDER_OK` with 0 console errors. |
-| **Totals** | — | **113** | **113** | **0** | **100%** | Zero unresolved defects. |
+| Test Category | Framework / Tool | Total | Passed | Failed | Coverage % | Notes |
+|---------------|------------------|------:|-------:|-------:|-----------:|-------|
+| Citation resolution | Custom validator (Node) | 295 | 295 | 0 | 100% | Every `Source: path:Lx-Ly` resolves to a real file & valid line range |
+| Cross‑link resolution | Custom validator + github‑slugger | 185 | 185 | 0 | 100% | All inter‑doc links and heading anchors resolve |
+| Inventory accuracy | coreutils (`wc`,`grep`) | 29 | 29 | 0 | 100% | Per‑file fn + line counts match corpus exactly |
+| Empirical function behavior | Node v20 eval harness | 72 | 72 | 0 | 100% | 8 functions × 9 inputs all return `6x+10` (incl. short‑variant, negatives, 0) |
+| Evidence ledger reproduction | coreutils / bash | 12 | 12 | 0 | 100% | E1–E12 commands reproduce documented output verbatim |
+| Markdown structure | Custom + markdownlint‑cli2 0.22.1 | 16 | 16 | 0 | 100% | 1 H1 per file; balanced fences; only MD013 advisory fires |
+| Mermaid diagram render | @mermaid‑js/mermaid‑cli 11.15.0 (mmdc) | 3 | 3 | 0 | 100% | Layer map, control‑flow, feature‑relationship → valid SVG |
+| Runtime render & navigation | marked@12 + headless Chrome harness | 16 | 16 | 0 | 100% | All 16 pages render; links navigate; only favicon 404 (harmless) |
+| **Totals** | — | **628** | **628** | **0** | **100%** | Zero substantive failures across all autonomous checks |
 
-> **Note on corpus `tests/`:** The corpus's own `tests/unit` and `tests/integration` files contain **no assertions** — an intentional synthetic-corpus property that the documentation accurately *describes* (in `module-reference.md`), not a defect. Source is out of scope; these are not counted as project tests.
+> Pass rate: **628 / 628 = 100%**. The only lint signal is MD013 (line‑length), an advisory that the AAP marks optional; it is not counted as a failure.
 
 ---
 
 ## 4. Runtime Validation & UI Verification
 
-There is no runnable application — the corpus is non-executable synthetic source with no entry point, server, or data path. "Runtime" and "UI" therefore map to **documentation rendering** and **navigation**, which were validated as follows.
+This is a documentation deliverable with **no application runtime**. "Runtime" validation therefore covers Markdown/Mermaid rendering and in‑page navigation, performed with an offline render harness (marked@12 + pre‑rendered SVGs + github‑slugger heading IDs) driven by headless Chrome.
 
-**Documentation rendering**
+- ✅ **Operational** — All 16 pages (15 `docs/**/*.md` + root `README.md`) render without content errors.
+- ✅ **Operational** — Layer‑map diagram renders as isolated nodes with no inter‑layer edges (F‑003 conveyed correctly).
+- ✅ **Operational** — Module control‑flow diagram renders with a solid always‑true path and a dotted dead branch → "never taken".
+- ✅ **Operational** — Feature‑relationship diagram renders F‑001…F‑006 (F‑006 standalone; `filler.js` shown).
+- ✅ **Operational** — Live cross‑link click navigates correctly; F‑006 in‑page anchor scrolls into view.
+- ✅ **Operational** — 5 evidence screenshots captured under `blitzy/screenshots/` (docs hub/README, layered‑scaffold table+diagram, control‑flow, feature‑relationship).
+- ⚠ **Partial (non‑blocking)** — A single `favicon.ico` 404 is emitted by the test harness only; it does not affect documentation content.
+- ❌ **Failing** — None.
 
-- ✅ **Operational** — All 13 Markdown documents render via GitHub-native Markdown (no build pipeline required).
-- ✅ **Operational** — All 4 Mermaid diagrams render to valid SVG via `mmdc` (architecture 22.8 KB, performance 19.2 KB, security 12.8 KB, arithmetic-helpers 19.2 KB; performance and arithmetic-helpers share the identical computation flowchart by design).
-- ✅ **Operational** — 3 representative pages (`performance.md`, `architecture.md`, `security.md`) rendered in real Chrome via a GitHub-like harness: title `RENDER_OK`, 0 console errors, entity-escaped `&lt;fileId&gt;` correctly displays as `<fileId>`.
-
-**Navigation & cross-links**
-
-- ✅ **Operational** — Root `README.md` table-of-contents links resolve to existing files.
-- ✅ **Operational** — `docs/README.md` hub links resolve to existing files; functionality index links to all topic docs.
-- ✅ **Operational** — Back-links and cross-references between `arithmetic-helpers.md` ↔ `performance.md` and `security.md` ↔ `governance/licensing.md` resolve.
-
-**API / integration outcomes**
-
-- ⚪ **Not Applicable** — The corpus exposes no API (0 `module.exports`, 0 `require(`), has zero dependencies, and performs no I/O, so there are no runtime endpoints, services, or integrations to verify.
+> API integration: **Not applicable** — the corpus exposes no module system, endpoints, or external integrations (whole‑tree sweep returns zero `require`/`import`/`export`/`fetch`).
 
 ---
 
 ## 5. Compliance & Quality Review
 
-This matrix cross-maps the AAP's explicit requirements and rules to their delivery status, including fixes applied during autonomous validation.
+Cross‑mapping of AAP deliverables to Blitzy quality/compliance benchmarks. Fixes applied during autonomous validation are noted.
 
-| AAP Requirement / Rule | Benchmark | Status | Progress | Notes |
-| --- | --- | --- | --- | --- |
-| **R1** — Functionalities clearly mentioned | F-001…F-006 documented | ✅ Pass | 6/6 | All functionalities documented with a representative contract + per-layer inventory. |
-| **R2** — Performance highlighted | Dedicated performance doc | ✅ Pass | 100% | `O(1)`, dead branch, corpus scale, scalability N/A. |
-| **R3** — Security highlighted | Dedicated security doc | ✅ Pass | 100% | Verified-absence posture, ADR-06, operational secrets note. |
-| File inventory coverage | 29/29 files, 11/11 layers | ✅ Pass | 100% | Full per-layer module reference. |
-| Representative-pattern approach | One canonical contract | ✅ Pass | 100% | `mod_<fileId>_<k>(x) → 6x+10` with worked example, stated equivalence to all 33,105 functions. |
-| Source citation on every claim | `Source:` / Tech Spec § on each | ✅ Pass | 13/13 docs | Citations present in all documents. |
-| Mermaid diagrams | 3 required | ✅ Pass | 3/3 | Computation flowchart, edge-less containment, verified-absence view. |
-| Honest "verified-absence" framing | No fabricated capabilities | ✅ Pass | 100% | No implied features, SLAs, or controls the code lacks. |
-| Non-invasive (no source edits) | 0 `.js` modified | ✅ Pass | 100% | 300,000-line sizing property F-005 preserved. |
-| Root README update | Placeholder replaced + TOC | ✅ Pass | 100% | Overview + TOC + licensing note. |
-| Markdown lint quality gate | markdownlint clean | ✅ Pass | 0 errors | 2 MD060 separators fixed; `.markdownlint-cli2.jsonc` added (commit `f373759`). |
-| Link/anchor integrity | 0 dead links/anchors | ✅ Pass | 74 links, 4 anchors | All resolve. |
-| Licensing governance (F-006) | Inconsistency flagged | ⚠ Advisory | Documented | Flag-only by AAP §0.8.2; resolution is an owner decision (see Section 1.4). |
-| CI enforcement of quality gates | Optional | ⚪ Optional | Not wired | Config committed; CI wiring is an optional remaining task. |
-
-**Fixes applied during autonomous validation (commit `f373759`, 3 files, +26/-2):**
-
-1. `docs/functionality/module-reference.md` — normalized MD060 table separator row (content unchanged).
-2. `docs/governance/licensing.md` — same MD060 separator normalization (content unchanged).
-3. `.markdownlint-cli2.jsonc` — new, in-scope quality-gate config establishing the lint baseline.
+| Benchmark | Requirement (AAP) | Status | Progress | Notes / Fixes Applied |
+|-----------|-------------------|--------|---------:|-----------------------|
+| Functionality coverage | Document all behavior clearly (F‑001…F‑006) | ✅ Pass | 6/6 | Single archetype generalized across all 33,105 fns |
+| Performance highlighted | O(1), determinism, explicit no‑SLA | ✅ Pass | 100% | No fabricated SLAs/KPIs — faithful framing enforced |
+| Security highlighted | Verified‑absence posture + licensing | ✅ Pass | 100% | Keyword‑sweep table; F‑006 "DOCUMENTED, NOT APPLIED" |
+| Layer coverage | 11 nominal layers documented | ✅ Pass | 11/11 | Per‑layer composition table verified row‑by‑row |
+| File inventory | 29 `.js` files inventoried | ✅ Pass | 29/29 | Counts match corpus exactly (totals 33,105 / 300,000) |
+| Traceability | `Source: path:Lx-Ly` for every claim | ✅ Pass | 295/295 | All citations resolve |
+| Navigation | `docs/` index + cross‑links | ✅ Pass | 185/185 | Hub links to all 6 areas + child pages |
+| README upgrade | Replace placeholder | ✅ Pass | 100% | Genuine overview + quick‑start + docs map |
+| Diagrams | ≥3 Mermaid diagrams | ✅ Pass | 3/3 | All render to valid SVG |
+| Zero‑dependency posture | No new manifests/tooling committed | ✅ Pass | 100% | No `package.json`/lockfile added; tooling used in `/tmp` only |
+| Scope discipline | No source/test/license edits | ✅ Pass | 100% | Zero in‑scope `.js`/license changes |
+| Markdown lint (optional) | markdownlint clean | ⚠ Advisory | n/a | Only MD013 (line‑length) fires; AAP marks lint optional |
+| License governance | F‑006 conflict resolved | ⏳ Open | 0% | Out of documentation scope — human governance decision |
 
 ---
 
 ## 6. Risk Assessment
 
 | Risk | Category | Severity | Probability | Mitigation | Status |
-| --- | --- | --- | --- | --- | --- |
-| Apache-vs-MIT license inconsistency creates legal/redistribution ambiguity | Integration / Governance | Medium | High (exists now) | Owner selects a single license and aligns `/LICENSE` with `society_mgmt_300k/LICENSE/LICENSE.txt`; documented in `docs/governance/licensing.md`. | Open (flag-only by AAP design) |
-| Plaintext secrets (`DB_HOST`, `API_KEY`) referenced in operator setup instructions | Security (Operational) | Low | Low | Documented by name only in `docs/security.md` with guidance to use env vars / a secrets manager; verified 0 occurrences in repo `.js`. | Mitigated (documented) |
-| Documentation not yet human-reviewed/merged | Operational | Low | Medium | High-priority human review & sign-off task (Section 2.2). | Open (pending review) |
-| No CI enforcement of doc quality gates → future drift | Operational | Low | Medium | `.markdownlint-cli2.jsonc` committed; optional CI wiring task in Section 2.2. | Open (optional) |
-| "300,000 lines" depends on raw-newline counting; some tools undercount (266,895) | Technical | Low | Low | Authoritative counting method documented in `corpus-sizing.md`; validator noted the pipeline artifact. | Mitigated (documented) |
-| Mermaid diagrams require a Mermaid-capable renderer | Technical | Low | Low | GitHub renders natively; 4/4 validated via `mmdc` → SVG; optional static export available. | Mitigated |
-| `blitzy/` validation scratch left untracked → not preserved for audit | Operational | Low | Low | Intentional scratch (helpers + screenshots); archive into repo if an audit trail is desired. | Accepted (by design) |
+|------|----------|----------|-------------|------------|--------|
+| R1 — Documentation drift if corpus is regenerated | Technical | Low | Low | `corpus-evidence.md` ships reproducible verification commands (E1–E12) | Mitigated |
+| R2 — Source dead always‑true branch + inert `store` linger in code | Technical | Low | High | Documented as intentional subject matter; source edits out of scope | Documented |
+| R3 — F‑006 dual‑license conflict (Apache‑2.0 root vs MIT inner, no precedence) | Security / Legal | Medium | High | Documented with 3 resolution options; awaiting human governance | **Open** |
+| R4 — Runtime attack surface | Security | Negligible | Negligible | Verified absent (no I/O, eval, secrets, auth, crypto); sole input is numeric `x` | Verified absent |
+| R5 — Supply‑chain exposure | Security | Negligible | Negligible | Zero dependencies (no `package.json`/lockfile) | Verified absent |
+| R6 — No docs hosting / build / CI | Operational | Low | Low | Accepted by design — plain Markdown renders natively (incl. Mermaid) | Accepted |
+| R7 — No automated docs quality gate | Operational | Low | Medium | Optional `markdownlint-cli2` documented; manual review covers gap | Accepted / Optional |
+| R8 — Mermaid rendering depends on viewer support | Integration | Low | Low–Medium | GitHub & common viewers render natively; `mmdc` SVG export documented | Mitigated |
+| R9 — Relative `.md` cross‑link integrity on platform migration | Integration | Low | Low | 185/185 links currently resolve; link map documented for re‑verification | Mitigated |
 
-**Overall risk posture:** No High or Critical risks. One Medium risk (license governance) that is documented and owner-actionable; all remaining risks are Low and predominantly already mitigated or accepted — consistent with a documentation-only deliverable on a frozen synthetic corpus with zero runtime, zero dependencies, and a verified near-zero attack surface.
+> **Most material risk:** R3 (F‑006). No High‑severity blockers exist; R3 is the only Open item and is a governance decision rather than a documentation defect.
 
 ---
 
 ## 7. Visual Project Status
 
-**Project hours — completed vs remaining** (Completed = Dark Blue `#5B39F3`, Remaining = White `#FFFFFF`):
+**Hours: Completed vs Remaining** (Completed = Dark Blue `#5B39F3`, Remaining = White `#FFFFFF` with violet stroke for visibility)
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'pie1':'#5B39F3','pie2':'#FFFFFF','pieStrokeColor':'#B23AF2','pieOuterStrokeColor':'#B23AF2','pieSectionTextColor':'#B23AF2','pieStrokeWidth':'2px','pieTitleTextSize':'16px'}}}%%
-pie showData title Project Hours Breakdown
-    "Completed Work" : 48
-    "Remaining Work" : 7
+%%{init: {'theme':'base','themeVariables':{'pie1':'#5B39F3','pie2':'#FFFFFF','pieStrokeColor':'#B23AF2','pieStrokeWidth':'2px','pieOuterStrokeWidth':'2px','pieTitleTextSize':'16px','pieSectionTextSize':'14px','pieLegendTextSize':'13px'}}}%%
+pie showData title Project Hours Breakdown (Total 61.5h)
+    "Completed Work" : 55
+    "Remaining Work" : 6.5
 ```
 
-**Remaining work by category (7.0h total):**
+**Remaining Work by Priority** (6.5h total)
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'pie1':'#5B39F3','pie2':'#B23AF2','pie3':'#A8FDD9','pieStrokeColor':'#333333','pieStrokeWidth':'1px','pieTitleTextSize':'16px','pieSectionTextSize':'14px','pieLegendTextSize':'13px'}}}%%
+pie showData title Remaining Hours by Priority
+    "Medium" : 4.0
+    "High" : 2.0
+    "Low" : 0.5
+```
+
+**Remaining Work by Category (hours)**
 
 | Category | Hours | Priority |
-| --- | --- | --- |
-| Human review & accuracy sign-off | 3.0 | High |
-| PR approval & merge / publish | 0.5 | High |
-| License governance resolution | 1.5 | Medium |
-| Optional CI quality-gate wiring | 2.0 | Low |
-| **Total** | **7.0** | — |
+|----------|------:|----------|
+| SME / technical‑writer accuracy review | 3.0 | Medium |
+| Resolve F‑006 dual‑license conflict | 2.0 | High |
+| PR review & merge | 1.0 | Medium |
+| markdownlint MD013 decision | 0.5 | Low |
+| **Total** | **6.5** | |
 
-**Remaining work by priority:**
-
-```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'pie1':'#5B39F3','pie2':'#B23AF2','pie3':'#A8FDD9','pieStrokeColor':'#B23AF2','pieOuterStrokeColor':'#B23AF2','pieSectionTextColor':'#000000','pieStrokeWidth':'1px','pieTitleTextSize':'16px'}}}%%
-pie showData title Remaining Hours by Priority
-    "High (3.5h)" : 3.5
-    "Medium (1.5h)" : 1.5
-    "Low (2.0h)" : 2.0
-```
-
-> **Integrity:** The pie chart's "Remaining Work" (7) equals the Section 1.2 Remaining Hours (7.0) and the sum of the Section 2.2 Hours column (7.0). "Completed Work" (48) equals the Section 2.1 total (48.0).
+> Integrity check: "Remaining Work" = **6.5h** in Section 1.2, Section 2.2, and both pie charts above.
 
 ---
 
 ## 8. Summary & Recommendations
 
-**Achievements.** The project delivers complete, evidence-based documentation for the `society_mgmt_300k` corpus, satisfying all three user requirements: functionalities (R1), performance (R2), and security (R3). Twelve new documents and a rewritten root README were authored across 10 autonomous commits (1,280 insertions over 14 files), every technical claim carries a source citation, three Mermaid diagrams are present and render-validated, and all quality gates pass with zero unresolved defects. An independent re-count confirmed the headline facts exactly: 300,000 lines, 33,105 functions, the `6x + 10` contract, 0 exports/imports, and the Apache-vs-MIT license inconsistency.
+**Achievements.** The documentation objective is fully met. The complete `docs/` tree (15 files) plus a rewritten root `README.md` faithfully document the `society_mgmt_300k` corpus: its sole behavioral capability (33,105 pure `mod_<fileId>_<k>` helpers computing `6x + 10` with a dead always‑true parity branch), its 11‑layer scaffold, its inert `store` placeholder and comment‑only `filler.js`, its exact 300,000‑line sizing, and its licensing artifacts. Performance is documented as strict O(1) with no fabricated SLAs, and security as a verified‑absence posture with a zero‑dependency supply chain. Every claim is traceable (295/295 citations resolve) and all autonomous validation gates pass (628/628 checks, 100%).
 
-**Completion.** Using the AAP-scoped hours method, the project is **87.3% complete** (48.0 of 55.0 hours). **100% of the AAP authoring scope is finished**; the remaining 7.0 hours are path-to-production activities, not documentation gaps.
+**Remaining gaps (6.5h).** All outstanding work is human path‑to‑production: an SME accuracy review (3.0h), the F‑006 dual‑license governance decision (2.0h), PR review & merge (1.0h), and a markdownlint MD013 policy decision (0.5h).
 
-**Remaining gaps & critical path.** The critical path to production is short: (1) a human reviewer signs off on documentation accuracy (3.0h, High), then (2) the PR is approved and merged (0.5h, High). In parallel, the owner should (3) resolve the Apache-vs-MIT license inconsistency (1.5h, Medium). An optional (4) CI quality-gate wiring (2.0h, Low) would prevent future drift.
+**Critical path to production.** (1) SME accuracy sign‑off → (2) F‑006 license resolution → (3) PR merge to `origin/26-Jun-2026-Br1`. The MD013 decision can proceed in parallel.
 
-**Success metrics.** 6/6 functionalities documented; 29/29 files and 11/11 layers inventoried; 13/13 documents cited; 113/113 quality-gate checks passing; 0 dead links; 0 lint errors; 4/4 diagrams rendering.
+**Production readiness.** The project is **89.4% complete** (55.0 of 61.5 hours). The documentation artifact itself is production‑ready and self‑contained (no build/deploy). The only non‑documentation blocker is the F‑006 license governance decision, which is a legal/ownership call rather than an engineering defect.
 
-**Production-readiness assessment.** The documentation deliverable is **production-ready pending human review**. There are no release-blocking issues and no access issues. The single Medium risk (license governance) is documented and owner-actionable. Recommendation: proceed to review and merge; treat the license decision as a fast-follow governance item.
-
-| Metric | Value |
-| --- | --- |
-| Completion | 87.3% |
-| Completed / Total hours | 48.0 / 55.0 |
-| Remaining hours | 7.0 |
-| Release-blocking issues | 0 |
-| Quality-gate checks passing | 113 / 113 (100%) |
-| Highest open risk | Medium (license governance) |
+| Success Metric | Target | Actual |
+|----------------|--------|--------|
+| Feature coverage | 6/6 | ✅ 6/6 |
+| Files inventoried | 29/29 | ✅ 29/29 |
+| Citations resolving | 100% | ✅ 295/295 |
+| Cross‑links resolving | 100% | ✅ 185/185 |
+| Diagrams rendering | 3/3 | ✅ 3/3 |
+| Autonomous checks passing | 100% | ✅ 628/628 |
 
 ---
 
 ## 9. Development Guide
 
-This corpus is **non-executable synthetic source** — there is **no application to build or run**. This guide covers obtaining the repository, viewing the documentation, and running the optional documentation quality gates. All commands were tested on the validation host (Windows PowerShell; Node v20.20.2, npm 10.8.2, Git 2.54.0) unless marked validator-verified.
+> This is a **zero‑dependency documentation** project. There is **no build, no runtime, and no deployment**. The "development" workflow is reading, previewing, and optionally linting Markdown.
 
 ### 9.1 System Prerequisites
 
-- **Git** ≥ 2.40 (repository access). *Required.*
-- **A Markdown viewer** — GitHub renders all documents and Mermaid diagrams natively; no local tooling is required to read the docs.
-- **Node.js** ≥ 20 LTS (Node 24 "Krypton" Active LTS recommended) — *only* needed for the optional quality-gate tooling. *Optional.*
-- **OS / hardware:** any modern OS; no special resources (the docs are plain text; the corpus is ~300k lines of text).
+- **OS:** Any (Linux/macOS/Windows). Validated on Ubuntu 25.10.
+- **Git:** 2.51.0 (used 2.51.0) — to clone/checkout the branch.
+- **Markdown viewer:** GitHub web UI, VS Code, or any viewer with Mermaid support. **No software is required to read the docs.**
+- **(Optional) Node.js + npm:** Node v20.20.2 / npm 11.1.0 — only for optional lint/diagram tooling (first run fetches packages over the network).
 
-### 9.2 Get the Documentation
-
-```bash
-git clone <repository-url>
-cd <repository-root>
-git checkout blitzy-4c9fc988-d596-46cd-819b-f4937575a16c
-```
-
-### 9.3 View the Documentation (no build required)
-
-Start at the documentation hub and follow the links:
+### 9.2 Environment Setup
 
 ```bash
-# Entry points (open in your Markdown viewer or on GitHub):
-#   README.md                      -> project overview + table of contents
-#   docs/README.md                 -> documentation navigation hub
-#   docs/overview.md               -> honest system overview
-#   docs/architecture.md           -> layered scaffold + containment diagram
-#   docs/functionality/README.md   -> functionality index (F-001..F-006)
-#   docs/performance.md            -> performance characteristics (R2)
-#   docs/security.md               -> security posture (R3)
-#   docs/governance/licensing.md   -> Apache-vs-MIT governance note (F-006)
-git ls-files "*.md"
+# Clone and check out the documentation branch
+git clone <repo-url> society_mgmt_300k
+cd society_mgmt_300k
+git checkout blitzy-a1607eb1-4f55-4b93-b257-34a54f3c75b7
 ```
 
-### 9.4 Optional: Install Documentation Tooling
+No environment variables, services, databases, or secrets are required.
 
-Only needed to run the quality gates locally (versions pinned to AAP §0.6):
+### 9.3 Dependency Installation
 
 ```bash
-npm install -g markdownlint-cli2@0.22.1 markdown-link-check@3.14.2 @mermaid-js/mermaid-cli@11.15.0
+# None required — the repository has no package.json or lockfile (verified).
+# Confirm zero dependency manifests:
+find . -name package.json -not -path '*/node_modules/*' | wc -l   # expect 0
 ```
 
-### 9.5 Verification Steps (Quality Gates)
+### 9.4 Reading / Previewing the Documentation
 
 ```bash
-# 1) Lint — auto-discovers .markdownlint-cli2.jsonc. Expect: "Summary: 0 error(s)"
-npx markdownlint-cli2
+# List the documentation set (expect 15 files)
+find docs -name '*.md' | sort
 
-# 2) Link check — expect 0 dead links (run per-file or glob)
-npx markdown-link-check -q docs/README.md
-
-# 3) Authoritative line count — expect exactly 300000 (raw-newline method).
-#    PowerShell:
-#    (Get-ChildItem society_mgmt_300k -Recurse -Filter *.js |
-#       ForEach-Object { [regex]::Matches([IO.File]::ReadAllText($_.FullName),"`n").Count } |
-#       Measure-Object -Sum).Sum
-#    Bash/Unix equivalent:
-find society_mgmt_300k -name "*.js" -exec cat {} + | wc -l
-
-# 4) (Optional) Render a Mermaid diagram to SVG
-#    PUPPETEER_SKIP_DOWNLOAD=true npx -p @mermaid-js/mermaid-cli mmdc -i diagram.mmd -o diagram.svg
+# Start at the hub, then navigate:
+#   README.md  ->  docs/README.md  ->  area READMEs  ->  topic pages
+# On GitHub, Mermaid fenced blocks render automatically (no build step).
 ```
 
-### 9.6 Example Usage — Validate the Representative Contract
-
-Every function computes `6x + 10`. Confirm the worked example interactively:
+### 9.5 Verification Steps
 
 ```bash
-node -e "const x=5; let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10}; console.log(r); // -> 40"
+# 1) Re-verify corpus facts (expect: 29 files, 300000 lines, 33105 functions)
+find society_mgmt_300k -name '*.js' | wc -l
+find society_mgmt_300k -name '*.js' -exec cat {} + | wc -l
+grep -rohE 'function mod_[0-9]+_[0-9]+' society_mgmt_300k --include='*.js' | wc -l
+
+# 2) Empirically confirm a helper returns 6x+10 (expect 34 for x=4)
+node -e "eval(require('fs').readFileSync('society_mgmt_300k/src/controllers/file_0.js','utf8')); console.log(mod_0_0(4));"
+
+# 3) (Optional) Lint Markdown — only MD013 (line-length) is expected to fire
+npx --yes markdownlint-cli2 "docs/**/*.md" "README.md"
+
+# 4) (Optional) Export a Mermaid diagram to SVG
+npx -p @mermaid-js/mermaid-cli@11.15.0 mmdc -i <input>.mmd -o <output>.svg
 ```
 
-Expected output: `40` (because `6×5 + 10 = 40`).
+### 9.6 Example Usage
+
+```javascript
+// Any corpus function is a pure helper computing 6x + 10.
+// Example from society_mgmt_300k/src/controllers/file_0.js:
+function mod_0_0(x){ let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10} return r; }
+
+mod_0_0(0);   // => 10
+mod_0_0(4);   // => 34   (6*4 + 10)
+mod_0_0(10);  // => 70   (6*10 + 10)
+mod_0_0(-5);  // => -20  (6*-5 + 10)
+```
 
 ### 9.7 Troubleshooting
 
-- **Line count shows 266,895 instead of 300,000** — you are counting *records* (e.g. `Get-Content | Measure-Object -Line`), which undercounts the final unterminated lines. Use the raw-newline method in 9.5 step 3, or `cat … | wc -l`. The authoritative count is **300,000** (`docs/functionality/corpus-sizing.md`).
-- **Mermaid diagrams show as raw code** — your viewer lacks Mermaid support. View on GitHub (native), or export with `mmdc` (9.5 step 4).
-- **Lint reports MD013 / line-length warnings** — MD013 is intentionally disabled in `.markdownlint-cli2.jsonc` (citations and table rows legitimately exceed 80 cols); ensure the config is discovered by running `npx markdownlint-cli2` from the repository root.
-- **`mmdc` fails to launch Chromium** — set `PUPPETEER_SKIP_DOWNLOAD=true` and pass a puppeteer config with `--no-sandbox` via `-p`.
-- **"Where do I start?"** — open `docs/README.md`; it links to every document.
+- **Mermaid diagram shows as raw code** → Your viewer lacks Mermaid support. Use GitHub, VS Code (with a Mermaid extension), or export to SVG with `mmdc` (see 9.5).
+- **`npx markdownlint-cli2` reports MD013** → Expected and advisory (line‑length). The AAP marks lint optional; no action required.
+- **`npx` fails to fetch a tool** → First run needs network access; the optional tools are not required to read the docs.
+- **Function call returns `undefined`** → Load the *entire* file before calling (functions are file‑local; there is no module system / no `export`). Use the `node -e "eval(readFileSync(...))"` form shown in 9.5.
+- **Counts differ from the docs** → The corpus may have changed. Re‑run the commands in `docs/reference/corpus-evidence.md` (E1–E12) and update the inventory tables.
 
 ---
 
 ## 10. Appendices
 
-### Appendix A — Command Reference
+### A. Command Reference
 
-| Purpose | Command |
-| --- | --- |
-| List all documentation files | `git ls-files "*.md"` |
-| Lint all docs (quality gate) | `npx markdownlint-cli2` |
-| Check links in a doc | `npx markdown-link-check -q docs/README.md` |
-| Authoritative line count (Unix) | `find society_mgmt_300k -name "*.js" -exec cat {} + \| wc -l` |
-| Count functions | `grep -rho "function mod_" society_mgmt_300k \| wc -l` |
-| Verify zero exports/imports | `grep -rnE "module.exports\|require\(" society_mgmt_300k` (expect none) |
-| Render a Mermaid diagram | `npx -p @mermaid-js/mermaid-cli mmdc -i in.mmd -o out.svg` |
-| View agent commit history | `git log --author="agent@blitzy.com" --oneline` |
-| Evaluate worked example | `node -e "let x=5,r=0;r+=x*1;r+=x*2;r+=x*3;if(r%2===0)r+=10;console.log(r)"` |
+| Command | Purpose |
+|---------|---------|
+| `find docs -name '*.md' \| sort` | List the 15 documentation files |
+| `find society_mgmt_300k -name '*.js' \| wc -l` | Count corpus files (29) |
+| `find society_mgmt_300k -name '*.js' -exec cat {} + \| wc -l` | Count corpus lines (300,000) |
+| `grep -rohE 'function mod_[0-9]+_[0-9]+' --include='*.js' \| wc -l` | Count functions (33,105) |
+| `node -e "eval(readFileSync('.../file_0.js')); console.log(mod_0_0(4))"` | Empirically verify `6x+10` |
+| `npx --yes markdownlint-cli2 "docs/**/*.md" "README.md"` | Optional Markdown lint |
+| `npx -p @mermaid-js/mermaid-cli@11.15.0 mmdc -i in.mmd -o out.svg` | Optional diagram export |
 
-### Appendix B — Port Reference
+### B. Port Reference
 
-**Not applicable.** The corpus is non-executable and exposes no servers, services, or network ports. GitHub-native documentation rendering requires no local port. (If the optional Docusaurus site is ever adopted, its dev server defaults to port `3000`.)
+Not applicable — no services, servers, or listening ports. The deliverable is static Markdown.
 
-### Appendix C — Key File Locations
+### C. Key File Locations
 
-| Path | Role |
-| --- | --- |
-| `README.md` | Root project overview + table of contents |
-| `docs/README.md` | Documentation navigation hub |
-| `docs/overview.md` | Honest system overview |
-| `docs/architecture.md` | Layered scaffold + edge-less containment diagram |
-| `docs/functionality/` | F-001…F-005 references + index (`arithmetic-helpers`, `symbol-namespace`, `module-reference`, `store-placeholder`, `corpus-sizing`) |
-| `docs/performance.md` | Performance characteristics (R2) |
-| `docs/security.md` | Security posture (R3) |
-| `docs/governance/licensing.md` | Apache-vs-MIT governance note (F-006) |
-| `.markdownlint-cli2.jsonc` | Lint quality-gate configuration |
-| `society_mgmt_300k/src/**` | 9 source layers (config, controllers, domain, middleware, models, repositories, routes, services, utils) |
-| `society_mgmt_300k/tests/**` | 2 test layers (unit, integration) — assertion-free by design |
-| `society_mgmt_300k/src/controllers/file_0.js:L3-L11` | Canonical `6x+10` function body |
-| `/LICENSE`, `society_mgmt_300k/LICENSE/LICENSE.txt` | Apache (root) vs MIT (subfolder) license artifacts |
-| `blitzy/` | Untracked validation scratch (helpers + render screenshots) |
+| Path | Description |
+|------|-------------|
+| `README.md` | Root overview (rewritten from placeholder) + docs map |
+| `docs/README.md` | Documentation hub / navigation |
+| `docs/overview.md` | System overview; "society management" as a nominal label |
+| `docs/functionality/` | F‑001/F‑002/F‑004/F‑005 + catalog & feature‑relationship diagram |
+| `docs/architecture/` | F‑003 layered scaffold + layer‑map & control‑flow diagrams |
+| `docs/performance/README.md` | O(1), determinism, no‑SLA framing |
+| `docs/security/README.md` | Verified‑absence posture + F‑006 dual‑license analysis |
+| `docs/reference/` | `file-inventory.md`, `code-reference.md`, `glossary.md`, `corpus-evidence.md` |
+| `LICENSE` | Apache‑2.0 (root) — F‑006 |
+| `society_mgmt_300k/LICENSE/LICENSE.txt` | MIT (inner) — F‑006 |
+| `blitzy/screenshots/` | 5 validation evidence screenshots |
 
-### Appendix D — Technology Versions
+### D. Technology Versions
 
 | Tool | Version | Role |
-| --- | --- | --- |
-| Node.js | v20.20.2 (host); 24 LTS recommended | Runtime for optional tooling |
-| npm | 10.8.2 | Package manager |
-| Git | 2.54.0.windows.1 | Version control |
-| markdownlint-cli2 | 0.22.1 (markdownlint 0.40.0) | Lint quality gate |
-| markdown-link-check | 3.14.2 | Link validation |
-| @mermaid-js/mermaid-cli | 11.15.0 | Diagram → SVG export |
-| mermaid (library) | 11.16.0 | Diagram syntax (GitHub-native) |
-| Application dependencies | **None** | Repository declares zero deps / no manifest |
+|------|---------|------|
+| Node.js | v20.20.2 | Optional — empirical fn verification / tooling |
+| npm | 11.1.0 | Optional — tooling fetch |
+| Git | 2.51.0 | Version control |
+| markdownlint‑cli2 | 0.22.1 | Optional — Markdown lint (not committed) |
+| @mermaid‑js/mermaid‑cli | 11.15.0 | Optional — diagram SVG export (not committed) |
+| mermaid (engine) | 11.16.0 | Native rendering by GitHub/viewers |
 
-### Appendix E — Environment Variable Reference
+### E. Environment Variable Reference
 
-The corpus uses **no environment variables** (no runtime, no config). The two names below appear **only in operator-supplied setup instructions** and are **not present in the repository** — documented as an operational-security note in `docs/security.md` (by name only; values never reproduced).
+None. The project requires no environment variables, configuration files, or secrets (verified: `src/config/` contains arithmetic stubs with no configuration object/keys).
 
-| Variable | Source | Note |
-| --- | --- | --- |
-| `DB_HOST` | Operator setup instructions (not in repo) | Operational hygiene only — supply via env/secret manager; never commit. |
-| `API_KEY` | Operator setup instructions (not in repo) | Operational hygiene only — supply via env/secret manager; never commit. |
+### F. Developer Tools Guide
 
-### Appendix F — Developer Tools Guide
+- **Reading:** GitHub renders all Markdown and Mermaid natively — no setup.
+- **Local preview:** VS Code with a Markdown/Mermaid preview extension.
+- **Linting (optional):** `markdownlint-cli2` — only MD013 advisory fires.
+- **Diagram export (optional):** `@mermaid-js/mermaid-cli` (`mmdc`) → SVG/PNG/PDF.
+- **Re‑verification:** Follow `docs/reference/corpus-evidence.md` (E1–E12) to reproduce every counted fact.
 
-- **Reading the docs:** No tooling needed — read on GitHub (Markdown + Mermaid render natively) or any Markdown viewer.
-- **markdownlint-cli2:** Run `npx markdownlint-cli2` from the repo root; it auto-discovers `.markdownlint-cli2.jsonc`. All structural rules are enabled; MD013 (line-length) is disabled with justification.
-- **markdown-link-check:** Validates internal and external links; run per-file or via a glob in CI.
-- **mermaid-cli (`mmdc`):** Exports Mermaid blocks to SVG/PNG for offline/static docs; set `PUPPETEER_SKIP_DOWNLOAD=true` and pass `-p` with a `--no-sandbox` puppeteer config in containers.
-- **Optional CI gate:** Combine markdownlint-cli2 + markdown-link-check in a CI job to enforce the quality gate on every documentation change (see Section 2.2, Low priority).
-
-### Appendix G — Glossary
+### G. Glossary
 
 | Term | Definition |
-| --- | --- |
-| **Corpus** | The complete `society_mgmt_300k` body of synthetic JavaScript source (29 files, 300,000 lines, 33,105 functions). |
-| **Representative function** | The single canonical function body `mod_<fileId>_<k>(x) → 6x + 10` that all 33,105 byte-identical functions share. |
-| **Representative-pattern approach** | Documenting one canonical function and per-layer rollups instead of enumerating all 33,105 near-identical functions. |
-| **Verified absence** | An honest framing reporting what a first-hand scan confirms is *absent* (I/O, network, auth, exports), rather than implying capabilities the code lacks. |
-| **Scaffold** | The nominal layered directory structure (9 `src` + 2 `tests` layers) with no inter-layer wiring (0 imports/exports/calls). |
-| **Dead always-true parity branch** | `if(r%2===0)` is always true for integer `x` (since `r = 6x` is always even), so the `false` path is unreachable/dead code. |
-| **`store` placeholder** | A `const store = []` declared in all 28 numbered files and never read or written (F-004). |
-| **F-001…F-006** | The six catalogued functionalities: arithmetic helpers, symbol namespace, layered scaffold, store placeholder, corpus sizing, licensing inconsistency. |
-| **R1 / R2 / R3** | The three user requirements: functionalities, performance, and security documentation. |
-| **ADR-06** | The documented architectural decision that the corpus has no security controls (because it has no attack surface). |
+|------|------------|
+| `mod_<fileId>_<k>` | Canonical helper function name; file‑local, single‑argument, returns `6x+10` |
+| `store` | Inert module‑scoped `const store = []` present in 28 files; never read or written |
+| `filler.js` | Comment‑only file in `src/utils/` (0 functions, 1,999 lines) used for line sizing |
+| Short variant | `src/middleware/file_27.js` — 705 functions (fewer than the standard file) |
+| Layer | One of 11 nominal folders (config, middleware, models, controllers, routes, domain, services, repositories, utils, tests/unit, tests/integration) |
+| Dead branch | The always‑true `if (r % 2 === 0)` parity branch — its false path is unreachable because `6x` is always even |
+| Synthetic corpus | Machine‑generated code whose "society management" name is a label, not implemented domain logic |
+| F‑006 | The dual‑license conflict: Apache‑2.0 root `LICENSE` vs MIT inner `LICENSE.txt` |
 
 ---
 
-*Generated by the Blitzy Platform · Documentation-only deliverable · Branch `blitzy-4c9fc988-d596-46cd-819b-f4937575a16c` @ `f373759`*
+*Generated by the Blitzy Platform. All figures are AAP‑scoped (PA1). Completion: 55.0 / 61.5 hours = 89.4%.*
