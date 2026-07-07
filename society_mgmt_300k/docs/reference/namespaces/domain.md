@@ -6,8 +6,8 @@
 
 ## Modules
 
-- `file_8.js` → `mod_8` → ~1,200 helper functions. Source: society_mgmt_300k/src/domain/file_8.js
-- `file_19.js` → `mod_19` → ~1,200 helper functions. Source: society_mgmt_300k/src/domain/file_19.js
+- `file_8.js` → `mod_8` → ~1,200 helper functions. Source: society_mgmt_300k/src/domain/file_8.js:L1-L10
+- `file_19.js` → `mod_19` → ~1,200 helper functions. Source: society_mgmt_300k/src/domain/file_19.js:L1-L10
 
 ## Behavior
 
@@ -19,5 +19,5 @@ The `domain` folder name is a **nominal layer only** — the modules are identic
 
 ## Source Citations
 
-- Source: society_mgmt_300k/src/domain/
+- Source: society_mgmt_300k/src/domain/file_8.js:L1-L10
 - Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10

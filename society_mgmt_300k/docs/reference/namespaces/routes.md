@@ -6,9 +6,9 @@ The `src/routes/` namespace is a nominal routing layer in the *corpus*: despite 
 
 ## Modules
 
-- `file_3.js` → `mod_3` → ~1,200 helper functions. Source: society_mgmt_300k/src/routes/file_3.js
-- `file_14.js` → `mod_14` → ~1,200 helper functions. Source: society_mgmt_300k/src/routes/file_14.js
-- `file_25.js` → `mod_25` → ~1,200 helper functions. Source: society_mgmt_300k/src/routes/file_25.js
+- `file_3.js` → `mod_3` → ~1,200 helper functions. Source: society_mgmt_300k/src/routes/file_3.js:L1-L10
+- `file_14.js` → `mod_14` → ~1,200 helper functions. Source: society_mgmt_300k/src/routes/file_14.js:L1-L10
+- `file_25.js` → `mod_25` → ~1,200 helper functions. Source: society_mgmt_300k/src/routes/file_25.js:L1-L10
 
 ## Behavior
 
@@ -20,5 +20,5 @@ This namespace carries an explicit caveat: **no HTTP routing exists**. Despite t
 
 ## Source Citations
 
-- Source: society_mgmt_300k/src/routes/
+- Source: society_mgmt_300k/src/routes/file_3.js:L1-L10
 - Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10

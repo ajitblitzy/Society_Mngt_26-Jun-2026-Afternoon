@@ -6,8 +6,8 @@ The `src/repositories/` folder is a nominal persistence layer in this *corpus* �
 
 ## Modules
 
-- `file_7.js` → `mod_7` → ~1,200 helper functions. Source: society_mgmt_300k/src/repositories/file_7.js
-- `file_18.js` → `mod_18` → ~1,200 helper functions. Source: society_mgmt_300k/src/repositories/file_18.js
+- `file_7.js` → `mod_7` → ~1,200 helper functions. Source: society_mgmt_300k/src/repositories/file_7.js:L1-L10
+- `file_18.js` → `mod_18` → ~1,200 helper functions. Source: society_mgmt_300k/src/repositories/file_18.js:L1-L10
 
 ## Behavior
 
@@ -21,5 +21,5 @@ Every `mod_N_M(x)` helper in this namespace is identical to the [canonical contr
 
 ## Source Citations
 
-- Source: society_mgmt_300k/src/repositories/
+- Source: society_mgmt_300k/src/repositories/file_7.js:L1-L10
 - Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10

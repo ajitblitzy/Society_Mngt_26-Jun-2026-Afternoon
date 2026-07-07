@@ -6,9 +6,9 @@ The `src/controllers/` namespace is a nominal application layer in the *corpus*.
 
 ## Modules
 
-- `file_0.js` → `mod_0` → ~1,200 helper functions. Source: society_mgmt_300k/src/controllers/file_0.js
-- `file_11.js` → `mod_11` → ~1,200 helper functions. Source: society_mgmt_300k/src/controllers/file_11.js
-- `file_22.js` → `mod_22` → ~1,200 helper functions. Source: society_mgmt_300k/src/controllers/file_22.js
+- `file_0.js` → `mod_0` → ~1,200 helper functions. Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
+- `file_11.js` → `mod_11` → ~1,200 helper functions. Source: society_mgmt_300k/src/controllers/file_11.js:L1-L10
+- `file_22.js` → `mod_22` → ~1,200 helper functions. Source: society_mgmt_300k/src/controllers/file_22.js:L1-L10
 
 ## Behavior
 
@@ -21,5 +21,5 @@ Every `mod_N_M(x)` helper in this namespace is identical to the [canonical contr
 
 ## Source Citations
 
-- Source: society_mgmt_300k/src/controllers/
+- Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10
 - Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10

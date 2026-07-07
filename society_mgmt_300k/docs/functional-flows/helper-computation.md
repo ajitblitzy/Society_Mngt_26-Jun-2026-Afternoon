@@ -132,8 +132,8 @@ mod_0_0("abc"); // => NaN
 ```
 
 For the complete input envelope — including large magnitudes, additional
-string-coercion cases, and `undefined` — see the
-[Expected behavior scenarios](../scenarios/expected-behavior.md).
+string-coercion cases, and `undefined` — see the Expected behavior
+scenarios reference (planned in a later documentation checkpoint).
 
 ## See also
 
@@ -141,14 +141,14 @@ string-coercion cases, and `undefined` — see the
   for the single `r % 2 === 0` branch.
 - [Function contract](../reference/function-contract.md) — the same
   behavior as a formal signature and scenario reference.
-- [Expected behavior scenarios](../scenarios/expected-behavior.md) — the
-  exhaustive input-to-output table.
+- Expected behavior scenarios (planned in a later documentation checkpoint)
+  — the exhaustive input-to-output table.
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L2` — the vestigial
+- Source: society_mgmt_300k/src/controllers/file_0.js:L2 — the vestigial
   `const store = []` placeholder, never read or written.
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the *canonical
+- Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the *canonical
   contract* *helper* body documented on this page.
 - `[4.1 System Workflows §4.1.2]` — the single-decision runtime flow this
   contract corresponds to.

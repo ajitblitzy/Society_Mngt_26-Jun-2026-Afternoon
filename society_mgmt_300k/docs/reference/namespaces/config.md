@@ -10,8 +10,8 @@ Source: society_mgmt_300k/src/config/file_6.js:L1-L10
 
 ## Modules
 
-- `file_6.js` → `mod_6` → ~1,200 helper functions. Source: society_mgmt_300k/src/config/file_6.js
-- `file_17.js` → `mod_17` → ~1,200 helper functions. Source: society_mgmt_300k/src/config/file_17.js
+- `file_6.js` → `mod_6` → ~1,200 helper functions. Source: society_mgmt_300k/src/config/file_6.js:L1-L10
+- `file_17.js` → `mod_17` → ~1,200 helper functions. Source: society_mgmt_300k/src/config/file_17.js:L1-L10
 
 ## Behavior
 
@@ -30,5 +30,5 @@ Source: society_mgmt_300k/src/config/file_6.js:L1-L10
 
 ## Source Citations
 
-- Source: society_mgmt_300k/src/config/
+- Source: society_mgmt_300k/src/config/file_6.js:L1-L10
 - Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10

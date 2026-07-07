@@ -64,7 +64,7 @@ returns `NaN` instead of raising an exception.
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the *canonical
+- Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the *canonical
   contract* *helper* body whose single `r % 2 === 0` decision is the
   *critical path* documented on this page.
 - `[4.1 System Workflows §4.1.2]` — the single-decision runtime flow this

@@ -7,9 +7,9 @@ The `src/services/` namespace is a nominal service layer in the *corpus*. Despit
 
 ## Modules
 
-- `file_1.js` → `mod_1` → ~1,200 helper functions. Source: society_mgmt_300k/src/services/file_1.js
-- `file_12.js` → `mod_12` → ~1,200 helper functions. Source: society_mgmt_300k/src/services/file_12.js
-- `file_23.js` → `mod_23` → ~1,200 helper functions. Source: society_mgmt_300k/src/services/file_23.js
+- `file_1.js` → `mod_1` → ~1,200 helper functions. Source: society_mgmt_300k/src/services/file_1.js:L1-L10
+- `file_12.js` → `mod_12` → ~1,200 helper functions. Source: society_mgmt_300k/src/services/file_12.js:L1-L10
+- `file_23.js` → `mod_23` → ~1,200 helper functions. Source: society_mgmt_300k/src/services/file_23.js:L1-L10
 
 ## Behavior
 
@@ -23,5 +23,5 @@ The `services` folder name is a **nominal layer only**: the *modules* it groups 
 
 ## Source Citations
 
-- Source: society_mgmt_300k/src/services/
+- Source: society_mgmt_300k/src/services/file_1.js:L1-L10
 - Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10

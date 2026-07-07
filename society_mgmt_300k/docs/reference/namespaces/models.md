@@ -7,9 +7,9 @@
 
 ## Modules
 
-- `file_2.js` → `mod_2` → ~1,200 helper functions. Source: society_mgmt_300k/src/models/file_2.js
-- `file_13.js` → `mod_13` → ~1,200 helper functions. Source: society_mgmt_300k/src/models/file_13.js
-- `file_24.js` → `mod_24` → ~1,200 helper functions. Source: society_mgmt_300k/src/models/file_24.js
+- `file_2.js` → `mod_2` → ~1,200 helper functions. Source: society_mgmt_300k/src/models/file_2.js:L1-L10
+- `file_13.js` → `mod_13` → ~1,200 helper functions. Source: society_mgmt_300k/src/models/file_13.js:L1-L10
+- `file_24.js` → `mod_24` → ~1,200 helper functions. Source: society_mgmt_300k/src/models/file_24.js:L1-L10
 
 ## Behavior
 
@@ -23,5 +23,5 @@ Despite the folder name, **no data schema exists** in this namespace: there are 
 
 ## Source Citations
 
-- Source: society_mgmt_300k/src/models/
+- Source: society_mgmt_300k/src/models/file_2.js:L1-L10
 - Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10

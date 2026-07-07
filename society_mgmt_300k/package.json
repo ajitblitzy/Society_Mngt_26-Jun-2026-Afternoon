@@ -7,7 +7,7 @@
   "scripts": {
     "docs:lint": "markdownlint-cli2 \"docs/**/*.md\" \"README.md\"",
     "docs:linkcheck": "find docs -name \"*.md\" -exec markdown-link-check -q -c .markdown-link-check.json {} +",
-    "docs:diagram": "mmdc -i docs/functional-flows/critical-path.md -o docs/assets/critical-path.svg",
+    "docs:diagram": "mkdir -p docs/assets && printf '%s' '{\"args\":[\"--no-sandbox\",\"--disable-dev-shm-usage\"]}' > docs/assets/.puppeteer.json && npx -y @mermaid-js/mermaid-cli@11.16.0 -p docs/assets/.puppeteer.json -i docs/functional-flows/critical-path.md -o docs/assets/critical-path.svg",
     "docs:build": "npm run docs:lint && npm run docs:linkcheck"
   },
   "devDependencies": {

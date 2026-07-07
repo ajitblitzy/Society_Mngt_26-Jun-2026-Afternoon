@@ -77,10 +77,10 @@ Reference: `[4.1 System Workflows §4.1.3]`
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L1-L10` — the *module*
+- Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10 — the *module*
   banner, the vestigial `store`, and the *canonical contract* *helper* body
   a Host copies or evaluates to invoke.
-- `society_mgmt_300k/src/controllers/file_0.js:L2` — the `const store = []`
+- Source: society_mgmt_300k/src/controllers/file_0.js:L2 — the `const store = []`
   placeholder that is never read or written.
 - `[4.1 System Workflows §4.1.3]` — the single in-process runtime
   interaction, with no network, database, or queue.

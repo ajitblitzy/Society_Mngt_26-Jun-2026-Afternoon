@@ -95,7 +95,7 @@ mod_N_M(0.5);   // => 3    non-integer: 6x = 3 is odd, no bonus
 mod_N_M("abc"); // => NaN  non-numeric: arithmetic yields NaN
 ```
 
-- For the complete scenario envelope, see [Expected behavior](../scenarios/expected-behavior.md).
+- For the complete scenario envelope, see the Expected behavior scenarios reference (planned in a later documentation checkpoint).
 
 ## No-validation / no-throw note
 
@@ -107,9 +107,9 @@ needs a `try`/`catch` around a *helper* call.
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L2` — the vestigial
+- Source: society_mgmt_300k/src/controllers/file_0.js:L2 — the vestigial
   `const store = []` placeholder, never read or written.
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the *canonical
+- Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the *canonical
   contract* *helper* body documented on this page.
 - `[4.1 System Workflows §4.1.2]` — the single-decision (*critical path*)
   runtime flow this contract corresponds to.
