@@ -1,0 +1,6 @@
+node_modules/
+
+# Generated documentation build artifacts (rendered by `npm run docs:diagram`).
+# The critical-path SVG and the transient puppeteer config are produced on demand
+# and are not committed; run the docs:diagram script to regenerate them locally.
+docs/assets/

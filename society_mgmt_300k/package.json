@@ -1,0 +1,19 @@
+{
+  "name": "society-mgmt-300k-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Documentation and documentation-tooling for the society_mgmt_300k synthetic JavaScript corpus (docs-only; no application code, no runtime dependencies).",
+  "license": "MIT",
+  "scripts": {
+    "docs:lint": "markdownlint-cli2 \"docs/**/*.md\" \"README.md\"",
+    "docs:linkcheck": "find docs -name \"*.md\" -exec markdown-link-check -q -c .markdown-link-check.json {} +",
+    "docs:diagram": "mkdir -p docs/assets && printf '%s' '{\"args\":[\"--no-sandbox\",\"--disable-dev-shm-usage\"]}' > docs/assets/.puppeteer.json && npx -y @mermaid-js/mermaid-cli@11.16.0 -p docs/assets/.puppeteer.json -i docs/functional-flows/critical-path.md -o docs/assets/critical-path.svg && mv -f docs/assets/critical-path-1.svg docs/assets/critical-path.svg && test -s docs/assets/critical-path.svg",
+    "docs:build": "npm run docs:lint && npm run docs:linkcheck"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "11.16.0",
+    "mermaid": "11.16.0",
+    "markdownlint-cli2": "0.23.0",
+    "markdown-link-check": "3.14.2"
+  }
+}

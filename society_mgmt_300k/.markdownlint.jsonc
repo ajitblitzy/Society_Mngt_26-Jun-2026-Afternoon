@@ -1,0 +1,53 @@
+{
+  // markdownlint rule configuration for the society_mgmt_300k documentation set.
+  //
+  // Repository-local Markdown style guide per AAP §0.9.1. Consumed by
+  // `npm run docs:lint` (defined in society_mgmt_300k/package.json), which runs:
+  //     markdownlint-cli2 "docs/**/*.md" "README.md"
+  // markdownlint-cli2 auto-discovers this .markdownlint.jsonc file and applies the
+  // rules below; the lint globs are supplied on the command line, NOT in this file.
+  //
+  // NOTE: This is the markdownlint *rules* object at the top level. It deliberately
+  // contains NO markdownlint-cli2 wrapper keys ("config", "globs", "ignores", ...);
+  // those belong only in a .markdownlint-cli2.* file. JSONC "//" comments are allowed.
+
+  // Start from the full markdownlint rule set, then apply the targeted overrides below.
+  "default": true,
+
+  // MD003 heading-style: ATX headings only (#, ##, ###) — AAP §0.9.1 / §0.4.2.
+  "MD003": { "style": "atx" },
+
+  // MD004 ul-style: unordered lists use dash markers only ("- ") — AAP §0.9.1.
+  // Matches every authored doc and the root README's dash bullet lists.
+  "MD004": { "style": "dash" },
+
+  // MD007 ul-indent: consistent 2-space indentation for nested unordered lists.
+  "MD007": { "indent": 2 },
+
+  // MD013 line-length: disabled. The docs contain wide tables (the input->output
+  // scenario matrix) and fenced javascript/mermaid blocks that legitimately exceed
+  // the default 80-column limit.
+  "MD013": false,
+
+  // MD024 no-duplicate-heading: allow duplicate heading text under different parents.
+  // The nine namespace reference pages reuse section titles such as "Behavior" and
+  // "Source Citations", which is valid when the check is scoped to siblings only.
+  "MD024": { "siblings_only": true },
+
+  // MD029 ol-prefix: ordered lists use incrementing prefixes (1. 2. 3.), matching the
+  // numbered step-by-step sequences authored in the functional-flow documents.
+  "MD029": { "style": "ordered" },
+
+  // MD033 no-inline-html: disabled (permissive). The docs are pure Markdown plus
+  // Mermaid fences, so this rule never triggers; disabling it keeps docs:lint clean
+  // even if a document ever needs an occasional raw HTML snippet.
+  "MD033": false,
+
+  // MD040 fenced-code-language: every fenced code block MUST declare a language
+  // (```mermaid / ```javascript), as required by the documented style guide.
+  "MD040": true,
+
+  // MD047 single-trailing-newline: files must end with exactly one newline
+  // character — AAP Folder Requirement A.3.
+  "MD047": true
+}
