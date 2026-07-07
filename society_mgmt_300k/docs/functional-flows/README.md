@@ -26,4 +26,4 @@ result. Reference: `[4.1 System Workflows §4.1.1]`.
 
 ## Navigation
 
-- Back to the Documentation index (planned in a later documentation checkpoint).
+- Back to the [Documentation index](../README.md).

@@ -121,7 +121,7 @@ signature, worked examples, and the complete input-to-output scenario table.
 - [Architecture overview](architecture/overview.md) — the nominal-versus-actual layering and the module-isolation picture.
 - [Data flow](architecture/data-flow.md) — the single in-process flow and the absence of any data store.
 - [Module index](reference/module-index.md) — the full enumeration of all 28 `mod_*` modules by namespace.
-- Back to the documentation index (planned in a later documentation checkpoint).
+- Back to the [Documentation index](README.md).
 
 ## Source Citations
 
