@@ -95,7 +95,7 @@ mod_N_M(0.5);   // => 3    non-integer: 6x = 3 is odd, no bonus
 mod_N_M("abc"); // => NaN  non-numeric: arithmetic yields NaN
 ```
 
-- For the complete scenario envelope, see the Expected behavior scenarios reference (planned in a later documentation checkpoint).
+- For the complete scenario envelope, see [Expected behavior](../scenarios/expected-behavior.md).
 
 ## No-validation / no-throw note
 

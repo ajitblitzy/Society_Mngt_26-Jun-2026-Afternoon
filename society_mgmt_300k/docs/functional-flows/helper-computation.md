@@ -132,8 +132,8 @@ mod_0_0("abc"); // => NaN
 ```
 
 For the complete input envelope — including large magnitudes, additional
-string-coercion cases, and `undefined` — see the Expected behavior
-scenarios reference (planned in a later documentation checkpoint).
+string-coercion cases, and `undefined` — see the
+[Expected behavior scenarios](../scenarios/expected-behavior.md).
 
 ## See also
 
@@ -141,8 +141,8 @@ scenarios reference (planned in a later documentation checkpoint).
   for the single `r % 2 === 0` branch.
 - [Function contract](../reference/function-contract.md) — the same
   behavior as a formal signature and scenario reference.
-- Expected behavior scenarios (planned in a later documentation checkpoint)
-  — the exhaustive input-to-output table.
+- [Expected behavior scenarios](../scenarios/expected-behavior.md) — the
+  exhaustive input-to-output table.
 
 ## Source Citations
 
