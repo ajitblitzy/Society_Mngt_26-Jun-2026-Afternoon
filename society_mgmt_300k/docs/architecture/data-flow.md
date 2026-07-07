@@ -87,9 +87,9 @@ flowchart LR
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L2` — the *module*-scoped
+- Source: society_mgmt_300k/src/controllers/file_0.js:L2 — the *module*-scoped
   `const store = []` placeholder, declared but never read or written.
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the *canonical
+- Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the *canonical
   contract* *helper* body: the `r = 6x` computation and the single
   `r % 2 === 0` parity check that together make up the entire data flow.
 - `[5.1 High-Level Architecture §5.1.3]` — the single in-process, stateless

@@ -43,11 +43,16 @@ behaves the same) or evaluates the file's contents inside a Node REPL or
 `vm` context so the declaration enters the current scope.
 `Source: society_mgmt_300k/src/controllers/file_0.js:L1-L10`
 
+The *helper* body itself is defined once in the single source of truth —
+[Helper Computation (Canonical Contract)](helper-computation.md) — so this page
+links to it rather than restating the algorithm. Once that body has been
+defined in the current scope, the invocation step of the sequence looks like
+this:
+
 ```javascript
-// Modules have no exports, so this yields {} (nothing usable):
+// Modules have no exports, so requiring one yields {} (nothing usable):
 // const mod = require('./src/controllers/file_0.js'); // => {}
-// Instead, copy the identical canonical helper and call it:
-function mod_0_0(x){ let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10} return r; }
+// Define the canonical helper in scope (see helper-computation.md), then call it:
 console.log(mod_0_0(5)); // => 40
 ```
 

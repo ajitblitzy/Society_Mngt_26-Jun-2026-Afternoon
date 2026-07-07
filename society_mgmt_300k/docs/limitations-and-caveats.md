@@ -99,20 +99,19 @@ they define functions and never invoke them.
 ## What IS guaranteed
 
 Exactly one real behavior is guaranteed, and it is uniform across all 33,105
-functions in the *corpus*. Every *helper* has the identical body shown below.
+functions in the *corpus*: every *helper* shares one byte-identical body. That
+body — the *canonical contract* — is defined once in the single source of
+truth, [Helper Computation (Canonical Contract)](functional-flows/helper-computation.md),
+and is intentionally not restated here.
 `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
 
-```javascript
-function mod_0_0(x){ let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10} return r; }
-```
-
-In words: the *helper* computes `r = 6x`, adds a fixed `10` if and only if `6x`
-is even, and returns `r`. This is the *corpus*'s single *critical path* and its
-*canonical contract*: **pure, deterministic, O(1)**, with no input validation,
-no side effects, and no thrown errors. For any input it returns a `Number`,
-which is `NaN` when `x` cannot be coerced to a number. See the
-[canonical contract](functional-flows/helper-computation.md) for the full
-signature, worked examples, and the complete input-to-output scenario table.
+Stated as properties rather than code, every *helper* is **pure, deterministic,
+and O(1)**, performs no input validation, has no side effects, and never throws.
+For any input it returns a `Number` — which is `NaN` when `x` cannot be coerced
+to a number. This single behavior is also the *corpus*'s only *critical path*.
+See the [canonical contract](functional-flows/helper-computation.md) for the
+full signature, the step-by-step derivation, worked examples, and the complete
+input-to-output scenario table.
 `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
 
 ## See also

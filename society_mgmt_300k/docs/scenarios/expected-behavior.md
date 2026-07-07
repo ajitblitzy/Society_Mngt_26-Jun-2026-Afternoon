@@ -105,9 +105,9 @@ mod_0_0(undefined); // => NaN  undefined: arithmetic yields NaN
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L2` — the vestigial
+- Source: society_mgmt_300k/src/controllers/file_0.js:L2 — the vestigial
   `const store = []` placeholder, never read or written.
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the *canonical
+- Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the *canonical
   contract* *helper* body whose executed outputs populate every scenario on
   this page.
 - `[4.1 System Workflows §4.1.2]` — the single-decision (*critical path*)

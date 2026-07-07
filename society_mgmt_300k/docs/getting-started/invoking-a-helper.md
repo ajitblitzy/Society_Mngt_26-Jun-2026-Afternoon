@@ -10,28 +10,23 @@ example on this page faithfully represents all 33,105 of them.
 
 ## The quick way (copy the helper)
 
-Paste the *canonical contract* body below into a Node.js session (or any
-`.js` file), then call it — that is the entire quick start:
+Copy the *canonical contract* body from the single source of truth —
+[Helper Computation (Canonical Contract)](../functional-flows/helper-computation.md) —
+into a Node.js session (or any `.js` file), then call it. That is the entire
+quick start; the body is defined once on the canonical page and is not repeated
+here. `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
+
+With the *helper* defined in scope, calling it produces:
 
 ```javascript
-// Canonical helper — identical across the entire corpus.
-// Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10
-function mod_0_0(x) {
-  let r = 0;
-  r += x * 1;   // r = x
-  r += x * 2;   // r = 3x
-  r += x * 3;   // r = 6x
-  if (r % 2 === 0) { r += 10; }  // even 6x earns a +10 bonus
-  return r;
-}
 console.log(mod_0_0(5));    // => 40
 console.log(mod_0_0(1));    // => 16
 console.log(mod_0_0(0.5));  // => 3
 ```
 
-What you just saw: the three linear additions accumulate to `r = 6x`, and an
-even `6x` earns a fixed `+10` bonus — so `5 -> 40` and `1 -> 16`, while the
-non-integer `0.5 -> 3` gets no bonus because `6 * 0.5 = 3` is odd.
+Even results such as `5 -> 40` and `1 -> 16` earn the fixed bonus, while the
+non-integer `0.5 -> 3` does not; see the
+[canonical contract](../functional-flows/helper-computation.md) for the reason.
 `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
 
 ## Why you can't just require() it (no-exports caveat)

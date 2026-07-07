@@ -8,15 +8,13 @@ named `mod_N_M(x)`. Because all 33,105 *helper* functions across the *corpus*
 share a byte-identical body — only the `mod_N_M` name changes — a single
 *canonical contract* describes the whole project. Reference: `[1.2 System Overview]`.
 
-Every *helper* takes one argument `x`, computes `r = 6x` (the sum of
-`x*1 + x*2 + x*3`), adds a fixed `10` when `6x` is even, and returns `r`. It is
-pure, deterministic, and O(1): it performs no input validation, never throws,
-and has no side effects. The complete behavior is the single line below.
+Every *helper* takes one argument `x` and deterministically returns a `Number`.
+It is pure, deterministic, and O(1): it performs no input validation, never
+throws, and has no side effects. The exact arithmetic — the *canonical
+contract* — is defined once in the single source of truth,
+[Helper Computation (Canonical Contract)](../functional-flows/helper-computation.md),
+which this overview links to rather than restating.
 `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
-
-```javascript
-function mod_0_0(x){ let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10} return r; }
-```
 
 ## What this is not
 

@@ -139,26 +139,16 @@ Reference: `[5.1 High-Level Architecture §5.1.2]`.
 
 The only interface into the *corpus* is a single function call:
 `mod_N_M(x) -> Number`. A caller loads one *module* file and invokes one
-*helper*, which computes `r = 6x` and adds a fixed `10` when `6x` is even, then
-returns `r`. Nothing crosses a network or process boundary; there is no entry
-point, server, or wiring that connects the *modules* together.
+*helper*, which returns a computed `Number`. Nothing crosses a network or
+process boundary; there is no entry point, server, or wiring that connects the
+*modules* together.
 `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
 
-The exact *helper* body — identical across every one of the 33,105 *helpers*
-corpus-wide — is:
-
-```javascript
-function mod_0_0(x){
- let r=0;
- r+=x*1;
- r+=x*2;
- r+=x*3;
- if(r%2===0){r+=10}
- return r;
-}
-```
-
-`Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
+The exact *helper* body and its step-by-step arithmetic — identical across every
+one of the 33,105 *helpers* corpus-wide — are defined once in the single source
+of truth,
+[Helper Computation (Canonical Contract)](../functional-flows/helper-computation.md);
+this architecture page links to it rather than restating the algorithm.
 
 The *helper* is pure, deterministic, O(1), and synchronous; it performs no input
 validation, never throws, and has no side effects. For the visual control flow
@@ -172,10 +162,10 @@ dedicated documents linked under See also below.
 
 ## Source Citations
 
-- `society_mgmt_300k/src/controllers/file_0.js:L2` — the vestigial
+- Source: society_mgmt_300k/src/controllers/file_0.js:L2 — the vestigial
   `const store = []` placeholder, declared in every *module* and never read or
   written.
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the *canonical
+- Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the *canonical
   contract* *helper* body that is the single `mod_N_M(x) -> Number` interface
   and the system boundary.
 - `[5.1 High-Level Architecture §5.1.1]` — the nominal-versus-as-implemented

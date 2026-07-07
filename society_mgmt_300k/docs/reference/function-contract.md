@@ -61,18 +61,18 @@ The following input-to-output pairs were executed against the *canonical
 contract* body and verified exactly.
 `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`
 
-| Input `x` | Output |
-| --- | --- |
-| `5` | `40` |
-| `1` | `16` |
-| `0` | `10` |
-| `-2` | `-2` |
-| `0.5` | `3` |
-| `"2"` (numeric string) | `22` |
-| `"abc"` (non-numeric) | `NaN` |
-| `undefined` | `NaN` |
-| `2.5` | `15` |
-| `10` | `70` |
+| Input `x` | Output | Category |
+| --- | --- | --- |
+| `5` | `40` | positive integer (6x even → +10) |
+| `1` | `16` | small integer |
+| `0` | `10` | zero (0 is even → +10) |
+| `-2` | `-2` | negative (−12 even → +10 → −2) |
+| `0.5` | `3` | non-integer, 6x = 3 odd → no bonus |
+| `"2"` | `22` | numeric string (coerces via `*`: r = 12 even → 22) |
+| `"abc"` | `NaN` | non-numeric string → NaN |
+| `undefined` | `NaN` | undefined → NaN |
+| `2.5` | `15` | non-integer, 6x = 15 odd → no bonus |
+| `10` | `70` | larger integer |
 
 Coercion notes:
 

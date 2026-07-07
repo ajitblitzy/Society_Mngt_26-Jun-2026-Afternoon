@@ -4,17 +4,14 @@
 
 `society_mgmt_300k` is a synthetic, roughly 300,000-line JavaScript *corpus* built
 from a single repeated building block: a small, deterministic arithmetic *helper*
-named `mod_N_M(x)`. Every *helper* takes one number `x`, computes `r = 6x` (the
-running sum of `x*1 + x*2 + x*3`), adds a fixed bonus of `10` whenever `6x` is even,
-and returns `r`. This behavior is the project's *canonical contract*, and it is
+named `mod_N_M(x)`. Every *helper* takes one number `x` and returns a computed
+`Number`. This behavior is the project's *canonical contract*, and it is
 byte-identical across all 33,105 *helper* functions in the *corpus* — only the
-`mod_N_M` name changes. `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`. `Reference: [1.2 System Overview]`.
-
-The entire behavior of the *corpus* is this one line:
-
-```javascript
-function mod_0_0(x){ let r=0; r+=x*1; r+=x*2; r+=x*3; if(r%2===0){r+=10} return r; }
-```
+`mod_N_M` name changes. The verbatim body and its step-by-step derivation are
+defined once, in the single source of truth —
+[Helper Computation (Canonical Contract)](docs/functional-flows/helper-computation.md) —
+which this README links to rather than restating.
+`Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`. `Reference: [1.2 System Overview]`.
 
 Each *helper* is pure, deterministic, and runs in `O(1)`: it performs no input
 validation, never throws, and has no side effects. `Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10`.
@@ -63,22 +60,15 @@ society_mgmt_300k/
 ## Quick start (no setup required)
 
 You do not need to install or build anything to see what a *helper* does. Because
-every *helper* shares the same *canonical contract*, you can copy the function
-below and run it in any JavaScript environment (for example, `node -e` or the
-browser console):
+every *helper* shares the same *canonical contract*, copy the verbatim body from
+the single source of truth —
+[Helper Computation (Canonical Contract)](docs/functional-flows/helper-computation.md) —
+into any JavaScript environment (for example, `node -e` or the browser console),
+then call it. The canonical page holds the body, so it is not repeated here.
+
+With the *helper* defined in scope, calling it produces:
 
 ```javascript
-// The canonical helper — identical across the entire corpus.
-// Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10
-function mod_0_0(x) {
-  let r = 0;
-  r += x * 1;   // r = x
-  r += x * 2;   // r = 3x
-  r += x * 3;   // r = 6x
-  if (r % 2 === 0) { r += 10; }  // even 6x earns a +10 bonus
-  return r;
-}
-
 console.log(mod_0_0(5));    // => 40
 console.log(mod_0_0(1));    // => 16
 console.log(mod_0_0(0.5));  // => 3

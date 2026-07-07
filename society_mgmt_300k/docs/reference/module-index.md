@@ -93,14 +93,14 @@ Each of the nine `src/` namespaces has a dedicated reference page:
 
 ## Source Citations
 
-- `society_mgmt_300k/src/**` — the nine `src/` namespaces and their `mod_N`
+- Source: society_mgmt_300k/src/** — the nine `src/` namespaces and their `mod_N`
   *module* files enumerated in the table above.
-- `society_mgmt_300k/tests/**` — the four static test-fixture *modules* under
+- Source: society_mgmt_300k/tests/** — the four static test-fixture *modules* under
   `tests/unit/` and `tests/integration/`.
-- `society_mgmt_300k/src/middleware/file_27.js` — the smaller `705`-*helper*
-  *module* (`mod_27`).
-- `society_mgmt_300k/src/utils/filler.js` — the comment-only sizing file
+- Source: society_mgmt_300k/src/middleware/file_27.js:L1-L10 — the smaller
+  `705`-*helper* *module* (`mod_27`); banner, `store`, and first *helper*.
+- Source: society_mgmt_300k/src/utils/filler.js:L1 — the comment-only sizing file
   (`0` functions, banner `// filler 298001`).
-- `society_mgmt_300k/src/controllers/file_0.js:L3-L10` — the *canonical
+- Source: society_mgmt_300k/src/controllers/file_0.js:L3-L10 — the *canonical
   contract* *helper* body that every *module* shares.
 - `[1.2 System Overview §1.2.2]` — the corpus-wide *module* and function totals.
