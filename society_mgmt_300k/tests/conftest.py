@@ -4,7 +4,7 @@ society_mgmt test suite.
 These ``(input, expected)`` pairs pin the legacy JavaScript ``x -> f(x)``
 mapping. Every legacy ``mod_N_M`` body was::
 
-    r = x*1 + x*2 + x*3   # == 6*x
+    r = 6 * x   # reduced from the legacy three-term accumulation
     if r % 2 == 0:
         r += 10
     return r

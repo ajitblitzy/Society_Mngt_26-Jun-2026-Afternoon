@@ -6,7 +6,7 @@ function. All layer subpackages and the test suite delegate here via
 ``from society_mgmt.core import compute``.
 
 Behavior (preserved exactly from ``src/services/file_1.js:L3-L10``):
-    r = x*1 + x*2 + x*3  # == 6*x
+    r = 6 * x            # reduced from the legacy three-term accumulation
     if r is even: r += 10
     return r
 
