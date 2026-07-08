@@ -20,16 +20,27 @@ def test_compute_matches_golden(x, expected):
 @pytest.mark.parametrize("x,expected", FLOAT_CASES)
 def test_compute_float_value_equality_and_type(x, expected):
     result = compute(x)
-    assert result == expected            # value-equality: JS 3 == Python 3.0 (Deviation 1)
-    assert isinstance(result, float)     # Python returns float for non-integer input
+    # value-equality: JS 3 == Python 3.0 (Deviation 1).
+    assert result == expected
+    # Python returns a float for non-integer input.
+    assert isinstance(result, float)
 
 
 @pytest.mark.parametrize("x,expected", LARGE_INT_CASES)
 def test_compute_large_int_exact(x, expected):
-    assert compute(x) == expected        # Deviation 2: Python int stays exact (e.g. 9007199254740993 -> 54043195528445968)
+    # Deviation 2: Python int stays exact
+    # (e.g. 9007199254740993 -> 54043195528445968).
+    assert compute(x) == expected
 
 
 def test_alias_delegates_to_compute():
-    # Confirms the ported layer symbols delegate to the single canonical compute.
+    # The ported layer symbol, the package re-export, and the core
+    # function must all be the SAME object (single source of truth,
+    # not independent copies).
     from society_mgmt.services.file_1 import mod_1_0
-    assert mod_1_0(2) == compute(2)
+    from society_mgmt import compute as pkg_compute
+
+    # Object identity is the migration's acceptance criterion.
+    assert mod_1_0 is compute is pkg_compute
+    # Return-value equality retained as an explicit behavioral check.
+    assert mod_1_0(2) == compute(2) == pkg_compute(2)
