@@ -1,10 +1,10 @@
-"""society_mgmt.services.file_12 — migrated from src/services/file_12.js.
+"""society_mgmt.services.file_12 — migrated layer module (canonical delegation).
 
-The 1,200 legacy helpers ``mod_12_0`` … ``mod_12_1199`` were byte-identical
-function bodies. Each is preserved here as a one-line alias of the single
-canonical :func:`society_mgmt.core.compute`; no function body is
-re-implemented. The vestigial ``const store = []`` (dead code, AAP F-002) and
-the JS banner are intentionally dropped.
+The legacy module declared 1,200 byte-identical helpers (``mod_12_0`` …
+``mod_12_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

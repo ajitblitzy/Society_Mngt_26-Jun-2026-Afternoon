@@ -1,11 +1,10 @@
-"""society_mgmt.controllers.file_11 — migrated from src/controllers/file_11.js.
+"""society_mgmt.controllers.file_11 — migrated layer module (canonical delegation).
 
-The legacy module defined 1,200 byte-identical functions ``mod_11_0 … mod_11_1199``,
-each computing ``r = 6*x`` then adding 10 when ``r`` is even. That single behavior
-now lives once in :func:`society_mgmt.core.compute`; every legacy name below is a
-thin one-line alias to it (duplication eliminated, not translated). The vestigial
-unused module-level list and the legacy banner comment are intentionally dropped
-as dead code and are not reproduced here.
+The legacy module declared 1,200 byte-identical helpers (``mod_11_0`` …
+``mod_11_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

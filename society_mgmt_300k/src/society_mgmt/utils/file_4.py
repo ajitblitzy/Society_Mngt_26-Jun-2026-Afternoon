@@ -1,10 +1,10 @@
-"""society_mgmt.utils.file_4 — migrated from legacy ``src/utils/file_4.js``.
+"""society_mgmt.utils.file_4 — migrated layer module (canonical delegation).
 
-The legacy module declared 1,200 byte-identical functions (``mod_4_0`` …
+The legacy module declared 1,200 byte-identical helpers (``mod_4_0`` …
 ``mod_4_1199``), each equal to the single canonical
-:func:`society_mgmt.core.compute`. Every name is preserved here as a one-line
-alias of ``compute``; no body is re-implemented and the vestigial
-module-level dead-code array is dropped.
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

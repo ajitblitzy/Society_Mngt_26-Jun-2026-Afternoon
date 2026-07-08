@@ -1,15 +1,10 @@
-"""society_mgmt.models.file_2 — migrated from the legacy ``src/models/file_2.js``.
+"""society_mgmt.models.file_2 — migrated layer module (canonical delegation).
 
-The original JavaScript module declared 1,200 byte-identical helper functions,
-``mod_2_0`` through ``mod_2_1199``, each computing the very same arithmetic
-mapping of a single numeric argument. That mapping has exactly one home in the
-migrated package: the canonical :func:`society_mgmt.core.compute`.
-
-To eliminate the duplication losslessly while preserving the complete legacy
-symbol surface, every original name is re-bound below as a one-line alias of
-``compute``. No function body is re-implemented here, and the unused
-module-level list declared by the JavaScript original is intentionally omitted
-as dead code.
+The legacy module declared 1,200 byte-identical helpers (``mod_2_0`` …
+``mod_2_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

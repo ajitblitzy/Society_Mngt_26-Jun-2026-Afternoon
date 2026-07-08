@@ -1,11 +1,10 @@
-"""society_mgmt.middleware.file_27 — ported from the legacy src/middleware/file_27.js.
+"""society_mgmt.middleware.file_27 — migrated layer module (canonical delegation).
 
-The legacy module was the 705-function outlier of the middleware layer: it declared
-705 byte-identical functions (mod_27_0 … mod_27_704) plus an unused module-scoped
-``store`` array. Every function body was identical and equal to
-:func:`society_mgmt.core.compute`, so all 705 names are preserved here as thin
-one-line aliases to that single canonical function. No body is re-implemented; the
-dead ``store`` placeholder and the JS banner are dropped.
+The legacy module declared 705 byte-identical helpers (``mod_27_0`` …
+``mod_27_704``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

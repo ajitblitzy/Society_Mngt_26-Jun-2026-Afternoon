@@ -1,10 +1,10 @@
-"""society_mgmt.middleware.file_16 - ported from the legacy src/middleware/file_16.js.
+"""society_mgmt.middleware.file_16 — migrated layer module (canonical delegation).
 
-The legacy module declared 1,200 byte-identical functions (mod_16_0 ... mod_16_1199)
-plus an unused module-scoped placeholder array. Every body was identical
-and equal to :func:`society_mgmt.core.compute`, so all 1,200 names are preserved
-here as thin one-line aliases to that single canonical callable. No body is
-re-implemented; the dead placeholder array and the JS banner are dropped.
+The legacy module declared 1,200 byte-identical helpers (``mod_16_0`` …
+``mod_16_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

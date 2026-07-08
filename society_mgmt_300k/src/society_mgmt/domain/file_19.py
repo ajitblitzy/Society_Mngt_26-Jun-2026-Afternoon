@@ -1,10 +1,10 @@
-"""society_mgmt.domain.file_19 -- migrated from legacy ``src/domain/file_19.js``.
+"""society_mgmt.domain.file_19 — migrated layer module (canonical delegation).
 
-The original module declared 1200 byte-identical functions ``mod_19_0`` through
-``mod_19_1199``. Each collapses losslessly to the single canonical
-:func:`society_mgmt.core.compute`; the legacy names are preserved as one-line
-aliases (no logic is re-implemented). The vestigial module-level dead-code
-array declared by the original source is intentionally dropped.
+The legacy module declared 1,200 byte-identical helpers (``mod_19_0`` …
+``mod_19_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

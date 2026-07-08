@@ -1,10 +1,10 @@
-"""society_mgmt.config.file_17 — migrated society module (legacy ``mod_17_0``..``mod_17_1199``).
+"""society_mgmt.config.file_17 — migrated layer module (canonical delegation).
 
-Ported from ``src/config/file_17.js``. The 1,200 legacy functions were
-byte-identical; each is now a thin one-line alias to the canonical
-:func:`society_mgmt.core.compute`. No logic is re-implemented (DRY collapse,
-AAP sections 0.3.3 / 0.6.1). The vestigial dead-code array declaration
-(AAP F-002) and the JS banner are intentionally dropped.
+The legacy module declared 1,200 byte-identical helpers (``mod_17_0`` …
+``mod_17_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

@@ -1,11 +1,10 @@
-"""society_mgmt.models.file_24 — migrated from ``src/models/file_24.js``.
+"""society_mgmt.models.file_24 — migrated layer module (canonical delegation).
 
-The legacy module contained 1,200 byte-identical functions, ``mod_24_0``
-through ``mod_24_1199``, that all shared one identical arithmetic body.
-They collapse losslessly to the single canonical function
-:func:`society_mgmt.core.compute`. The original names are preserved below as
-one-line aliases; no body is re-implemented here, and the unused module-level
-list from the JavaScript original is intentionally dropped.
+The legacy module declared 1,200 byte-identical helpers (``mod_24_0`` …
+``mod_24_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

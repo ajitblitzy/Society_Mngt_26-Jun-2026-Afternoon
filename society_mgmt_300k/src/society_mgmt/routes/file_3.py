@@ -1,9 +1,10 @@
-"""society_mgmt.routes.file_3 — ported from legacy ``src/routes/file_3.js`` (mod_3).
+"""society_mgmt.routes.file_3 — migrated layer module (canonical delegation).
 
-The 1,200 legacy functions ``mod_3_0`` … ``mod_3_1199`` were byte-identical; each
-is bound here as a one-line alias to the single canonical
-:func:`society_mgmt.core.compute`. No function body is re-implemented, and the
-dead module-level array from the legacy JS module is intentionally dropped (AAP F-002).
+The legacy module declared 1,200 byte-identical helpers (``mod_3_0`` …
+``mod_3_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

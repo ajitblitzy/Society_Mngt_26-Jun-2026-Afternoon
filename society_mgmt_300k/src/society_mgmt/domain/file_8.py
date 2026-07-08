@@ -1,10 +1,10 @@
-"""society_mgmt.domain.file_8 - Python port of legacy ``src/domain/file_8.js``.
+"""society_mgmt.domain.file_8 — migrated layer module (canonical delegation).
 
-The original module declared 1200 byte-identical functions ``mod_8_0`` ...
-``mod_8_1199``. Each collapses losslessly to the single canonical
-:func:`society_mgmt.core.compute`; the legacy names are preserved here as
-one-line aliases and no logic is re-implemented. The vestigial dead
-module-level state and the legacy banner are intentionally not ported.
+The legacy module declared 1,200 byte-identical helpers (``mod_8_0`` …
+``mod_8_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

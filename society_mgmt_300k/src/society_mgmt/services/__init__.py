@@ -1,7 +1,7 @@
 """society_mgmt.services — navigational services-layer subpackage.
 
-Migrated in-place from the legacy JavaScript ``src/services/*.js`` modules
-(``file_1.js``, ``file_12.js``, ``file_23.js``). Every legacy ``mod_N_M(x)``
+Migrated in-place from the legacy services-layer modules
+(``file_1``, ``file_12``, ``file_23``). Every legacy ``mod_N_M(x)``
 helper collapses to a one-line alias of the single canonical
 :func:`society_mgmt.core.compute`; no logic is re-implemented in this layer.
 

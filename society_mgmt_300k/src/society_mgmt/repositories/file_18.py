@@ -1,11 +1,10 @@
-"""society_mgmt.repositories.file_18 -- ported from legacy ``src/repositories/file_18.js``.
+"""society_mgmt.repositories.file_18 — migrated layer module (canonical delegation).
 
-The 1,200 legacy helpers ``mod_18_0`` .. ``mod_18_1199`` were byte-identical to
-the single canonical implementation, so they are preserved here as one-line
-aliases of :func:`society_mgmt.core.compute`. No body is re-implemented, and the
-legacy dead module-level list from the original source is intentionally dropped
-(AAP F-002). This ``repositories`` label is navigational only -- no persistence
-or I/O of any kind.
+The legacy module declared 1,200 byte-identical helpers (``mod_18_0`` …
+``mod_18_1199``), each equal to the single canonical
+:func:`society_mgmt.core.compute`. Every legacy name is preserved here as a
+one-line alias of ``compute``; no body is re-implemented, and the unused
+module-level accumulator array (dead code, AAP F-002) is intentionally omitted.
 """
 
 from society_mgmt.core import compute

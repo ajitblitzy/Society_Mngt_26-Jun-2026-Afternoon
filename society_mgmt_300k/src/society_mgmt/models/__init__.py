@@ -1,6 +1,6 @@
 """society_mgmt.models — navigational models-layer subpackage.
 
-Migrated in place from the legacy ``src/models/*.js`` modules. The "models"
+Migrated in place from the legacy models-layer modules. The "models"
 label is structural only: there is no ORM, schema, or persistence in this
 codebase. Every module in this subpackage (``file_2``, ``file_13``,
 ``file_24``) delegates to the single canonical function
