@@ -1,4 +1,4 @@
-"""society_mgmt.services.file_23 — migrated layer module (canonical delegation).
+"""society_mgmt.services.file_23 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_23_0`` …
 ``mod_23_1199``), each equal to the single canonical

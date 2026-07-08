@@ -1,4 +1,4 @@
-"""society_mgmt.controllers.file_11 — migrated layer module (canonical delegation).
+"""society_mgmt.controllers.file_11 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_11_0`` …
 ``mod_11_1199``), each equal to the single canonical

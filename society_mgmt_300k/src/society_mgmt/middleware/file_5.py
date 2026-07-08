@@ -1,4 +1,4 @@
-"""society_mgmt.middleware.file_5 — migrated layer module (canonical delegation).
+"""society_mgmt.middleware.file_5 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_5_0`` …
 ``mod_5_1199``), each equal to the single canonical

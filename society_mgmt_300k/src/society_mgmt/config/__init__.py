@@ -1,6 +1,6 @@
 """society_mgmt.config — navigational config layer subpackage.
 
-Part of the nine-layer taxonomy preserved for navigation only (AAP section 0.7).
+Part of the nine-layer taxonomy kept for navigation only (AAP section 0.7).
 All logic converges on the single canonical function
 :func:`society_mgmt.core.compute`; the modules in this subpackage
 (``file_6``, ``file_17``) bind their legacy ``mod_N_M`` symbol names as thin

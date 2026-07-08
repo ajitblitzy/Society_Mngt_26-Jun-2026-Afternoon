@@ -1,4 +1,4 @@
-"""society_mgmt.repositories — repositories layer subpackage (navigational only).
+"""society_mgmt.repositories — navigational repositories-layer subpackage.
 
 Part of the nominal nine-layer taxonomy preserved from the legacy JavaScript
 corpus. The label is structural only: there is NO database, persistence, or I/O

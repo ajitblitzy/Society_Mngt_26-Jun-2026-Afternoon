@@ -1,4 +1,4 @@
-"""society_mgmt.routes.file_14 — migrated layer module (canonical delegation).
+"""society_mgmt.routes.file_14 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_14_0`` …
 ``mod_14_1199``), each equal to the single canonical

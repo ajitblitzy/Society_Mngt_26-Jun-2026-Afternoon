@@ -1,4 +1,4 @@
-"""society_mgmt.domain.file_8 — migrated layer module (canonical delegation).
+"""society_mgmt.domain.file_8 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_8_0`` …
 ``mod_8_1199``), each equal to the single canonical

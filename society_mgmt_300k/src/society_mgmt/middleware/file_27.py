@@ -1,4 +1,4 @@
-"""society_mgmt.middleware.file_27 — migrated layer module (canonical delegation).
+"""society_mgmt.middleware.file_27 — migrated layer module.
 
 The legacy module declared 705 byte-identical helpers (``mod_27_0`` …
 ``mod_27_704``), each equal to the single canonical

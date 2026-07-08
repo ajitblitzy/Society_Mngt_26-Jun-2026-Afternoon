@@ -1,4 +1,4 @@
-"""society_mgmt.utils.file_4 — migrated layer module (canonical delegation).
+"""society_mgmt.utils.file_4 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_4_0`` …
 ``mod_4_1199``), each equal to the single canonical

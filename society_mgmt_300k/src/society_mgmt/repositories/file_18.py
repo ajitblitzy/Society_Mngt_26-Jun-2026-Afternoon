@@ -1,4 +1,4 @@
-"""society_mgmt.repositories.file_18 — migrated layer module (canonical delegation).
+"""society_mgmt.repositories.file_18 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_18_0`` …
 ``mod_18_1199``), each equal to the single canonical

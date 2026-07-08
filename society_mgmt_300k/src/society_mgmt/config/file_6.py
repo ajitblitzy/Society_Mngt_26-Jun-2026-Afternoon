@@ -1,4 +1,4 @@
-"""society_mgmt.config.file_6 — migrated layer module (canonical delegation).
+"""society_mgmt.config.file_6 — migrated layer module.
 
 The legacy module declared 1,200 byte-identical helpers (``mod_6_0`` …
 ``mod_6_1199``), each equal to the single canonical
